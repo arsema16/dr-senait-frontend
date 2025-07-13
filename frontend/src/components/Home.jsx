@@ -75,8 +75,7 @@ const Home = () => {
                 <span className="hero-line-green">STARTS HERE.</span>
               </h1>
               <p style={{ fontSize: '1.1rem', margin: '1rem 0', fontFamily: '"Anton", sans-serif',
-  fontWeight: '400',
-  fontStyle: normal, }}>
+  fontWeight: '400', }}>
                 Experience world-class dental care with our team of expert professionals. Your comfort and smile are our top priorities.
               </p>
               <div style={{ display: 'flex', gap: '12px', flexWrap: 'nowrap' }}>
