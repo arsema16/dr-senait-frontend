@@ -25,20 +25,20 @@ const [editingHour, setEditingHour] = useState({ day: '', open: '', close: '' })
     const fetchData = async () => {
       try {
         if (activeTab === 'appointments') {
-          const res = await fetch('http://localhost:5000/api/appointments');
+          const res = await fetch('https://dr-senait-backend.onrender.com/api/appointments');
           const data = await res.json();
           setAppointments(data);
         } else if (activeTab === 'messages') {
-          const res = await fetch('http://localhost:5000/api/messages');
+          const res = await fetch('https://dr-senait-backend.onrender.com/api/messages');
           const data = await res.json();
           setMessages(data);
         } else if (activeTab === 'blogs') {
-          const res = await fetch('http://localhost:5000/api/blogs');
+          const res = await fetch('https://dr-senait-backend.onrender.com/api/open-hours/blogs');
           const data = await res.json();
           setBlogs(data);
         }
         else if (activeTab === 'openHours') {
-  const res = await fetch('http://localhost:5000/api/open-hours');
+  const res = await fetch('https://dr-senait-backend.onrender.com/api/open-hours');
   const data = await res.json();
   setOpenHours(data);
 }

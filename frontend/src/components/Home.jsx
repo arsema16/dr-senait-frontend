@@ -66,7 +66,15 @@ const Home = () => {
             height: '100vh',
             boxSizing: 'border-box',
           }}>
-            <div style={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center', minWidth: '300px' }}>
+            <div style={{
+    flex: 1,
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    minWidth: '300px',
+    paddingTop: '0',     // ensure no extra top padding
+    marginTop: '0',      // ensure no extra top margin
+  }}>
               <h1
   style={{
     fontSize: '3rem',
@@ -74,32 +82,39 @@ const Home = () => {
     fontFamily: '"Anton", sans-serif',
     fontWeight: 400,
     letterSpacing: '1px',
+    marginTop: '0',           // ✅ Remove space above
+    marginBottom: '0.5rem', // ↓ Reduced space here
   }}
 >
-  <span className="hero-line-black">YOUR JOURNEY TO</span><br />
+  <span className="hero-line-black" >YOUR JOURNEY TO</span><br />
   <span className="hero-line-green">A PERFECT SMILE</span><br />
   <span className="hero-line-green">STARTS HERE.</span>
 </h1>
 
-              <p style={{ fontSize: '1.1rem', margin: '1rem 0', fontFamily: '"Oswald", sans-serif',
-  fontWeight: '400', }}>
-                Experience world-class dental care with our team of expert professionals. Your comfort and smile are our top priorities.
-              </p>
-              <div style={{ display: 'flex', gap: '12px', flexWrap: 'nowrap' }}>
-                {/* Phone */}
-                <div style={infoCardStyle}>
-                  <i className="ri-phone-line" style={iconStyle}></i>
+<p
+  style={{
+    fontSize: '1.1rem',
+    margin: '0.5rem 0 1.2rem', // ↑ Less space at the top
+    fontFamily: '"Oswald", sans-serif',
+    fontWeight: 400,
+  }}
+>
+  Experience world-class dental care with our team of expert professionals. Your comfort and smile are our top priorities.
+</p>
+
+              <div className="hero-buttons">
+                <div className="hero-button">
+                  <i className="ri-phone-line"></i>
                   <div>
-                    <p style={cardTitle}>+251 941 83 83 83</p>
-                    <p style={cardDesc}>For Appointment</p>
+                    <p className="button-title">+251 941 83 83 83 </p>
+                    <p className="button-desc">For Appointment</p>
                   </div>
                 </div>
-                {/* Hours */}
-                <div style={infoCardStyle}>
-                  <i className="ri-time-line" style={iconStyle}></i>
+                <div className="hero-button">
+                  <i className="ri-time-line"></i>
                   <div>
-                    <p style={cardTitle}>OPEN HOURS</p>
-<p style={cardDesc}>{formatOpenHours()}</p>
+                    <p className="button-title">OPEN HOURS</p>
+                   <p style={cardDesc}>{formatOpenHours()}</p>
                   </div>
                 </div>
               </div>
@@ -120,19 +135,53 @@ const Home = () => {
           </div>
 
           {/* Slide 2 */}
-          <div className="slide hero-section align-top" style={{
+          <div className="slide hero-section" style={{
             backgroundImage: "url('/images/slide2-bg.jpg')",
             backgroundSize: 'cover',
             backgroundRepeat: 'no-repeat',
             backgroundPosition: 'center',
+            display: 'flex',
+            alignItems: 'stretch',
+            justifyContent: 'space-between',
+            padding: '60px 80px',
+            height: '100vh',
+            boxSizing: 'border-box',
           }}>
-            <div className="hero-left">
-              <h1>
-                <span className="hero-line-black">INTERNATIONAL EXPERTISE</span><br />
-                <span className="hero-line-green">LED BY DR. SENAIT HABTE</span>
-              </h1>
-              <p className="hero-subtext">
-•	Experience world-class dental care with our team of expert professionals. Your comfort and smile are our top priorities.              </p>
+            <div style={{
+    flex: 1,
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    minWidth: '300px',
+    paddingTop: '0',     // ensure no extra top padding
+    marginTop: '0',      // ensure no extra top margin
+  }}>
+              <h1
+  style={{
+    fontSize: '3rem',
+    lineHeight: 1.1,
+    fontFamily: '"Anton", sans-serif',
+    fontWeight: 400,
+    letterSpacing: '1px',
+    marginTop: '0',           // ✅ Remove space above
+    marginBottom: '0.5rem', // ↓ Reduced space here
+  }}
+>
+  <span className="hero-line-black" >International Expertise </span><br />
+  <span className="hero-line-green">Led by Dr. Senait Habte.</span><br />
+</h1>
+
+<p
+  style={{
+    fontSize: '1.1rem',
+    margin: '0.5rem 0 1.2rem', // ↑ Less space at the top
+    fontFamily: '"Oswald", sans-serif',
+    fontWeight: 400,
+  }}
+>
+  A USA.-trained dentist with a Doctor of Dental Medicine from Tufts University and a Bachelor of Science from PURDUE University.
+</p>
+
               <div className="hero-buttons">
                 <div className="hero-button">
                   <i className="ri-phone-line"></i>
@@ -145,73 +194,7 @@ const Home = () => {
                   <i className="ri-time-line"></i>
                   <div>
                     <p className="button-title">OPEN HOURS</p>
-<p style={cardDesc}>{formatOpenHours()}</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="hero-right small-image">
-              <img src="/images/dr-senait.png" alt="Dr. Senait Habte" />
-            </div>
-          </div>
-
-          {/* Slide 3 */}
-          <div className="slide hero-section" style={{
-            backgroundImage: "url('/images/slide3-bg.jpg')",
-            backgroundSize: 'cover',
-            backgroundRepeat: 'no-repeat',
-            backgroundPosition: 'center',
-            display: 'flex',
-            alignItems: 'stretch',
-            justifyContent: 'space-between',
-            padding: '60px 80px',
-            height: '100vh',
-            boxSizing: 'border-box',
-            gap: '40px',
-          }}>
-            <div style={{
-              flex: 1,
-              display: 'flex',
-              flexDirection: 'column',
-              justifyContent: 'center',
-              minWidth: '300px',
-            }}>
-              <h1
-  style={{
-    fontSize: '3rem',
-    fontWeight: '700',
-    fontFamily: "'Oswald', sans-serif",
-    color: '#002f36',
-    marginBottom: '10px',
-  }}
->
-  PAIN & DISCOMFORT?
-</h1>
-
-<h2
-  style={{
-    fontSize: '3rem',
-    fontWeight: '700',
-    fontFamily: "'Oswald', sans-serif",
-    color: '#00a9a4',
-  }}
->
-  SAME-DAY EMERGENCY<br />APPOINTMENTS AVAILABLE!
-</h2>
-
-              <div style={{ display: 'flex', gap: '12px', marginTop: '20px' }}>
-                <div style={infoCardStyle}>
-                  <i className="ri-phone-line" style={iconStyle}></i>
-                  <div>
-                    <p style={cardTitle}>+251 941 83 83 83 </p>
-                    <p style={cardDesc}>For Appointment</p>
-                  </div>
-                </div>
-                <div style={infoCardStyle}>
-                  <i className="ri-time-line" style={iconStyle}></i>
-                  <div>
-                    <p style={cardTitle}>OPEN HOURS</p>
-<p style={cardDesc}>{formatOpenHours()}</p>
+                   <p style={cardDesc}>{formatOpenHours()}</p>
                   </div>
                 </div>
               </div>
@@ -223,11 +206,82 @@ const Home = () => {
               justifyContent: 'center',
               alignItems: 'flex-end',
             }}>
-              <img src="/images/Question mark.png" alt="Patient in pain" style={{
+              <img src="/images/dr-senait.png" alt="dr senait" style={{
                 height: '100%',
-                width: '100%',
+                width: '70%',
                 objectFit: 'cover',
-                objectPosition: 'top',
+                objectPosition:'top',
+              }} />
+            </div>
+          </div>
+
+          {/* Slide 3 */}
+          <div className="slide hero-section" style={{
+            backgroundImage: "url('/images/slide1-bg.jpg')",
+            backgroundSize: 'cover',
+            backgroundRepeat: 'no-repeat',
+            backgroundPosition: 'center',
+            display: 'flex',
+            alignItems: 'stretch',
+            justifyContent: 'space-between',
+            padding: '60px 80px',
+            height: '100vh',
+            boxSizing: 'border-box',
+          }}>
+            <div style={{
+    flex: 1,
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    minWidth: '300px',
+    paddingTop: '0',     // ensure no extra top padding
+    marginTop: '0',      // ensure no extra top margin
+  }}>
+              <h1
+  style={{
+    fontSize: '3rem',
+    lineHeight: 1.1,
+    fontFamily: '"Anton", sans-serif',
+    fontWeight: 400,
+    letterSpacing: '1px',
+    marginTop: '0',           // ✅ Remove space above
+    marginBottom: '0.5rem', // ↓ Reduced space here
+  }}
+>
+  <span className="hero-line-black" >PAIN & DISCOMFORT?</span><br />
+  <span className="hero-line-green">SAME-DAY EMERGENCY</span><br />
+  <span className="hero-line-green">APPOINTMENTS AVAILABLE!</span>
+</h1>
+
+              <div className="hero-buttons">
+                <div className="hero-button">
+                  <i className="ri-phone-line"></i>
+                  <div>
+                    <p className="button-title">+251 941 83 83 83 </p>
+                    <p className="button-desc">For Appointment</p>
+                  </div>
+                </div>
+                <div className="hero-button">
+                  <i className="ri-time-line"></i>
+                  <div>
+                    <p className="button-title">OPEN HOURS</p>
+                   <p style={cardDesc}>{formatOpenHours()}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div style={{
+              flex: 1,
+              height: '100%',
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'flex-end',
+            }}>
+              <img src="/images/Question mark.png" alt="Smiling woman" style={{
+                height: '100%',
+                width: '90%',
+                objectFit: 'cover',
+                objectPosition:'top'
               }} />
             </div>
           </div>

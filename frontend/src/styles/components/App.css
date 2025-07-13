@@ -1,4 +1,17 @@
 /* General reset */
+/* ✅ Global reset to prevent overflow */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+overflow-x: hidden;
+overflow-y: visible;
+  width: 100%;
+}
+
 body {
   margin: 0;
   font-family: 'Arial', sans-serif;
@@ -13,6 +26,10 @@ body {
 
 /* Header */
 .header {
+  position: sticky;       /* ✅ Sticks during scroll */
+  top: 0;                 /* ✅ Sticks to the top */
+  z-index: 9999;          /* ✅ Ensure it's above other elements */
+  background: white;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -48,10 +65,10 @@ body {
 
 /* Slider */
 .slider-container {
-  overflow: hidden;
   position: relative;
   height: 90vh;
 }
+
 
 .slider {
   display: flex;
@@ -145,7 +162,7 @@ body {
 
 /* Make second image smaller */
 .hero-right.small-image img {
-  max-width: 350px;
+  
   border-radius: 16px;
   margin-top: 10px;
 }
@@ -187,4 +204,11 @@ body {
   .hero-left, .hero-right {
     padding: 1rem;
   }
+  @media (max-width: 768px) {
+  .hero-line-black,
+  .hero-line-green {
+    font-size: 2.2rem !important;
+  }
+}
+
 }

@@ -49,7 +49,7 @@ const Navbar = () => {
         padding: '1rem 2rem',
         backgroundColor: 'transparent',
         fontFamily: 'Segoe UI, sans-serif',
-        position: scrolled ? 'sticky' : 'relative',
+    position: 'fixed', // ✅ use fixed for true stickiness
         top: 0,
         zIndex: 9999,
         backdropFilter: scrolled ? 'blur(8px)' : 'none',
