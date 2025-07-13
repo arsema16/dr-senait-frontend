@@ -93,16 +93,11 @@ body {
 
 .hero-line-black {
   color: #053f3f;
-  font-size: 3rem;
-  font-weight: 700;
-  font-Family: "'Oswald', sans-serif";
+  
 }
 
 .hero-line-green {
   color: #019a95;
-  font-size: 3rem;
-  font-weight: 700;
-  font-Family: "'Oswald', sans-serif";
 }
 
 .hero-subtext {
