@@ -145,47 +145,80 @@ useEffect(() => {
 
       {/* Contact Info + Map */}
       <div style={{
-        maxWidth: '1100px',
-        margin: '4rem auto',
-        padding: '0 20px',
-        display: 'flex',
-        flexWrap: 'wrap',
-        gap: '2rem'
-      }}>
-        <div style={{ flex: '1 1 300px' }}>
-          <h3 style={{ fontSize: '1.8rem', color: '#004c4c' }}>
-            Get In <span style={{ color: '#00a79d' }}>Touch</span>
-          </h3>
-          <h4 style={{ margin: '1rem 0 0.5rem', color: '#004c4c' }}>🕒 Open Hours:</h4>
-<ul style={{ paddingLeft: '1.2rem', margin: 0 }}>
-  {openHours.length > 0 ? (
-    openHours.map(hour => (
-      <li key={hour.day} style={{ color: '#444', fontSize: '0.95rem', marginBottom: '0.3rem' }}>
-        <strong>{hour.day}:</strong> {hour.open} - {hour.close}
-      </li>
-    ))
-  ) : (
-    <li style={{ color: '#888' }}>Not available</li>
-  )}
-</ul>
+  maxWidth: '1200px',
+  margin: '4rem auto',
+  display: 'flex',
+  justifyContent: 'space-between',
+  gap: '2rem',
+  padding: '0 20px',
+  flexWrap: 'wrap',
+}}>
 
-          <p><strong>📞</strong> +251 941 838383 / +251 947 838383</p>
-          <p><strong>📧</strong> todrsenait@gmail.com / info@drsenait.com</p>
-          <p><strong>📍</strong> Fete Building, 2nd Floor, Bole Road, Wello Sefer (next to Medco Bio-Medical College)</p>
-        </div>
+  {/* LEFT SIDE: Info blocks */}
+  <div style={{ flex: '1 1 50%' }}>
+    {/* Heading and Subtext */}
+    <h2 style={{ fontSize: '2rem', fontWeight: 'bold', color: '#333' }}>
+      Get In <span style={{ color: '#00a79d' }}>Touch</span>
+    </h2>
+    <p style={{ fontSize: '0.95rem', color: '#555', marginBottom: '2rem' }}>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+    </p>
 
-        <div style={{ flex: '1 1 400px' }}>
-          <iframe
-            title="Dr. Senait Dental Clinic Map"
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3940.847098255538!2d38.7678886!3d8.986214!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x164b84452baac31f%3A0xb63c19bc89ae954!2sDr.%20Senait%20Dental%20Clinic!5e0!3m2!1sen!2set!4v1752062481369!5m2!1sen!2set"
-            width="100%"
-            height="300"
-            style={{ border: '0', borderRadius: '12px' }}
-            allowFullScreen=""
-            loading="lazy"
-          ></iframe>
+    {/* TOP INFO ROW (Phone & Email) */}
+    <div style={{
+      display: 'flex',
+      gap: '5rem',
+      marginBottom: '2rem',
+      flexWrap: 'wrap'
+    }}>
+      {/* Phone */}
+      <div style={iconRowStyle}>
+        <img src="/images/a.png" alt="Phone" style={iconStyle} />
+        <div>
+          <p style={infoLine}>+251 941 838383</p>
+          <p style={infoLine}>+251 947 838383</p>
         </div>
       </div>
+
+      {/* Email */}
+      <div style={iconRowStyle}>
+        <img src="/images/email.png" alt="Email" style={iconStyle} />
+        <div>
+          <p style={infoLine}>todrsenait@gmail.com</p>
+          <p style={infoLine}>info@drsenait.com</p>
+        </div>
+      </div>
+    </div>
+
+    {/* BOTTOM INFO ROW (Location only) */}
+    <div style={iconRowStyle}>
+      <img src="/images/C.png" alt="Location" style={iconStyle} />
+      <p style={infoLine}>
+        The Clinic is located off Bole Road,<br />
+        Wello Sefer, Fete Building, 2nd Floor<br />
+        <span style={{ color: '#888' }}>(next to Medco Bio-Medical College)</span>
+      </p>
+    </div>
+  </div>
+
+  {/* RIGHT SIDE: Google Map */}
+  <div style={{ flex: '1 1 45%' }}>
+    <iframe
+      title="Dr. Senait Dental Clinic Map"
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3940.847098255538!2d38.7678886!3d8.986214!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x164b84452baac31f%3A0xb63c19bc89ae954!2sDr.%20Senait%20Dental%20Clinic!5e0!3m2!1sen!2set!4v1752062481369!5m2!1sen!2set"
+      width="100%"
+      height="320"
+      style={{
+        border: '0',
+        borderRadius: '12px',
+        boxShadow: '0 0 10px rgba(0,0,0,0.08)'
+      }}
+      allowFullScreen=""
+      loading="lazy"
+    ></iframe>
+  </div>
+</div>
+
     </div>
   );
 };
@@ -199,6 +232,27 @@ const inputStyle = {
   borderRadius: '25px',
   fontSize: '1rem',
   outline: 'none',
+};
+const iconRowStyle = {
+    flexDirection: 'column',       // changed from 'row'
+
+  display: 'flex',
+  alignItems: 'flex-start',
+  gap: '15px',
+  marginBottom: '1.5rem',
+};
+
+const iconStyle = {
+  width: '50px',
+  height: '50px',
+  marginTop: '5px',
+};
+
+const infoLine = {
+  fontSize: '0.95rem',
+  color: '#333',
+  margin: 0,
+  lineHeight: '1.5',
 };
 
 // Button style

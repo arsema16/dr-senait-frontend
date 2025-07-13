@@ -1,20 +1,21 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef } from 'react';
+import { useLocation } from 'react-router-dom';
 
 const imagePairs = [
   { before: '/images/gallery/1a.jpg', after: '/images/gallery/1b.jpg' },
   { before: '/images/gallery/2a.jpg', after: '/images/gallery/2b.jpg' },
   { before: '/images/gallery/3a.jpg', after: '/images/gallery/3b.jpg' },
-    { before: '/images/gallery/4a.jpg', after: '/images/gallery/4b.jpg' },
+  { before: '/images/gallery/4a.jpg', after: '/images/gallery/4b.jpg' },
   { before: '/images/gallery/5a.jpg', after: '/images/gallery/5b.jpg' },
   { before: '/images/gallery/6a.jpg', after: '/images/gallery/6b.jpg' },
   { before: '/images/gallery/7a.jpg', after: '/images/gallery/7b.jpg' },
   { before: '/images/gallery/8a.jpg', after: '/images/gallery/8b.jpg' },
   { before: '/images/gallery/9a.jpg', after: '/images/gallery/9b.jpg' },
   { before: '/images/gallery/10a.jpg', after: '/images/gallery/10b.jpg' },
-
 ];
 
 const Gallery = () => {
+  const location = useLocation();
   const [index, setIndex] = useState(0);
   const [sliderPos, setSliderPos] = useState(50);
   const containerRef = useRef(null);
@@ -44,89 +45,113 @@ const Gallery = () => {
   };
 
   return (
-    <div style={styles.container}>
-      <h2 style={styles.title}>Smile Transformations</h2>
-
-      <div
-        style={styles.sliderContainer}
-        ref={containerRef}
-        onMouseMove={onDrag}
-        onMouseUp={stopDrag}
-        onMouseLeave={stopDrag}
-        onTouchMove={onDrag}
-        onTouchEnd={stopDrag}
-      >
-        {/* BEFORE image clipped from left to slider position (sliderPos%) */}
+    <>
+      {/* Banner: Show only on /gallery route */}
+      {location.pathname === '/gallery' && (
         <div
           style={{
-            ...styles.imageClip,
-            clipPath: `polygon(0 0, ${sliderPos}% 0, ${sliderPos}% 100%, 0% 100%)`,
-            filter: 'grayscale(100%)',
-            zIndex: 2,
+            backgroundImage: 'url("/images/slide1-bg.jpg")',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            backgroundRepeat: 'no-repeat',
+            padding: '100px 20px 60px',
+            textAlign: 'center',
+            
           }}
-        >
-          <img
-            src={imagePairs[index].before}
-            alt="Before"
-            style={styles.image}
-            draggable={false}
-          />
+        ><h2 style={{
+              fontSize: '2.5rem',
+              fontWeight: '700',
+              color: '#004c4c'
+            }}>
+          Smile Transformations Gallery
+            </h2>
         </div>
+      )}
 
-        {/* AFTER image clipped from slider position to right */}
+      {/* Existing gallery slider */}
+      <div style={styles.container}>
+
         <div
-          style={{
-            ...styles.imageClip,
-            clipPath: `polygon(${sliderPos}% 0, 100% 0, 100% 100%, ${sliderPos}% 100%)`,
-            zIndex: 1,
-          }}
+          style={styles.sliderContainer}
+          ref={containerRef}
+          onMouseMove={onDrag}
+          onMouseUp={stopDrag}
+          onMouseLeave={stopDrag}
+          onTouchMove={onDrag}
+          onTouchEnd={stopDrag}
         >
-          <img
-            src={imagePairs[index].after}
-            alt="After"
-            style={styles.image}
-            draggable={false}
-          />
-        </div>
-
-        {/* Slider handle */}
-        <div
-          style={{ ...styles.sliderHandle, left: `${sliderPos}%` }}
-          onMouseDown={startDrag}
-          onTouchStart={startDrag}
-        >
-          <div style={styles.handleLine} />
-          <div style={styles.handleCircle} />
-        </div>
-      </div>
-
-      {/* Controls */}
-      <div style={styles.controls}>
-        <button onClick={handlePrev} style={styles.button}>
-          ← Previous
-        </button>
-        <button onClick={handleNext} style={styles.buttonPrimary}>
-          Next →
-        </button>
-      </div>
-
-      {/* Dots */}
-      <div style={styles.dots}>
-        {imagePairs.map((_, i) => (
-          <span
-            key={i}
+          {/* BEFORE image clipped from left to slider position (sliderPos%) */}
+          <div
             style={{
-              ...styles.dot,
-              backgroundColor: i === index ? '#00a79d' : '#ccc',
+              ...styles.imageClip,
+              clipPath: `polygon(0 0, ${sliderPos}% 0, ${sliderPos}% 100%, 0% 100%)`,
+              filter: 'grayscale(100%)',
+              zIndex: 2,
             }}
-            onClick={() => {
-              setIndex(i);
-              setSliderPos(50);
+          >
+            <img
+              src={imagePairs[index].before}
+              alt="Before"
+              style={styles.image}
+              draggable={false}
+            />
+          </div>
+
+          {/* AFTER image clipped from slider position to right */}
+          <div
+            style={{
+              ...styles.imageClip,
+              clipPath: `polygon(${sliderPos}% 0, 100% 0, 100% 100%, ${sliderPos}% 100%)`,
+              zIndex: 1,
             }}
-          />
-        ))}
+          >
+            <img
+              src={imagePairs[index].after}
+              alt="After"
+              style={styles.image}
+              draggable={false}
+            />
+          </div>
+
+          {/* Slider handle */}
+          <div
+            style={{ ...styles.sliderHandle, left: `${sliderPos}%` }}
+            onMouseDown={startDrag}
+            onTouchStart={startDrag}
+          >
+            <div style={styles.handleLine} />
+            <div style={styles.handleCircle} />
+          </div>
+        </div>
+
+        {/* Controls */}
+        <div style={styles.controls}>
+          <button onClick={handlePrev} style={styles.button}>
+            ← Previous
+          </button>
+          <button onClick={handleNext} style={styles.buttonPrimary}>
+            Next →
+          </button>
+        </div>
+
+        {/* Dots */}
+        <div style={styles.dots}>
+          {imagePairs.map((_, i) => (
+            <span
+              key={i}
+              style={{
+                ...styles.dot,
+                backgroundColor: i === index ? '#00a79d' : '#ccc',
+              }}
+              onClick={() => {
+                setIndex(i);
+                setSliderPos(50);
+              }}
+            />
+          ))}
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

@@ -4,6 +4,22 @@ import { useNavigate } from 'react-router-dom';
 const Footer = () => {
   const navigate = useNavigate();
 
+  // Define link items with their paths for navigation
+  const quickLinksLeft = [
+    { label: 'Home', path: '/' },
+    { label: 'About Us', path: '/about-us' },
+    { label: 'Our Team', path: '/team' },
+    { label: 'Services', path: '/services' },
+    { label: 'Pages', path: '/pages' },
+  ];
+
+  const quickLinksRight = [
+    { label: 'Gallery', path: '/gallery' },
+    { label: 'Blog/News', path: '/blog' },
+    { label: 'FAQs', path: '/faq' },
+    { label: 'Contact Us', path: '/contact' },
+  ];
+
   return (
     <footer
       style={{
@@ -27,34 +43,116 @@ const Footer = () => {
       >
         {/* Left: Logo + Info + Socials */}
         <div style={{ flex: 1, minWidth: '250px' }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '1rem' }}>
-            <img src="/images/Logo-01.png" alt="Logo"     style={{ width: '160px', height: 'auto', marginBottom: '0rem' }}
-/>
-        
+          <div
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              gap: '0.5rem',
+              marginBottom: '1rem',
+            }}
+          >
+            <img
+              src="/images/Logo-01.png"
+              alt="Logo"
+              style={{ width: '160px', height: 'auto', marginBottom: '0rem' }}
+            />
           </div>
-          <p style={{ fontSize: '0.95rem', marginBottom: '1rem', marginTop:'0rem' }}>
+          <p style={{ fontSize: '0.95rem', marginBottom: '1rem', marginTop: '0rem' }}>
             Schedule your consultation today and take the first step towards your perfect smile.
           </p>
           <div style={{ display: 'flex', gap: '1rem', fontSize: '1.4rem' }}>
-            <a href="https://t.me/" target="_blank" rel="noreferrer" style={iconLink}><i className="ri-telegram-line"></i></a>
-            <a href="https://facebook.com/" target="_blank" rel="noreferrer" style={iconLink}><i className="ri-facebook-fill"></i></a>
-            <a href="https://instagram.com/" target="_blank" rel="noreferrer" style={iconLink}><i className="ri-instagram-line"></i></a>
-            <a href="https://x.com/" target="_blank" rel="noreferrer" style={iconLink}><i className="ri-twitter-x-line"></i></a>
+            <a
+              href="https://t.me/"
+              target="_blank"
+              rel="noreferrer"
+              style={iconLink}
+              aria-label="Telegram"
+            >
+              <i className="ri-telegram-line"></i>
+            </a>
+            <a
+              href="https://facebook.com/"
+              target="_blank"
+              rel="noreferrer"
+              style={iconLink}
+              aria-label="Facebook"
+            >
+              <i className="ri-facebook-fill"></i>
+            </a>
+            <a
+              href="https://instagram.com/"
+              target="_blank"
+              rel="noreferrer"
+              style={iconLink}
+              aria-label="Instagram"
+            >
+              <i className="ri-instagram-line"></i>
+            </a>
+            <a
+              href="https://x.com/"
+              target="_blank"
+              rel="noreferrer"
+              style={iconLink}
+              aria-label="Twitter X"
+            >
+              <i className="ri-twitter-x-line"></i>
+            </a>
+            {/* New TikTok and YouTube icons */}
+            <a
+              href="https://www.tiktok.com/"
+              target="_blank"
+              rel="noreferrer"
+              style={iconLink}
+              aria-label="TikTok"
+            >
+              <i className="ri-tiktok-line"></i>
+            </a>
+            <a
+              href="https://www.youtube.com/"
+              target="_blank"
+              rel="noreferrer"
+              style={iconLink}
+              aria-label="YouTube"
+            >
+              <i className="ri-youtube-line"></i>
+            </a>
           </div>
         </div>
 
         {/* Middle: Quick Links in two columns */}
-        <div style={{ flex: 1, minWidth: '220px', alignItems:'center',  marginLeft:'60px' }}>
+        <div style={{ flex: 1, minWidth: '220px', alignItems: 'center', marginLeft: '60px' }}>
           <h4 style={{ fontWeight: 'bold', marginBottom: '1rem' }}>Quick Link</h4>
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1.5rem' }}>
             <div>
-              {['Home', 'About Us', 'Our Team', 'Services', 'Pages'].map((item, i) => (
-                <div key={i} style={{ marginBottom: '0.5rem', cursor: 'pointer', }}>{item}</div>
+              {quickLinksLeft.map((item, i) => (
+                <div
+                  key={i}
+                  style={{ marginBottom: '0.5rem', cursor: 'pointer' }}
+                  onClick={() => navigate(item.path)}
+                  role="button"
+                  tabIndex={0}
+                  onKeyPress={(e) => {
+                    if (e.key === 'Enter') navigate(item.path);
+                  }}
+                >
+                  {item.label}
+                </div>
               ))}
             </div>
             <div>
-              {['Gallery', 'Blog/News', 'FAQs', 'Contact Us'].map((item, i) => (
-                <div key={i} style={{ marginBottom: '0.5rem', cursor: 'pointer' }}>{item}</div>
+              {quickLinksRight.map((item, i) => (
+                <div
+                  key={i}
+                  style={{ marginBottom: '0.5rem', cursor: 'pointer' }}
+                  onClick={() => navigate(item.path)}
+                  role="button"
+                  tabIndex={0}
+                  onKeyPress={(e) => {
+                    if (e.key === 'Enter') navigate(item.path);
+                  }}
+                >
+                  {item.label}
+                </div>
               ))}
             </div>
           </div>
@@ -74,7 +172,7 @@ const Footer = () => {
               fontWeight: 'bold',
               fontSize: '1rem',
               width: '100%',
-              cursor: 'pointer'
+              cursor: 'pointer',
             }}
           >
             Book Appointment
@@ -89,7 +187,7 @@ const Footer = () => {
           marginTop: '2rem',
           paddingTop: '1rem',
           textAlign: 'center',
-          fontSize: '0.9rem'
+          fontSize: '0.9rem',
         }}
       >
         © 2025 Dr Senait • All Rights Reserved
