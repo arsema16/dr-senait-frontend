@@ -74,8 +74,8 @@ const [editingHour, setEditingHour] = useState({ day: '', open: '', close: '' })
 const handleApptSubmit = async (e) => {
   e.preventDefault();
   const url = editingAppt
-    ? `http://localhost:5000/api/appointments/${editingAppt._id}`
-    : 'http://localhost:5000/api/appointments';
+    ? `https://dr-senait-backend.onrender.com/api/appointments/${editingAppt._id}`
+    : 'https://dr-senait-backend.onrender.com/api/appointments';
   const method = editingAppt ? 'PUT' : 'POST';
 
   const res = await fetch(url, {
@@ -88,14 +88,14 @@ const handleApptSubmit = async (e) => {
   if (data.appointment || data._id) {
     setNewAppt({ name: '', phone: '', date: '', service: '' });
     setEditingAppt(null);
-    const refreshed = await fetch('http://localhost:5000/api/appointments').then(res => res.json());
+    const refreshed = await fetch('https://dr-senait-backend.onrender.com/api/appointments').then(res => res.json());
     setAppointments(refreshed);
   }
 };
 
 const handleApptDelete = async (id) => {
   if (!window.confirm('Delete this appointment?')) return;
-  await fetch(`http://localhost:5000/api/appointments/${id}`, { method: 'DELETE' });
+  await fetch(`https://dr-senait-backend.onrender.com/api/appointments/${id}`, { method: 'DELETE' });
   setAppointments(appointments.filter(a => a._id !== id));
 };
 
@@ -107,8 +107,8 @@ const filteredAppointments = appointments.filter(a =>
   const handleBlogSubmit = async (e) => {
     e.preventDefault();
     const url = editBlogId
-      ? `http://localhost:5000/api/blogs/${editBlogId}`
-      : 'http://localhost:5000/api/blogs';
+      ? `https://dr-senait-backend.onrender.com/api/blogs/${editBlogId}`
+      : 'https://dr-senait-backend.onrender.com/api/blogs';
 
     const method = editBlogId ? 'PUT' : 'POST';
 

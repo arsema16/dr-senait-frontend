@@ -80,7 +80,7 @@ const Home = () => {
     fontSize: '3rem',
     lineHeight: 1.1,
     fontFamily: '"Anton", sans-serif',
-    fontWeight: 400,
+    fontWeight: 600,
     letterSpacing: '1px',
     marginTop: '0',           // ✅ Remove space above
     marginBottom: '0.5rem', // ↓ Reduced space here

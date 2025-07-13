@@ -19,7 +19,7 @@ const Consultation = () => {
       {/* Banner Section */}
       <div
         style={{
-          backgroundImage: 'url(/images/B`  ` ` g.png)',
+          backgroundImage: 'url(/images/Bg.png)',
           backgroundSize: '65%',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',
