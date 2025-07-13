@@ -62,8 +62,7 @@ const BlogArticles = () => {
               transition: 'transform 0.3s ease',
             }}
           >
-            <img
-              src={post.image}
+            <img src={`https://dr-senait-backend.onrender.com${post.image}`}
               alt={post.title}
               style={{
                 width: '300px',
@@ -83,7 +82,7 @@ const BlogArticles = () => {
                   : post.content}
               </p>
               <a
-                href={`/blog/${post._id}`} // Or use <Link> if using react-router
+                href={`/blog/${post._id}`} 
                 style={{
                   color: '#00a79d',
                   fontWeight: 'bold',

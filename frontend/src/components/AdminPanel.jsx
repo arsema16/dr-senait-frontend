@@ -69,7 +69,7 @@ const [editingHour, setEditingHour] = useState({ day: '', open: '', close: '' })
   };
 
   const exportExcel = (type) => {
-    window.open(`http://localhost:5000/api/export/${type}`, '_blank');
+    window.open(`https://dr-senait-backend.onrender.com/api/export/${type}`, '_blank');
   };
 const handleApptSubmit = async (e) => {
   e.preventDefault();
@@ -122,14 +122,14 @@ const filteredAppointments = appointments.filter(a =>
     if (data.blog || data._id) {
       setNewBlog({ title: '', date: '', image: '', content: '' });
       setEditBlogId(null);
-      const refreshed = await fetch('http://localhost:5000/api/blogs').then(res => res.json());
+      const refreshed = await fetch('https://dr-senait-backend.onrender.com/api/blogs').then(res => res.json());
       setBlogs(refreshed);
     }
   };
 
   const handleBlogDelete = async (id) => {
     if (!window.confirm('Delete this blog post?')) return;
-    await fetch(`http://localhost:5000/api/blogs/${id}`, { method: 'DELETE' });
+    await fetch(`https://dr-senait-backend.onrender.com/api/blogs/${id}`, { method: 'DELETE' });
     setBlogs(blogs.filter(b => b._id !== id));
   };
 
@@ -267,7 +267,7 @@ const filteredAppointments = appointments.filter(a =>
     formData.append('image', file);
 
     try {
-      const res = await fetch('http://localhost:5000/api/upload', {
+      const res = await fetch('https://dr-senait-backend.onrender.com/api/upload', {
         method: 'POST',
         body: formData,
       });
@@ -318,8 +318,8 @@ const filteredAppointments = appointments.filter(a =>
     e.preventDefault();
     const method = editingHour._id ? 'PUT' : 'POST';
     const url = editingHour._id
-      ? `http://localhost:5000/api/open-hours/${editingHour._id}`
-      : `http://localhost:5000/api/open-hours`;
+      ? `https://dr-senait-backend.onrender.com/api/open-hours/${editingHour._id}`
+      : `https://dr-senait-backend.onrender.com/api/open-hours`;
 
     try {
       const res = await fetch(url, {
@@ -332,7 +332,7 @@ const filteredAppointments = appointments.filter(a =>
         throw new Error('Failed to save');
       }
 
-      const refreshed = await fetch('http://localhost:5000/api/open-hours').then(res => res.json());
+      const refreshed = await fetch('https://dr-senait-backend.onrender.com/api/open-hours').then(res => res.json());
       setOpenHours(refreshed);
       setEditingHour({ day: '', open: '', close: '' });
     } catch (err) {
