@@ -7,7 +7,7 @@ const BlogDetail = () => {
   const [blog, setBlog] = useState(null);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/api/blogs/${id}`)
+    fetch(`https://dr-senait-backend.onrender.com/api/blogs/${id}`)
     .then(res => {
       if (!res.ok) throw new Error('Blog not found');
       return res.json();

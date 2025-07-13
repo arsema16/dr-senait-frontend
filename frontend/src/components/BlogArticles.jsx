@@ -5,7 +5,7 @@ const BlogArticles = () => {
   const [blogs, setBlogs] = useState([]);
 
   useEffect(() => {
-  fetch('http://localhost:5000/api/blogs')
+  fetch('https://dr-senait-backend.onrender.com/api/blogs')
     .then(res => res.json())
     .then(data => {
       console.log('Fetched blogs:', data); // <-- add this
