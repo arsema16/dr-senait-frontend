@@ -62,7 +62,7 @@ const BlogArticles = () => {
               transition: 'transform 0.3s ease',
             }}
           >
-            <img src={`https://dr-senait-backend.onrender.com${post.image}`} 
+            <img src={`https://dr-senait-backend.onrender.com/${post.image.replace(/^\/?/, '')}`} 
               alt={post.title}
               style={{
                 width: '300px',
