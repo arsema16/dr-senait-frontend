@@ -67,14 +67,16 @@ const Home = () => {
             boxSizing: 'border-box',
           }}>
             <div style={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center', minWidth: '300px' }}>
-              <h1 style={{ fontSize: '3rem', lineHeight: 1, fontWeight: '800', fontFamily: '"Anton", sans-serif',
+              <h1 style={{ fontSize: '3rem', lineHeight: 1, fontFamily: '"Anton", sans-serif',
   fontWeight: '400'
   }}>
                 <span className="hero-line-black">YOUR JOURNEY TO</span><br />
                 <span className="hero-line-green">A PERFECT SMILE</span><br />
                 <span className="hero-line-green">STARTS HERE.</span>
               </h1>
-              <p style={{ fontSize: '1.1rem', margin: '1rem 0', fontFamily: "'Oswald', sans-serif" }}>
+              <p style={{ fontSize: '1.1rem', margin: '1rem 0', fontFamily: '"Anton", sans-serif',
+  fontWeight: '400',
+  fontStyle: normal, }}>
                 Experience world-class dental care with our team of expert professionals. Your comfort and smile are our top priorities.
               </p>
               <div style={{ display: 'flex', gap: '12px', flexWrap: 'nowrap' }}>
