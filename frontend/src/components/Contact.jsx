@@ -12,7 +12,7 @@ const Contact = () => {
 useEffect(() => {
   const fetchOpenHours = async () => {
     try {
-      const res = await fetch('http://localhost:5000/api/open-hours');
+      const res = await fetch('https://dr-senait-backend.onrender.com/api/open-hours');
       const data = await res.json();
       setOpenHours(data);
     } catch (err) {
