@@ -62,16 +62,22 @@ const BlogArticles = () => {
               transition: 'transform 0.3s ease',
             }}
           >
-            <img src={`https://dr-senait-backend.onrender.com${post.image}`}
-              alt={post.title}
-              style={{
-                width: '300px',
-                height: '300px',
-                objectFit: 'cover',
-                borderTopLeftRadius: '1rem',
-                borderTopRightRadius: '1rem',
-              }}
-            />
+            <img
+  src={
+    post.image.startsWith('http')
+      ? post.image
+      : `https://dr-senait-backend.onrender.com/${post.image.replace(/^\/+/, '')}`
+  }
+  alt={post.title}
+  style={{
+    width: '300px',
+    height: '300px',
+    objectFit: 'cover',
+    borderTopLeftRadius: '1rem',
+    borderTopRightRadius: '1rem',
+  }}
+/>
+
 
             <div style={{ padding: '1rem', flex: '1' }}>
               <p style={{ fontSize: '0.85rem', color: '#666', marginBottom: '0.4rem' }}>{post.date}</p>

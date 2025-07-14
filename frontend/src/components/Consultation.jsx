@@ -39,34 +39,16 @@ const Consultation = () => {
             textAlign: 'left',
           }}
         >
-          <h1
-  style={{
-    fontSize: '2.6rem',
-    fontWeight: '2000',
-    marginBottom: '1rem',
-    fontFamily: "'Oswald', sans-serif", 
-    textShadow: '1px 1px 2px rgba(0,0,0,0.5)',
+          <h1 className="consultation-heading">NEED A CONSULTATION</h1>
 
-  }}
->
-  NEED A CONSULTATION
-</h1>
 
           <button
-            style={{
-              backgroundColor: '#023d3a',
-              color: 'white',
-              padding: '0.75rem 1.5rem',
-              border: 'none',
-              borderRadius: '999px',
-              fontWeight: 'bold',
-              fontSize: '1rem',
-              cursor: 'pointer',
-            }}
-            onClick={() => navigate('/Appointment')}
-          >
-            Make Appointment
-          </button>
+  className="consultation-button"
+  onClick={() => navigate('/Appointment')}
+>
+  Make Appointment
+</button>
+
         </div>
       </div>
 

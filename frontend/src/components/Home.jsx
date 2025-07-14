@@ -77,7 +77,7 @@ const Home = () => {
   }}>
               <h1
   style={{
-    fontSize: '3rem',
+    fontSize: '3.6rem',
     lineHeight: 1.1,
     fontFamily: '"Anton", sans-serif',
     fontWeight: 600,
@@ -99,7 +99,7 @@ const Home = () => {
     fontWeight: 400,
   }}
 >
-  Experience world-class dental care with our team of expert professionals. Your comfort and smile are our top priorities.
+  Experience world-class dental care with our team of <br/>expert professionals. Your comfort and smile are our top priorities.
 </p>
 
               <div className="hero-buttons">
@@ -153,8 +153,8 @@ const Home = () => {
     flexDirection: 'column',
     justifyContent: 'center',
     minWidth: '300px',
-    paddingTop: '0',     // ensure no extra top padding
-    marginTop: '0',      // ensure no extra top margin
+    paddingTop: '0',     
+    marginTop: '0',      
   }}>
               <h1
   style={{
@@ -163,24 +163,26 @@ const Home = () => {
     fontFamily: '"Anton", sans-serif',
     fontWeight: 400,
     letterSpacing: '1px',
-    marginTop: '0',           // ✅ Remove space above
-    marginBottom: '0.5rem', // ↓ Reduced space here
+    marginTop: '0',           
+    marginBottom: '0.5rem', 
   }}
 >
   <span className="hero-line-black" >International Expertise </span><br />
-  <span className="hero-line-green">Led by Dr. Senait Habte.</span><br />
+  <span className="hero-line-green small">Led by Dr. Senait Habte.</span><br />
 </h1>
 
 <p
   style={{
     fontSize: '1.1rem',
-    margin: '0.5rem 0 1.2rem', // ↑ Less space at the top
+    margin: '0.5rem 0 1.2rem',
     fontFamily: '"Oswald", sans-serif',
     fontWeight: 400,
   }}
 >
-  A USA.-trained dentist with a Doctor of Dental Medicine from Tufts University and a Bachelor of Science from PURDUE University.
+  A USA.-trained dentist with a Doctor of Dental Medicine from<br />
+  Tufts University and a Bachelor of Science from PURDUE University.
 </p>
+
 
               <div className="hero-buttons">
                 <div className="hero-button">
@@ -234,8 +236,8 @@ const Home = () => {
     flexDirection: 'column',
     justifyContent: 'center',
     minWidth: '300px',
-    paddingTop: '0',     // ensure no extra top padding
-    marginTop: '0',      // ensure no extra top margin
+    paddingTop: '0',     
+    marginTop: '0',     
   }}>
               <h1
   style={{
@@ -244,13 +246,13 @@ const Home = () => {
     fontFamily: '"Anton", sans-serif',
     fontWeight: 400,
     letterSpacing: '1px',
-    marginTop: '0',           // ✅ Remove space above
-    marginBottom: '0.5rem', // ↓ Reduced space here
+    marginTop: '0',          
+    marginBottom: '0.5rem', 
   }}
 >
   <span className="hero-line-black" >PAIN & DISCOMFORT?</span><br />
-  <span className="hero-line-green">SAME-DAY EMERGENCY</span><br />
-  <span className="hero-line-green">APPOINTMENTS AVAILABLE!</span>
+  <span className="hero-line-green small">SAME-DAY EMERGENCY</span><br />
+  <span className="hero-line-green small">APPOINTMENTS AVAILABLE!</span>
 </h1>
 
               <div className="hero-buttons">

@@ -116,7 +116,10 @@ body {
 .hero-line-green {
   color: #019a95;
 }
-
+.hero-line-green.small {
+    color: #019a95;
+  font-size: 2.6rem;
+}
 .hero-subtext {
   margin: 20px 0;
   font-size: 1.1rem;

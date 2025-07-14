@@ -69,6 +69,8 @@
   justify-content: center;
   margin: 0;
   padding: 0;
+    margin-top: -120px; /* You can increase or decrease this */
+
 }
 
 .about-content h1 {
@@ -150,6 +152,7 @@
 
   }
   .about-content {
+        margin-top: -160px; /* You can increase or decrease this */
         padding: 0;
     margin-top: 0.5rem; /* Just a small space from image */
     flex: unset;
@@ -170,6 +173,8 @@
   }
   .about-content h1 {
     font-size: 2rem;
+        margin-top: -150px; /* You can increase or decrease this */
+
   }
 
   .icon-highlights {

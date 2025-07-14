@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { useLocation } from 'react-router-dom';
 
 const imagePairs = [
@@ -20,12 +20,17 @@ const Gallery = () => {
   const [sliderPos, setSliderPos] = useState(50);
   const containerRef = useRef(null);
   const isDragging = useRef(false);
+  const isPaused = useRef(false); // Track hover/touch pause
 
   const startDrag = () => {
     isDragging.current = true;
+        pauseAutoSlide(); // Pause while dragging
+
   };
   const stopDrag = () => {
     isDragging.current = false;
+        resumeAutoSlide();
+
   };
   const onDrag = (e) => {
     if (!isDragging.current) return;
@@ -43,6 +48,27 @@ const Gallery = () => {
     setIndex((prev) => (prev + 1) % imagePairs.length);
     setSliderPos(50);
   };
+  // Auto slide effect
+  const startAutoSlide = () => {
+    intervalRef.current = setInterval(() => {
+      if (!isPaused.current) {
+        setIndex(prev => (prev + 1) % imagePairs.length);
+        setSliderPos(50);
+      }
+    }, 2500); // Fast speed
+  };
+const pauseAutoSlide = () => {
+    isPaused.current = true;
+  };
+
+  const resumeAutoSlide = () => {
+    isPaused.current = false;
+  };
+     useEffect(() => {
+    startAutoSlide();
+    return () => clearInterval(intervalRef.current);
+  }, []);
+const intervalRef = useRef(null); // ✅ This is missing
 
   return (
     <>

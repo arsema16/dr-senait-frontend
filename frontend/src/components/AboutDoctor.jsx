@@ -53,8 +53,20 @@ const AboutDoctor = () => {
           {/* Left: Image */}
           <div ref={imgRef} className={`doctor-image ${imgInView ? 'fade-in-left' : ''}`}>
             <div className="image-wrapper">
-              <img src="/images/dr-senait.png" alt="Dr. Senait" />
-              <img src="/images/badge.png" alt="Badge" className="image-badge" />
+<div style={{
+              flex: 1,
+              height: '100%',
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'flex-end',
+            }}>
+              <img src="/images/dr-senait.png" alt="dr senait" style={{
+                height: '100%',
+                width: '110%',
+                objectFit: 'cover',
+                objectPosition:'top',
+              }} />
+            </div>              <img src="/images/badge.png" alt="Badge" className="image-badge" />
             </div>
           </div>
 

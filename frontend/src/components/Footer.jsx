@@ -10,7 +10,6 @@ const Footer = () => {
     { label: 'About Us', path: '/about-us' },
     { label: 'Our Team', path: '/team' },
     { label: 'Services', path: '/services' },
-    { label: 'Pages', path: '/pages' },
   ];
 
   const quickLinksRight = [
