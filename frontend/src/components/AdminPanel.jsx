@@ -15,7 +15,8 @@ const [editingAppt, setEditingAppt] = useState(null);
 const [newAppt, setNewAppt] = useState({ name: '', phone: '', date: '', service: '' });
 
   const [newBlog, setNewBlog] = useState({ title: '', date: '', image: '', content: '' });
-  const [editBlogId, setEditBlogId] = useState(null);
+const [editBlogId, setEditBlogId] = useState(null);
+const [imageFile, setImageFile] = useState(null);
 const [openHours, setOpenHours] = useState([]);
 const [editingHour, setEditingHour] = useState({ day: '', open: '', close: '' });
 
@@ -104,14 +105,22 @@ const filteredAppointments = appointments.filter(a =>
   (a.name + a.phone + a.service).toLowerCase().includes(searchAppointments.toLowerCase()) &&
   (!filterService || a.service === filterService)
 );
-  const handleBlogSubmit = async (e) => {
-    e.preventDefault();
-    const url = editBlogId
-      ? `https://dr-senait-backend.onrender.com/api/blogs/${editBlogId}`
-      : 'https://dr-senait-backend.onrender.com/api/blogs';
+ const handleBlogSubmit = async (e) => {
+  e.preventDefault();
+  console.log('Submitting blog:', newBlog); // ✅ Add this line
 
-    const method = editBlogId ? 'PUT' : 'POST';
+  if (!newBlog.image) {
+    alert('Please upload an image before submitting.');
+    return;
+  }
 
+  const url = editBlogId
+    ? `https://dr-senait-backend.onrender.com/api/blogs/${editBlogId}`
+    : 'https://dr-senait-backend.onrender.com/api/blogs';
+
+  const method = editBlogId ? 'PUT' : 'POST';
+
+  try {
     const res = await fetch(url, {
       method,
       headers: { 'Content-Type': 'application/json' },
@@ -119,13 +128,46 @@ const filteredAppointments = appointments.filter(a =>
     });
 
     const data = await res.json();
+
     if (data.blog || data._id) {
       setNewBlog({ title: '', date: '', image: '', content: '' });
       setEditBlogId(null);
+
       const refreshed = await fetch('https://dr-senait-backend.onrender.com/api/blogs').then(res => res.json());
       setBlogs(refreshed);
     }
-  };
+  } catch (err) {
+    console.error('Blog submission failed:', err);
+    alert('❌ Failed to create blog. Please try again.');
+  }
+};
+const handleImageUpload = async (e) => {
+  const file = e.target.files[0];
+  if (!file) return;
+
+  const formData = new FormData();
+  formData.append('image', file);
+
+  try {
+    const res = await fetch('https://dr-senait-backend.onrender.com/api/upload', {
+      method: 'POST',
+      body: formData,
+    });
+
+    const data = await res.json();
+    console.log('Upload response:', data); // ✅ Add this line
+
+    if (data.url) {
+      setNewBlog(prev => ({ ...prev, image: data.url }));
+    } else {
+      alert('Image upload failed');
+    }
+  } catch (err) {
+    console.error('Image upload failed:', err);
+    alert('❌ Failed to upload image');
+  }
+};
+
 
   const handleBlogDelete = async (id) => {
     if (!window.confirm('Delete this blog post?')) return;
@@ -259,31 +301,14 @@ const filteredAppointments = appointments.filter(a =>
   type="file"
   accept="image/*"
   style={inputStyle}
-  onChange={async (e) => {
-    const file = e.target.files[0];
-    if (!file) return;
-
-    const formData = new FormData();
-    formData.append('image', file);
-
-    try {
-      const res = await fetch('https://dr-senait-backend.onrender.com/api/upload', {
-        method: 'POST',
-        body: formData,
-      });
-
-      const data = await res.json();
-      if (data.url) {
-        setNewBlog({ ...newBlog, image: data.url });
-      } else {
-        alert('Image upload failed');
-      }
-    } catch (err) {
-      console.error('Image upload error:', err);
-      alert('❌ Failed to upload image');
+  onChange={(e) => {
+    if (e.target.files.length > 0) {
+      handleImageUpload(e);  // ✅ immediately upload on file select
     }
   }}
 />
+
+
             <textarea style={inputStyle} rows="4" placeholder="Content" value={newBlog.content} onChange={e => setNewBlog({ ...newBlog, content: e.target.value })}></textarea>
             <button type="submit" style={buttonStyle}>{editBlogId ? 'Update' : 'Create'}</button>
           </form>
@@ -297,7 +322,14 @@ const filteredAppointments = appointments.filter(a =>
                 <tr key={blog._id}>
                   <td>{blog.title}</td>
                   <td>{blog.date}</td>
-                  <td><img src={blog.image} alt="" style={{ width: '80px' }} /></td>
+                  <td>{newBlog.image && (
+  <img
+    src={newBlog.image}
+    alt="Uploaded Preview"
+    style={{ width: '100px', marginBottom: '1rem', borderRadius: '6px' }}
+  />
+)}
+</td>
                   <td>
                     <button onClick={() => {
                       setNewBlog(blog);
