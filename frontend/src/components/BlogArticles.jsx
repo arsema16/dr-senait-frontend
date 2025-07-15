@@ -63,11 +63,7 @@ const BlogArticles = () => {
             }}
           >
             <img
-  src={
-    post.image.startsWith('http')
-      ? post.image
-      : `https://dr-senait-backend.onrender.com/${post.image.replace(/^\/+/, '')}`
-  }
+  src={post.image}
   alt={post.title}
   style={{
     width: '300px',
@@ -76,7 +72,12 @@ const BlogArticles = () => {
     borderTopLeftRadius: '1rem',
     borderTopRightRadius: '1rem',
   }}
+  onError={(e) => {
+    e.target.onerror = null;
+    e.target.src = '/images/default-blog.jpg'; // fallback image if Cloudinary fails
+  }}
 />
+
 
 
             <div style={{ padding: '1rem', flex: '1' }}>
