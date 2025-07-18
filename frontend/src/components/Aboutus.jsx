@@ -4,6 +4,7 @@ import OurTeam from './Team';
 import Testimonials from './Testimonials';
 import AppointmentBanner from './AppointmentBanner';
 import { useNavigate } from 'react-router-dom';
+import '../styles/components/Consultation.css';
 
 const AboutUs = () => {
       const navigate = useNavigate(); // ✅ Initialize the navigate function
@@ -94,8 +95,8 @@ const AboutUs = () => {
       {/* Consultation Banner */}
       <div
         style={{
-  backgroundImage: 'url(/images/bg.png)',
-  backgroundSize: '60%', // show smaller, full image
+  backgroundImage: 'url(/images/Bg.png)',
+  backgroundSize: '65%', // show smaller, full image
   backgroundPosition: ' center',
   backgroundRepeat: 'no-repeat',
   borderRadius: '1.5rem',
@@ -104,46 +105,24 @@ const AboutUs = () => {
   marginBottom: '2rem',
   display: 'flex',
   alignItems: 'center',
-  justifyContent: 'center',
-  padding: '2rem',
+          justifyContent: 'flex-start',
+          paddingLeft: '20%',
 }}
 
       >
         <div
           style={{
-            padding: '2rem',
-            width: '100%',
-            display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'center',
             color: 'white',
-            textAlign: 'center',
-            height: '100%',
+            textAlign: 'left',
           }}
         >
-          <h1 style={{ fontSize: '2rem', fontWeight: 'bold', marginBottom: '1rem' }}>
-            NEED A CONSULTATION
-          </h1>
+          <h1 className="consultation-heading">NEED A CONSULTATION</h1>
           <button
-            style={{
-              backgroundColor: '#023d3a',
-              color: 'white',
-              padding: '0.75rem 1.5rem',
-              border: 'none',
-              borderRadius: '999px',
-              fontWeight: 'bold',
-              fontSize: '1rem',
-              cursor: 'pointer',
-              maxWidth: '200px',
-              margin: '0 auto',
-            }}
-          onClick={() => {
-    console.log('Button clicked');
-    navigate('/Appointment');
-  }}>
-
-            Make Appointment
-          </button>
+  className="consultation-button"
+  onClick={() => navigate('/Appointment')}
+>
+  Make Appointment
+</button>
         </div>
       </div>
 

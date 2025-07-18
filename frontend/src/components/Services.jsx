@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import '../styles/components/Services.css';
 
 import generalDentistry from '../assets/service-icons/General dentistry.png';
@@ -28,6 +28,7 @@ const serviceData = [
 const Services = () => {
   const [selectedService, setSelectedService] = useState(null);
   const location = useLocation();
+  const navigate = useNavigate();
 
   const topIcons = serviceData.slice(0, 4);
   const bottomIcons = serviceData.slice(4);
@@ -71,12 +72,15 @@ const Services = () => {
                 We offer a full range of dental care solutions<br />
                 to meet your needs:
               </p>
-              <button
-                className="learn-more"
-                onClick={() => window.location.href = '#contact'}
-              >
-                Learn More
-              </button>
+              {/* ✅ Only show button if NOT on /services */}
+              {location.pathname !== '/services' && (
+                <button
+                  className="learn-more"
+                  onClick={() => navigate('/services')}
+                >
+                  Learn More
+                </button>
+              )}
             </div>
 
             <div className="services-top-icons">

@@ -1,9 +1,10 @@
 import React from 'react';
-import { useLocation } from 'react-router-dom'; // ✅ Import
+import { useLocation, useNavigate } from 'react-router-dom'; // ✅ Import navigate & location
 import '../styles/components/Team.css';
 
-const Team = ({ onLearnMore }) => {
-  const location = useLocation(); // ✅ Get current route
+const Team = () => {
+  const location = useLocation();
+  const navigate = useNavigate(); // ✅ Navigation function
 
   const teamMembers = [
     { name: "Kebede Molla", position: "Dental Specialist", image: "/images/kebede.jpg" },
@@ -11,6 +12,10 @@ const Team = ({ onLearnMore }) => {
     { name: "Kebede Molla", position: "Dental Specialist", image: "/images/kebede.jpg" },
     { name: "Aster Molla", position: "Dental Specialist", image: "/images/aster.jpg" }
   ];
+
+  const handleLearnMore = () => {
+    navigate('/team');
+  };
 
   return (
     <>
@@ -58,9 +63,13 @@ const Team = ({ onLearnMore }) => {
               </div>
               <h2 className="team-name">{member.name}</h2>
               <p className="team-position">{member.position}</p>
-              <button className="learn-more" onClick={onLearnMore}>
-                Learn More
-              </button>
+
+              {/* ✅ Show button only when NOT on the team page */}
+              {location.pathname !== '/team' && (
+                <button className="learn-more" onClick={handleLearnMore}>
+                  Learn More
+                </button>
+              )}
             </div>
           ))}
         </div>
