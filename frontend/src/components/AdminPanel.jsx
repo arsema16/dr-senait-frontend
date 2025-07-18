@@ -121,25 +121,39 @@ const filteredAppointments = appointments.filter(a =>
   const method = editBlogId ? 'PUT' : 'POST';
 
   try {
-    const res = await fetch(url, {
-      method,
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(newBlog),
-    });
+  console.log('📡 Sending request to:', url);
+  console.log('➡️ Method:', method);
+  console.log('📦 Payload:', newBlog);
 
-    const data = await res.json();
+  const res = await fetch(url, {
+    method,
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(newBlog),
+  });
 
-    if (data.blog || data._id) {
-      setNewBlog({ title: '', date: '', image: '', content: '' });
-      setEditBlogId(null);
+  console.log('📥 Response status:', res.status);
 
-      const refreshed = await fetch('https://dr-senait-backend.onrender.com/api/blogs').then(res => res.json());
-      setBlogs(refreshed);
-    }
-  } catch (err) {
-    console.error('Blog submission failed:', err);
-    alert('❌ Failed to create blog. Please try again.');
+  const data = await res.json();
+  console.log('📥 Response body:', data);
+
+  if (!res.ok) {
+    alert('❌ Server error: ' + (data.message || 'Unknown error'));
+    return;
   }
+
+  if (data.blog || data._id) {
+    setNewBlog({ title: '', date: '', image: '', content: '' });
+    setEditBlogId(null);
+    const refreshed = await fetch('https://dr-senait-backend.onrender.com/api/blogs').then(res => res.json());
+    setBlogs(refreshed);
+  } else {
+    alert('❌ Blog not created. Server responded with:', JSON.stringify(data));
+  }
+} catch (err) {
+  console.error('❌ Network error:', err);
+  alert('❌ Network error. Check console for details.');
+}
+
 };
 const handleImageUpload = async (e) => {
   const file = e.target.files[0];
@@ -294,24 +308,63 @@ const handleImageUpload = async (e) => {
           <button onClick={() => exportExcel('blogs')} style={exportBtn}>Export to Excel</button>
 
           <form onSubmit={handleBlogSubmit} style={{ margin: '2rem 0' }}>
-            <h3>{editBlogId ? 'Edit Blog' : 'New Blog Post'}</h3>
-            <input style={inputStyle} placeholder="Title" value={newBlog.title} onChange={e => setNewBlog({ ...newBlog, title: e.target.value })} />
-            <input style={inputStyle} placeholder="Date" value={newBlog.date} onChange={e => setNewBlog({ ...newBlog, date: e.target.value })} />
-<input
-  type="file"
-  accept="image/*"
-  style={inputStyle}
-  onChange={(e) => {
-    if (e.target.files.length > 0) {
-      handleImageUpload(e);  // ✅ immediately upload on file select
-    }
-  }}
-/>
+  <h3>{editBlogId ? 'Edit Blog' : 'New Blog Post'}</h3>
 
+  <input
+    style={inputStyle}
+    placeholder="Title"
+    value={newBlog.title}
+    onChange={(e) => setNewBlog({ ...newBlog, title: e.target.value })}
+    required
+  />
 
-            <textarea style={inputStyle} rows="4" placeholder="Content" value={newBlog.content} onChange={e => setNewBlog({ ...newBlog, content: e.target.value })}></textarea>
-            <button type="submit" style={buttonStyle}>{editBlogId ? 'Update' : 'Create'}</button>
-          </form>
+  <input
+    style={inputStyle}
+    placeholder="Date"
+    value={newBlog.date}
+    onChange={(e) => setNewBlog({ ...newBlog, date: e.target.value })}
+    required
+  />
+
+  <input
+    type="file"
+    accept="image/*"
+    style={inputStyle}
+    onChange={(e) => {
+      if (e.target.files.length > 0) {
+        handleImageUpload(e); // ✅ Upload immediately
+      }
+    }}
+  />
+
+  {/* Preview uploaded image */}
+  {newBlog.image && (
+    <img
+      src={newBlog.image}
+      alt="Uploaded Preview"
+      style={{ width: '100px', marginBottom: '1rem', borderRadius: '6px' }}
+    />
+  )}
+
+  <textarea
+    style={inputStyle}
+    rows="4"
+    placeholder="Content"
+    value={newBlog.content}
+    onChange={(e) => setNewBlog({ ...newBlog, content: e.target.value })}
+    required
+  ></textarea>
+
+  <button
+    type="submit"
+    style={buttonStyle}
+    onMouseOver={(e) => (e.target.style.backgroundColor = '#007e77')}
+    onMouseOut={(e) => (e.target.style.backgroundColor = '#00a79d')}
+  >
+    {editBlogId ? 'Update' : 'Create'}
+  </button>
+</form>
+
 
           <table style={tableStyle}>
             <thead>
@@ -322,13 +375,16 @@ const handleImageUpload = async (e) => {
                 <tr key={blog._id}>
                   <td>{blog.title}</td>
                   <td>{blog.date}</td>
-                  <td>{newBlog.image && (
-  <img
-    src={newBlog.image}
-    alt="Uploaded Preview"
-    style={{ width: '100px', marginBottom: '1rem', borderRadius: '6px' }}
-  />
-)}
+                  <td><td>
+  {blog.image && (
+    <img
+      src={blog.image}
+      alt="Blog"
+      style={{ width: '100px', borderRadius: '6px' }}
+    />
+  )}
+</td>
+
 </td>
                   <td>
                     <button onClick={() => {
