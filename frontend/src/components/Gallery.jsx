@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useState, useRef } from 'react';
 import { useLocation } from 'react-router-dom';
 
 const imagePairs = [
@@ -20,18 +20,15 @@ const Gallery = () => {
   const [sliderPos, setSliderPos] = useState(50);
   const containerRef = useRef(null);
   const isDragging = useRef(false);
-  const isPaused = useRef(false); // Track hover/touch pause
 
   const startDrag = () => {
     isDragging.current = true;
-        pauseAutoSlide(); // Pause while dragging
-
   };
+
   const stopDrag = () => {
     isDragging.current = false;
-        resumeAutoSlide();
-
   };
+
   const onDrag = (e) => {
     if (!isDragging.current) return;
     const rect = containerRef.current.getBoundingClientRect();
@@ -44,35 +41,14 @@ const Gallery = () => {
     setIndex((prev) => (prev - 1 + imagePairs.length) % imagePairs.length);
     setSliderPos(50);
   };
+
   const handleNext = () => {
     setIndex((prev) => (prev + 1) % imagePairs.length);
     setSliderPos(50);
   };
-  // Auto slide effect
-  const startAutoSlide = () => {
-    intervalRef.current = setInterval(() => {
-      if (!isPaused.current) {
-        setIndex(prev => (prev + 1) % imagePairs.length);
-        setSliderPos(50);
-      }
-    }, 2500); // Fast speed
-  };
-const pauseAutoSlide = () => {
-    isPaused.current = true;
-  };
-
-  const resumeAutoSlide = () => {
-    isPaused.current = false;
-  };
-     useEffect(() => {
-    startAutoSlide();
-    return () => clearInterval(intervalRef.current);
-  }, []);
-const intervalRef = useRef(null); // ✅ This is missing
 
   return (
     <>
-      {/* Banner: Show only on /gallery route */}
       {location.pathname === '/gallery' && (
         <div
           style={{
@@ -82,21 +58,21 @@ const intervalRef = useRef(null); // ✅ This is missing
             backgroundRepeat: 'no-repeat',
             padding: '100px 20px 60px',
             textAlign: 'center',
-            
           }}
-        ><h2 style={{
+        >
+          <h2
+            style={{
               fontSize: '2.5rem',
               fontWeight: '700',
-              color: '#004c4c'
-            }}>
-          Smile Transformations Gallery
-            </h2>
+              color: '#004c4c',
+            }}
+          >
+            Smile Transformations Gallery
+          </h2>
         </div>
       )}
 
-      {/* Existing gallery slider */}
       <div style={styles.container}>
-
         <div
           style={styles.sliderContainer}
           ref={containerRef}
@@ -106,7 +82,7 @@ const intervalRef = useRef(null); // ✅ This is missing
           onTouchMove={onDrag}
           onTouchEnd={stopDrag}
         >
-          {/* BEFORE image clipped from left to slider position (sliderPos%) */}
+          {/* Before Image */}
           <div
             style={{
               ...styles.imageClip,
@@ -123,7 +99,7 @@ const intervalRef = useRef(null); // ✅ This is missing
             />
           </div>
 
-          {/* AFTER image clipped from slider position to right */}
+          {/* After Image */}
           <div
             style={{
               ...styles.imageClip,
@@ -139,7 +115,7 @@ const intervalRef = useRef(null); // ✅ This is missing
             />
           </div>
 
-          {/* Slider handle */}
+          {/* Slider Handle */}
           <div
             style={{ ...styles.sliderHandle, left: `${sliderPos}%` }}
             onMouseDown={startDrag}
@@ -150,7 +126,7 @@ const intervalRef = useRef(null); // ✅ This is missing
           </div>
         </div>
 
-        {/* Controls */}
+        {/* Navigation Buttons */}
         <div style={styles.controls}>
           <button onClick={handlePrev} style={styles.button}>
             ← Previous
@@ -189,12 +165,6 @@ const styles = {
     maxWidth: '720px',
     margin: 'auto',
     userSelect: 'none',
-  },
-  title: {
-    fontSize: '2.5rem',
-    marginBottom: '2rem',
-    color: '#00a79d',
-    textAlign: 'center',
   },
   sliderContainer: {
     position: 'relative',

@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom';
 import '../styles/components/Consultation.css';
 
 const AboutUs = () => {
-      const navigate = useNavigate(); // ✅ Initialize the navigate function
+      const navigate = useNavigate(); 
 
   return (
     <div style={{ fontFamily: 'Segoe UI, sans-serif' }}>
