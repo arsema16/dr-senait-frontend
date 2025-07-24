@@ -74,6 +74,8 @@ body {
   display: flex;
   transition: transform 0.5s ease;
   height: 100%;
+    will-change: transform;
+
 }
 
 .slide {
