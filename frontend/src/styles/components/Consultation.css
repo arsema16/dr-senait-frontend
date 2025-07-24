@@ -1,7 +1,7 @@
 .consultation-section {
   font-family: 'Segoe UI', sans-serif;
   padding: 2rem 1rem;
-  background-color: #f8f9fc;
+  background-color:#65c9c2;
 }
 
 .consultation-banner {
@@ -20,7 +20,7 @@
 
 .consultation-text-content {
   color: white;
-  text-align: left;
+  text-align: center;
   display: flex;
   flex-direction: column;
   gap: 1rem;

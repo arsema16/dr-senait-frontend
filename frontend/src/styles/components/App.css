@@ -198,20 +198,28 @@ body {
   .hero-section {
     flex-direction: column;
     text-align: center;
+    align-items: center; /* ✅ add this */
+    justify-content: center; /* ✅ add this */
+  }
+
+  .hero-left,
+  .hero-right {
+    padding: 1rem;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* ✅ center children */
+    justify-content: center;
   }
 
   .hero-buttons {
     flex-direction: column;
+    align-items: center; /* ✅ center buttons */
   }
 
-  .hero-left, .hero-right {
-    padding: 1rem;
-  }
-  @media (max-width: 768px) {
   .hero-line-black,
   .hero-line-green {
     font-size: 2.2rem !important;
   }
 }
 
-}

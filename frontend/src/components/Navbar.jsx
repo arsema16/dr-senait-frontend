@@ -31,16 +31,18 @@ const Navbar = () => {
   };
 
   const dropdownStyle = {
-    position: 'absolute',
-    top: '100%',
-    left: 0,
-    backgroundColor: 'white',
-    boxShadow: '0 2px 6px rgba(0,0,0,0.1)',
-    borderRadius: '0.5rem',
-    padding: '0.5rem 1rem',
-    zIndex: 1000,
-    minWidth: '180px',
-  };
+  position: 'absolute',
+  top: '100%',
+  left: 0,
+  backgroundColor: 'white',
+  boxShadow: '0 10px 25px rgba(0, 0, 0, 0.1)',
+  borderRadius: '10px',
+  padding: '0.5rem 0',
+  zIndex: 1000,
+  minWidth: '200px',
+  animation: 'fadeIn 0.3s ease-in-out',
+};
+
 
   return (
     <nav
@@ -59,23 +61,25 @@ const Navbar = () => {
     >
       <div style={{ position: 'relative', height: '80px' }}>
         {/* Logo */}
-        <div style={{ position: 'absolute', left: '2rem', top: '50%', transform: 'translateY(-50%)' }}>
+        <div style={{ position: 'absolute', left: '0rem', top: '50%', transform: 'translateY(-50%)' }}>
           <img
             src="/images/Logo-02.png"
             alt="logo"
-            style={{ height: '80px', width: 'auto', cursor: 'pointer' }}
+            style={{ height: '150px', width: '100%', cursor: 'pointer' }}
             onClick={() => navigate('/')}
           />
         </div>
 
         {/* Desktop Nav */}
         {!isMobile && (
-          <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '1rem', height: '80px' }}>
-            <div style={navLinkStyle} onClick={() => navigate('/')}>Home</div>
+          <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '1rem', height: '80px',   marginLeft: '160px' // ✅ adjust based on your logo size (try 150–180px)
+ }}>
+            <div style={{navLinkStyle,}} onClick={() => navigate('/')}>Home</div>
             <div style={navLinkStyle} onClick={() => navigate('/services')}>Services</div>
             <div style={navLinkStyle} onClick={() => navigate('/contact')}>Contact Us</div>
 
             {/* About Us Dropdown */}
+ {/* About Us Dropdown */}
 <div
   style={{ position: 'relative' }}
   onMouseEnter={() => setHoveredMenu('about')}
@@ -90,35 +94,70 @@ const Navbar = () => {
 
   {hoveredMenu === 'about' && (
     <div style={dropdownStyle}>
-      <div style={navLinkStyle} onClick={() => navigate('/about-doctor')}>
-        About Doctor Senait
-      </div>
-      <div style={navLinkStyle} onClick={() => navigate('/team')}>
-        Our Team
-      </div>
-      <div style={navLinkStyle} onClick={() => navigate('/testimonials')}>
-        Testimonials
-      </div>
+      {[
+        { label: 'About Doctor Senait', path: '/about-doctor' },
+        { label: 'Our Team', path: '/team' },
+        { label: 'Testimonials', path: '/testimonials' },
+      ].map((item, index) => (
+        <div
+          key={index}
+          style={{
+            padding: '0.6rem 1.2rem',
+            cursor: 'pointer',
+            transition: 'background 0.3s ease',
+            fontWeight: 500,
+            color: '#333',
+          }}
+          onClick={() => navigate(item.path)}
+          onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = '#f0fdfa')}
+          onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = 'transparent')}
+        >
+          {item.label}
+        </div>
+      ))}
     </div>
   )}
 </div>
 
+{/* Pages Dropdown */}
+<div
+  style={{ position: 'relative' }}
+  onMouseEnter={() => setHoveredMenu('pages')}
+  onMouseLeave={() => setHoveredMenu(null)}
+>
+  <div
+    style={{ ...navLinkStyle, display: 'flex', alignItems: 'center', gap: '0.3rem' }}
+  >
+    Pages <span style={{ fontSize: '0.8rem' }}>▼</span>
+  </div>
 
-            {/* Pages Dropdown */}
-            <div
-              style={navLinkStyle}
-              onMouseEnter={() => setHoveredMenu('pages')}
-              onMouseLeave={() => setHoveredMenu(null)}
-            >
-              Pages <span style={{ fontSize: '0.8rem' }}>▼</span>
-              {hoveredMenu === 'pages' && (
-                <div style={dropdownStyle}>
-                  <div style={navLinkStyle} onClick={() => navigate('/faq')}>FAQs</div>
-                  <div style={navLinkStyle} onClick={() => navigate('/gallery')}>Gallery</div>
-                  <div style={navLinkStyle} onClick={() => navigate('/blog')}>Blog/News</div>
-                </div>
-              )}
-            </div>
+  {hoveredMenu === 'pages' && (
+    <div style={dropdownStyle}>
+      {[
+        { label: 'FAQs', path: '/faq' },
+        { label: 'Gallery', path: '/gallery' },
+        { label: 'Blog/News', path: '/blog' },
+      ].map((item, index) => (
+        <div
+          key={index}
+          style={{
+            padding: '0.6rem 1.2rem',
+            cursor: 'pointer',
+            transition: 'background 0.3s ease',
+            fontWeight: 500,
+            color: '#333',
+          }}
+          onClick={() => navigate(item.path)}
+          onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = '#f0fdfa')}
+          onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = 'transparent')}
+        >
+          {item.label}
+        </div>
+      ))}
+    </div>
+  )}
+</div>
+
 
             <div
               onClick={() => navigate('/Appointment')}

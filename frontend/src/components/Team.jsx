@@ -29,6 +29,7 @@ const Team = () => {
             backgroundRepeat: 'no-repeat',
             padding: '100px 20px 60px',
             textAlign: 'center',
+              
           }}
         >
           <h2 style={{

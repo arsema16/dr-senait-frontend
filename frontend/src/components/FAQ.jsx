@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import AppointmentBanner from './AppointmentBanner';
 
 const FAQ = ({ showBanner = true }) => {
@@ -31,6 +31,14 @@ const FAQ = ({ showBanner = true }) => {
   ];
 
   const [activeIndex, setActiveIndex] = useState(0);
+  const [animateIn, setAnimateIn] = useState(false);
+
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      setAnimateIn(true);
+    }, 100);
+    return () => clearTimeout(timeout);
+  }, []);
 
   const toggleFAQ = (index) => {
     setActiveIndex(index === activeIndex ? null : index);
@@ -40,9 +48,14 @@ const FAQ = ({ showBanner = true }) => {
     <section
       style={{
         fontFamily: 'Segoe UI, sans-serif',
-        backgroundColor: '#f8f9fc',
+        backgroundColor: '#e1f5fe',
         paddingBottom: '4rem',
+        paddingTop: '2rem',
+        marginTop: '0rem',
         textAlign: 'center',
+        opacity: animateIn ? 1 : 0,
+        transform: animateIn ? 'translateY(0)' : 'translateY(20px)',
+        transition: 'opacity 0.6s ease, transform 0.6s ease',
       }}
     >
       {/* Only show banner and appointment info if showBanner is true */}
@@ -90,8 +103,11 @@ const FAQ = ({ showBanner = true }) => {
               padding: '1.25rem 2rem',
               borderRadius: '12px',
               cursor: 'pointer',
-              transition: 'background 0.3s',
               textAlign: 'center',
+              opacity: animateIn ? 1 : 0,
+              transform: animateIn ? 'translateY(0)' : 'translateY(20px)',
+              transition: 'opacity 0.5s ease, transform 0.5s ease',
+              transitionDelay: `${index * 100}ms`,
             }}
           >
             <div style={{ fontWeight: '600', fontSize: '1.05rem', color: '#333' }}>

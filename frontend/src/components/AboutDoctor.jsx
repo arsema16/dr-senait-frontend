@@ -73,7 +73,7 @@ const AboutDoctor = () => {
           {/* Right: Text */}
           <div ref={textRef} className={`about-content ${textInView ? 'fade-in-right' : ''}`}>
             <h1>
-              About <span className="highlight">Dr Senait</span>
+              About <span className="highlight">Dr. Senait</span>
             </h1>
             <p className="established">
               <strong>Established in 2016,</strong> Dr. Senait Dental Clinic provides high-quality dental care in Addis Ababa. 

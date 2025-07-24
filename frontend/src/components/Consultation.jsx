@@ -20,7 +20,7 @@ const Consultation = () => {
       <div
         style={{
           backgroundImage: 'url(/images/Bg.png)',
-          backgroundSize: '65%',
+          backgroundSize: '80%',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',
           borderRadius: '1.5rem',
@@ -54,13 +54,13 @@ const Consultation = () => {
 
       {/* Checklist Section */}
       <div className="consultation-content">
-        <h2
+<h2
   style={{
     fontFamily: "'Oswald', sans-serif",
-    textAlign: 'left',
+    textAlign: 'center',
     fontWeight: '500',
     fontSize: '2.8rem',
-    marginLeft: '13%', // ✅ Pushes it slightly from the left edge
+    justifyContent:'center',
   }}
 >
   Is dental pain or anxiety <span style={{ color: '#00a79d' }}>holding you back?</span>
