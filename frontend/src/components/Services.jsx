@@ -91,7 +91,8 @@ const Services = () => {
               )}
             </div>
 
-            <div className="services-top-icons">
+            {/* Desktop top row */}
+            <div className="services-top-icons desktop-only">
               {topIcons.map((service) => (
                 <div
                   key={service.name}
@@ -105,8 +106,23 @@ const Services = () => {
             </div>
           </div>
 
-          <div className="services-grid">
+          {/* Desktop bottom row */}
+          <div className="services-grid desktop-only">
             {bottomIcons.map((service) => (
+              <div
+                key={service.name}
+                className="icon-item clickable"
+                onClick={() => setSelectedService(service)}
+              >
+                <img src={service.icon} alt={service.name} className="service-icon" />
+                <span className="icon-label">{service.name}</span>
+              </div>
+            ))}
+          </div>
+
+          {/* Mobile 3x3 grid showing all 9 */}
+          <div className="mobile-only services-grid mobile-grid-3">
+            {serviceData.map((service) => (
               <div
                 key={service.name}
                 className="icon-item clickable"

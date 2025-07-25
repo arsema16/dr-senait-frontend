@@ -223,12 +223,12 @@ const Navbar = () => {
           <div style={navLinkStyle} onClick={() => navigate('/')}>Home</div>
           <div style={navLinkStyle} onClick={() => navigate('/services')}>Services</div>
           <div style={navLinkStyle} onClick={() => navigate('/contact')}>Contact Us</div>
-                    <div style={navLinkStyle} onClick={() => navigate('/about-us')}>About Us</div>
+          <div style={navLinkStyle} onClick={() => navigate('/about-us')}>About Us</div>
           <div style={navLinkStyle} onClick={() => navigate('/Appointment')}>Book Appointment</div>
           <div style={navLinkStyle} onClick={() => navigate('/team')}>Our Team</div>
           <div style={navLinkStyle} onClick={() => navigate('/faq')}>FAQs</div>
           <div style={navLinkStyle} onClick={() => navigate('/blog')}>Blog/News</div>
-              <div style={navLinkStyle} onClick={() => navigate('/gallery')}>Gallery</div>
+           <div style={navLinkStyle} onClick={() => navigate('/gallery')}>Gallery</div>
 
         </div>
       )}

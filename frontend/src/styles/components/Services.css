@@ -196,15 +196,34 @@ button.learn-more {
     opacity: 1;
   }
 }
+.desktop-only {
+  display: flex;
+}
+
+.mobile-only {
+  display: none;
+}
+
 @media (max-width: 768px) {
   .services-row {
     flex-direction: column;
     align-items: center;
   }
-
+   .desktop-only {
+    display: none !important;
+  }
+  .mobile-only {
+    display: grid;
+  }
+.services-grid.mobile-grid-3 {
+     grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 1rem;
+  }
   .services-top-icons {
-    flex-wrap: wrap;
-    justify-content: center;
+    
+        display: none; /* Hide top row on mobile */
+
   }
 
   .services-text {
@@ -213,5 +232,17 @@ button.learn-more {
 
   .learn-more {
     margin: 0 auto;
+  }
+  .services-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.2rem;
+  }
+
+  /* ✅ Also wrap top icons into 3-per-line */
+  .services-top-icons {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.2rem;
+    max-width: 100%;
   }
 }
