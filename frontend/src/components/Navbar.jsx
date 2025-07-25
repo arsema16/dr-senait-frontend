@@ -63,11 +63,17 @@ const Navbar = () => {
         {/* Logo */}
         <div style={{ position: 'absolute', left: '0rem', top: '50%', transform: 'translateY(-50%)' }}>
           <img
-            src="/images/Logo-02.png"
-            alt="logo"
-            style={{ height: '150px', width: '100%', cursor: 'pointer' }}
-            onClick={() => navigate('/')}
-          />
+  src="/images/Logo-02.png"
+  alt="logo"
+  style={{
+    height: isMobile ? '80px' : '150px',
+    width: '100%',
+    maxWidth: isMobile ? '160px' : 'none',
+    cursor: 'pointer',
+  }}
+  onClick={() => navigate('/')}
+/>
+
         </div>
 
         {/* Desktop Nav */}
