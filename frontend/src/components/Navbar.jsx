@@ -228,6 +228,8 @@ const Navbar = () => {
           <div style={navLinkStyle} onClick={() => navigate('/team')}>Our Team</div>
           <div style={navLinkStyle} onClick={() => navigate('/faq')}>FAQs</div>
           <div style={navLinkStyle} onClick={() => navigate('/blog')}>Blog/News</div>
+              <div style={navLinkStyle} onClick={() => navigate('/gallery')}>Gallery</div>
+
         </div>
       )}
     </nav>
