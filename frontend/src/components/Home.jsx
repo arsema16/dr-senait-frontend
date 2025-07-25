@@ -154,7 +154,7 @@ const Home = () => {
     justifyContent: 'center',
     minWidth: '300px',
     paddingTop: '0',     
-    marginTop: '0',      
+    marginTop: '3rem',      
   }}>
               <h1
   style={{
