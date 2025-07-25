@@ -73,7 +73,7 @@ const Home = () => {
     justifyContent: 'center',
     minWidth: '300px',
     paddingTop: '0',     // ensure no extra top padding
-    marginTop: '0',      // ensure no extra top margin
+    marginTop: '3rem',      // ensure no extra top margin
   }}>
               <h1
   style={{
