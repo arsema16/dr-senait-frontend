@@ -197,6 +197,15 @@ body {
 
 /* Responsive */
 @media (max-width: 768px) {
+  .slide {
+    flex-direction: column;
+    padding: 1rem;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: auto;
+    min-height: 100vh;
+  }
   .hero-section {
     flex-direction: column;
     text-align: center;
@@ -216,12 +225,22 @@ body {
 
   .hero-buttons {
     flex-direction: column;
-    align-items: center; /* ✅ center buttons */
-  }
+    align-items: center; 
+        margin-top: 1rem;
 
+  }
+.hero-button {
+    justify-content: center;
+  }
   .hero-line-black,
   .hero-line-green {
     font-size: 2.2rem !important;
+  }
+  .slide img {
+    width: 90%;
+    max-width: 300px;
+    height: auto;
+    margin-top: 2rem;
   }
 }
 

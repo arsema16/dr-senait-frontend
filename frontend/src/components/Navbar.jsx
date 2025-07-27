@@ -66,7 +66,7 @@ const Navbar = () => {
   src="/images/Logo-02.png"
   alt="logo"
   style={{
-    height: isMobile ? '80px' : '150px',
+    height: isMobile ? '100px' : '150px',
     width: '100%',
     maxWidth: isMobile ? '160px' : 'none',
     cursor: 'pointer',
