@@ -197,50 +197,48 @@ body {
 
 /* Responsive */
 @media (max-width: 768px) {
-  .slide {
-    flex-direction: column;
-    padding: 1rem;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    height: auto;
-    min-height: 100vh;
-  }
   .hero-section {
-    flex-direction: column;
+    flex-direction: column !important;
+    padding: 2rem 1rem 1rem !important;
     text-align: center;
-    align-items: center; /* ✅ add this */
-    justify-content: center; /* ✅ add this */
+    align-items: center !important;
+    justify-content: flex-start !important;
   }
 
-  .hero-left,
-  .hero-right {
-    padding: 1rem;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* ✅ center children */
-    justify-content: center;
+  .hero-section > div:first-child {
+    margin-top: 5rem !important; /* ✅ pushes text down */
   }
 
   .hero-buttons {
-    flex-direction: column;
-    align-items: center; 
-        margin-top: 1rem;
+    flex-direction: column !important;
+    align-items: center !important;
+    width: 100%;
+    gap: 1rem;
+    margin-top: 1.5rem;
+  }
 
+  .hero-button {
+    width: 100% !important;
+    max-width: 300px;
   }
-.hero-button {
-    justify-content: center;
+
+  .slide img {
+    margin-top: 1.5rem !important;
+    width: 100% !important;
+    max-width: 380px !important; /* ✅ larger image */
+    height: auto !important;
+    object-fit: contain !important;
   }
+
   .hero-line-black,
   .hero-line-green {
-    font-size: 2.2rem !important;
+    font-size: 2.1rem !important;
   }
-  .slide img {
-    width: 90%;
-    max-width: 300px;
-    height: auto;
-    margin-top: 2rem;
+
+  .hero-section > div:last-child {
+    align-items: center !important;
+    justify-content: center !important;
+    margin-top: 1rem !important;
+    height: auto !important;
   }
 }
-
