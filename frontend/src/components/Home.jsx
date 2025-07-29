@@ -12,15 +12,7 @@ import womanSmiling from '../assets/images/women-smiling.png';
 
 const Home = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
-  const [imageClass, setImageClass] = useState('image-enter');
-
-  useEffect(() => {
-    setImageClass('image-exit');
-    const timeout = setTimeout(() => {
-      setImageClass('image-enter');
-    }, 300);
-    return () => clearTimeout(timeout);
-  }, [currentSlide]);
+  const [openHours, setOpenHours] = useState([]);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -29,187 +21,165 @@ const Home = () => {
     return () => clearInterval(interval);
   }, []);
 
-  const slides = [
-    {
-      bg: '/images/slide1-bg.jpg',
-      titleLines: ['YOUR JOURNEY TO', 'A PERFECT SMILE', 'STARTS HERE.'],
-      description:
-        'Experience world-class dental care with our team of expert professionals. Your comfort and smile are our top priorities.',
-      image: womanSmiling,
-    },
-    {
-      bg: '/images/slide2-bg.jpg',
-      titleLines: ['International Expertise', 'Led by Dr. Senait Habte.'],
-      description:
-        'A USA.-trained dentist with a Doctor of Dental Medicine from Tufts University and a Bachelor of Science from PURDUE University.',
-      image: '/images/dr-senait.png',
-    },
-    {
-      bg: '/images/slide1-bg.jpg',
-      titleLines: ['PAIN & DISCOMFORT?', 'SAME-DAY EMERGENCY', 'APPOINTMENTS AVAILABLE!'],
-      description: '',
-      image: '/images/Question mark.png',
-    },
-  ];
+  useEffect(() => {
+    const fetchOpenHours = async () => {
+      try {
+        const res = await fetch('https://dr-senait-backend.onrender.com/api/open-hours');
+        const data = await res.json();
+        setOpenHours(data);
+      } catch (err) {
+        console.error('Failed to fetch open hours:', err);
+      }
+    };
+    fetchOpenHours();
+  }, []);
+const slides = [
+  {
+    bg: '/images/slide1-bg.jpg',
+    titleLines: ['YOUR JOURNEY TO', 'A PERFECT SMILE', 'STARTS HERE.'],
+    description: 'Experience world-class dental care with our team of expert professionals. Your comfort and smile are our top priorities.',
+    image: womanSmiling,
+    imageStyle: { objectFit: 'cover' }
+  },
+  {
+    bg: '/images/slide2-bg.jpg',
+    titleLines: ['International Expertise', 'Led by Dr. Senait Habte.'],
+    description: 'A USA.-trained dentist with a Doctor of Dental Medicine from Tufts University and a Bachelor of Science from PURDUE University.',
+    image: '/images/dr-senait.png',
+    imageStyle: { objectFit: 'cover', objectPosition: 'top', width: '70%' }
+  },
+  {
+    bg: '/images/slide1-bg.jpg',
+    titleLines: ['PAIN & DISCOMFORT?', 'SAME-DAY EMERGENCY', 'APPOINTMENTS AVAILABLE!'],
+    description: '',
+    image: '/images/Question mark.png',
+    imageStyle: { objectFit: 'cover', objectPosition: 'top', width: '90%' }
+  },
+];
+
+  const formatOpenHours = () => {
+  if (!openHours.length) return 'Loading...';
+
+  return openHours.map(hour => {
+    const { day, open, close } = hour;
+    if (open.toLowerCase() === 'closed') {
+      return `${day}: Closed`;
+    }
+    return `${day}: ${open} – ${close}`;
+  }).join(' | ');
+};
+
+
+  const openHoursText = formatOpenHours();
 
   return (
-    <div style={{ overflow: 'hidden' }}>
-      <div
-        style={{
-          display: 'flex',
-          height: '100vh',
-          width: '100%',
-          position: 'relative',
-          overflow: 'hidden',
-          backgroundColor: '#000',
-        }}
-      >
-        {/* Left Text Section */}
-        <div
-          style={{
-            flexBasis: '60%',
-            padding: '60px 80px',
-            color: 'white',
-            display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'center',
-            position: 'relative',
-            zIndex: 2,
-            userSelect: 'none',
-            textTransform: 'uppercase',
-          }}
-        >
-          {slides[currentSlide].titleLines.map((line, i) => (
-            <h1
-              key={i}
-              style={{
-                margin: 0,
-                fontSize: i === 0 ? '2.4rem' : '3.5rem',
-                fontWeight: 900,
-                color: i === 0 ? '#fff' : '#00c8c0',
-                lineHeight: 1.1,
-                filter: 'drop-shadow(0 0 5px rgba(0, 200, 192, 0.8))',
-                letterSpacing: '2px',
-                userSelect: 'none',
-              }}
-            >
-              {line}
-            </h1>
+    <div>
+      {/* Hero/Slider */}
+      <div className="slider-container">
+    <div className="slider">
+  {slides.map((slide, index) => (
+    <div
+      key={index}
+      className={`slide hero-section ${index === currentSlide ? 'active' : ''}`}
+      style={{
+        backgroundImage: `url('${slide.bg}')`,
+        backgroundSize: 'cover',
+        backgroundRepeat: 'no-repeat',
+        backgroundPosition: 'center',
+        display: 'flex',
+        alignItems: 'stretch',
+        justifyContent: 'space-between',
+        padding: '60px 80px',
+        height: '100vh',
+        boxSizing: 'border-box',
+        position: 'relative',
+      }}
+    >
+      <div style={{
+        flex: 1,
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        minWidth: '300px',
+        marginTop: '3rem',
+        zIndex: 2,
+      }}>
+        <h1 style={{
+          fontSize: '3.2rem',
+          lineHeight: 1.1,
+          fontFamily: '"Anton", sans-serif',
+          fontWeight: 600,
+          letterSpacing: '1px',
+          marginTop: 0,
+          marginBottom: '0.5rem'
+        }}>
+          {slide.titleLines.map((line, i) => (
+            <span key={i} className={i === 0 ? 'hero-line-black' : 'hero-line-green'}>
+              {line}<br />
+            </span>
           ))}
-          {slides[currentSlide].description && (
-            <p
-              style={{
-                marginTop: '1rem',
-                fontSize: '1.1rem',
-                fontWeight: 300,
-                maxWidth: '90%',
-                lineHeight: 1.5,
-                color: 'rgba(255,255,255,0.85)',
-                fontStyle: 'italic',
-              }}
-            >
-              {slides[currentSlide].description}
-            </p>
-          )}
-          <div style={{ marginTop: '2rem', display: 'flex', gap: '1.5rem' }}>
-            <button
-              style={{
-                backgroundColor: '#00c8c0',
-                border: 'none',
-                color: '#fff',
-                padding: '0.8rem 1.6rem',
-                fontSize: '1rem',
-                fontWeight: 600,
-                borderRadius: '30px',
-                boxShadow: '0 4px 12px rgba(0, 200, 192, 0.6)',
-                cursor: 'pointer',
-                transition: 'background-color 0.3s ease',
-              }}
-              onMouseEnter={e => (e.currentTarget.style.backgroundColor = '#00a89e')}
-              onMouseLeave={e => (e.currentTarget.style.backgroundColor = '#00c8c0')}
-            >
-              call
-            </button>
+        </h1>
 
-            <button
-              style={{
-                background: 'rgba(255, 255, 255, 0.12)',
-                border: '1px solid #00c8c0',
-                color: '#00c8c0',
-                padding: '0.8rem 1.6rem',
-                fontSize: '1rem',
-                borderRadius: '30px',
-                cursor: 'pointer',
-                backdropFilter: 'blur(10px)',
-                fontWeight: 600,
-                transition: 'background 0.3s ease',
-              }}
-              onMouseEnter={e => (e.currentTarget.style.background = 'rgba(255,255,255,0.3)')}
-              onMouseLeave={e => (e.currentTarget.style.background = 'rgba(255,255,255,0.12)')}
-            >
-              open hour
-            </button>
+        {slide.description && (
+          <p style={{
+            fontSize: '1.1rem',
+            margin: '0.5rem 0 1.2rem',
+            fontFamily: '"Oswald", sans-serif',
+            fontWeight: 400
+          }}>{slide.description}</p>
+        )}
+
+        <div className="hero-buttons">
+          <div className="hero-button">
+            <i className="ri-phone-line"></i>
+            <div>
+              <p className="button-title">+251 941 83 83 83 </p>
+              <p className="button-desc">For Appointment</p>
+            </div>
+          </div>
+          <div className="hero-button">
+            <i className="ri-time-line"></i>
+            <div>
+              <p className="button-title">OPEN HOURS</p>
+              <p style={cardDesc}>{formatOpenHours()}</p>
+            </div>
           </div>
         </div>
-
-        {/* Right Image Section — no container, just image and glow */}
-        <div
-          style={{
-            flex: 1,
-            position: 'relative',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            overflow: 'visible',
-            paddingRight: '4rem',
-            pointerEvents: 'none', // so glow doesn't block clicks
-          }}
-        >
-          {/* Glow/pulse behind image */}
-          <div
-            style={{
-              position: 'absolute',
-              width: 420,
-              height: 420,
-              borderRadius: '50%',
-              background:
-                'conic-gradient(from 0deg, #00ffd5, #00aaff, #ff00c3, #00ffd5)',
-              animation: 'rotateAura 12s linear infinite, pulseGlow 5s ease-in-out infinite',
-              filter: 'blur(70px)',
-              zIndex: 0,
-              top: '50%',
-              left: '50%',
-              transform: 'translate(-50%, -50%)',
-              pointerEvents: 'none',
-            }}
-          />
-
-          {/* Floating image with no wrapper */}
-          <img
-            src={slides[currentSlide].image}
-            alt="Slide visual"
-            className={imageClass}
-            style={{
-              maxWidth: 480,
-              width: '100%',
-              height: 'auto',
-              objectFit: 'contain',
-              borderRadius: '32px',
-              boxShadow:
-                '0 10px 30px rgba(0,0,0,0.3), 0 0 90px rgba(0,200,192,0.5)',
-              filter: 'brightness(1.05) saturate(1.15)',
-              transition: 'transform 0.8s ease, opacity 0.8s ease',
-              transform:
-                imageClass === 'image-enter'
-                  ? 'translateX(0) scale(1)'
-                  : 'translateX(80px) scale(0.95)',
-              opacity: imageClass === 'image-enter' ? 1 : 0,
-              position: 'relative',
-              zIndex: 1,
-            }}
-          />
-        </div>
       </div>
+
+      <div style={{
+        flex: 1,
+        height: '100%',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'flex-end',
+        zIndex: 2
+      }}>
+        <img src={slide.image} alt="slide visual" style={{
+          height: '100%',
+          width: '100%',
+          borderRadius: '20px',
+          boxShadow: '0 10px 20px rgba(0,0,0,0.2)',
+          ...slide.imageStyle
+        }} />
+      </div>
+    </div>
+  ))}
+</div>
+
+        </div>
+
+        {/* Dots */}
+        <div className="slider-dots">
+          {[0, 1, 2].map(index => (
+            <button
+              key={index}
+              className={`dot ${index === currentSlide ? 'active' : ''}`}
+              onClick={() => setCurrentSlide(index)}
+            />
+            
+          ))}
+        </div>
 
       {/* Rest of the home page components */}
       <AppointmentBanner />
@@ -220,30 +190,37 @@ const Home = () => {
       <Team />
       <FAQ showBanner={false} />
       <Testimonials />
-
-      {/* Animations keyframes */}
-      <style>{`
-        @keyframes pulseGlow {
-          0%, 100% {
-            transform: scale(1);
-            opacity: 0.65;
-          }
-          50% {
-            transform: scale(1.1);
-            opacity: 1;
-          }
-        }
-        @keyframes rotateAura {
-          0% {
-            transform: rotate(0deg);
-          }
-          100% {
-            transform: rotate(360deg);
-          }
-        }
-      `}</style>
     </div>
+    
   );
+};
+
+const infoCardStyle = {
+  display: 'flex',
+  alignItems: 'center',
+  background: '#fff',
+  padding: '6px 12px',
+  borderRadius: '8px',
+  boxShadow: '0 2px 6px rgba(0,0,0,0.08)',
+  gap: '8px',
+  width: '200px',
+};
+
+const iconStyle = {
+  fontSize: '18px',
+  color: '#00c8c0',
+};
+
+const cardTitle = {
+  fontWeight: '600',
+  fontSize: '0.9rem',
+  margin: 0,
+};
+
+const cardDesc = {
+  fontSize: '0.75rem',
+  color: '#555',
+  margin: 0,
 };
 
 export default Home;
