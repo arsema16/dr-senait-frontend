@@ -1,6 +1,6 @@
 import React from 'react';
 import '../styles/components/AdvancedCare.css';
-import clinicImage from '../assets/dental.png'; // Ensure this image exists in src/assets/
+import clinicImage from '../assets/dental.png';
 
 const AdvancedCare = () => {
   const features = [
@@ -25,16 +25,20 @@ const AdvancedCare = () => {
   return (
     <section className="advanced-care-section">
       <div className="advanced-care-container">
+        <h1 className="top-title">
+          Transforming Smiles <br />
+          <span className="highlight">with Advanced Care</span>
+        </h1>
+
         <div className="content-wrapper">
           <div className="image-container">
-            <img src={clinicImage} alt="Dental Clinic" />
+            <img
+              src={clinicImage}
+              alt="Dental Clinic"
+            />
           </div>
 
           <div className="text-content">
-            <h1>
-              Transforming Smiles <br />
-              <span className="highlight">with Advanced Care</span>
-            </h1>
             <p className="intro-text">
               With over decades of excellence in dentistry, our clinic is built on:
             </p>
@@ -43,7 +47,8 @@ const AdvancedCare = () => {
               {features.map((feature, index) => (
                 <div key={index} className="feature-item">
                   <h3>
-                    <span className="bullet">●</span> <span className="feature-title">{feature.title}</span>
+                    <span className="bullet">●</span>
+                    <span className="feature-title">{feature.title}</span>
                   </h3>
                   <p>{feature.description}</p>
                 </div>

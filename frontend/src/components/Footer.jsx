@@ -3,6 +3,20 @@ import { useNavigate } from 'react-router-dom';
 
 const Footer = () => {
   const navigate = useNavigate();
+const mobileStyles = `
+  @media (max-width: 768px) {
+    .footer-logo-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+    .footer-logo-container p {
+      max-width: 300px;
+      margin-top: 0.5rem;
+    }
+  }
+`;
 
   // Define link items with their paths for navigation
   const quickLinksLeft = [
@@ -20,6 +34,9 @@ const Footer = () => {
   ];
 
   return (
+    <>
+    <style>{mobileStyles}</style>
+
     <footer
       style={{
         backgroundImage: 'url("/images/footer-bg.png")',
@@ -42,23 +59,29 @@ const Footer = () => {
       >
         {/* Left: Logo + Info + Socials */}
         <div style={{ flex: 1, minWidth: '250px' }}>
-          <div
-            style={{
-              display: 'flex',
-              alignItems: 'center',
-              gap: '0.5rem',
-              marginBottom: '1rem',
-            }}
-          >
-            <img
-              src="/images/Logo-01.png"
-              alt="Logo"
-              style={{ width: '160px', height: 'auto', marginBottom: '0rem' }}
-            />
-          </div>
-          <p style={{ fontSize: '0.95rem', marginBottom: '1rem', marginTop: '0rem' }}>
-            Schedule your consultation today and take the first step towards your perfect smile.
-          </p>
+          <div className="footer-logo-container" style={{ flex: 1, minWidth: '250px' }}>
+  <div
+    style={{
+      display: 'flex',
+      alignItems: 'center',
+      gap: '0.5rem',
+      marginBottom: '1rem',
+    }}
+  >
+    <img
+      src="/images/Logo-01.png"
+      alt="Logo"
+      style={{ width: '160px', height: 'auto', marginBottom: '0rem' }}
+    />
+  </div>
+  <p style={{ fontSize: '0.95rem', marginBottom: '1rem', marginTop: '0rem' }}>
+    Schedule your consultation today and take the first step towards your perfect smile.
+  </p>
+  <p style={{ fontSize: '0.9rem', fontStyle: 'italic' }}>
+    Your journey to confident, healthy smiles starts here.
+  </p>
+</div>
+
           <div style={{ display: 'flex', gap: '1rem', fontSize: '1.4rem' }}>
             <a
               href="https://t.me/"
@@ -192,6 +215,7 @@ const Footer = () => {
         © 2025 Dr Senait • All Rights Reserved
       </div>
     </footer>
+    </>
   );
 };
 

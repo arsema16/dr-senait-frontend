@@ -65,6 +65,8 @@ const Gallery = () => {
               fontSize: '2.5rem',
               fontWeight: '700',
               color: '#004c4c',
+                    fontFamily: '"Federo", sans-serif',
+
             }}
           >
             Smile Transformations Gallery

@@ -33,7 +33,8 @@ const BlogArticles = () => {
 
       {/* Section Title */}
       <div style={{ textAlign: 'center', padding: '3rem 1rem 2rem' }}>
-        <h2 style={{ fontSize: '2.5rem', fontWeight: 700, color: '#333' }}>
+        <h2 style={{ fontSize: '2.5rem', fontWeight: 700, color: '#333',      fontFamily: '"Federo", sans-serif',
+ }}>
           Blog <span style={{ color: '#00a79d' }}>& Article</span>
         </h2>
       </div>

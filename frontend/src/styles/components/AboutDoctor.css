@@ -6,6 +6,8 @@
   background-size: contain;
   background-repeat: repeat;
   background-position: center;
+    font-family: 'Federo', sans-serif;
+
 }
 
 .about-section.visible {

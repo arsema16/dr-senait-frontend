@@ -16,56 +16,25 @@ const Consultation = () => {
 
   return (
     <section id="consultation" className="consultation-section">
-      {/* Banner Section */}
-      <div
-        style={{
-          backgroundImage: 'url(/images/Bg.png)',
-          backgroundSize: '80%',
-          backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat',
-          borderRadius: '1.5rem',
-          overflow: 'hidden',
-          height: '250px',
-          marginBottom: '2rem',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'flex-start',
-          paddingLeft: '20%',
-        }}
-      >
-        <div
+      {/* Heading Section (Left Aligned) */}
+      <div style={{ marginBottom: '2rem', padding: '0 1rem' }}>
+        <h2
           style={{
-            color: 'white',
+            fontFamily: "'Oswald', sans-serif",
             textAlign: 'left',
+            fontWeight: '500',
+            fontSize: '2.8rem',
+            lineHeight: '1.2',
+            maxWidth: '700px',
           }}
         >
-          <h1 className="consultation-heading">NEED A CONSULTATION</h1>
-
-
-          <button
-  className="consultation-button"
-  onClick={() => navigate('/Appointment')}
->
-  Make Appointment
-</button>
-
-        </div>
+          Is dental pain or anxiety <br />
+          <span style={{ color: '#00a79d' }}>holding you back?</span>
+        </h2>
       </div>
 
       {/* Checklist Section */}
       <div className="consultation-content">
-<h2
-  style={{
-    fontFamily: "'Oswald', sans-serif",
-    textAlign: 'center',
-    fontWeight: '500',
-    fontSize: '2.8rem',
-    justifyContent:'center',
-  }}
->
-  Is dental pain or anxiety <span style={{ color: '#00a79d' }}>holding you back?</span>
-</h2>
-
         <div className="checklist-grid">
           {checklistItems.map((item, index) => (
             <div key={index} className="checklist-item">

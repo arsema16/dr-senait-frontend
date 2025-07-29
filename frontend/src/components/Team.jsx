@@ -1,81 +1,60 @@
 import React from 'react';
-import { useLocation, useNavigate } from 'react-router-dom'; // ✅ Import navigate & location
 import '../styles/components/Team.css';
 
 const Team = () => {
-  const location = useLocation();
-  const navigate = useNavigate(); // ✅ Navigation function
-
   const teamMembers = [
-    { name: "Kebede Molla", position: "Dental Specialist", image: "/images/kebede.jpg" },
-    { name: "Aster Molla", position: "Dental Specialist", image: "/images/aster.jpg" },
-    { name: "Kebede Molla", position: "Dental Specialist", image: "/images/kebede.jpg" },
-    { name: "Aster Molla", position: "Dental Specialist", image: "/images/aster.jpg" }
+    {
+      name: "Dr. Aster Molla",
+      image: "https://www.bostondental.com/wp-content/uploads/2023/04/Boston-Dental-Aesthetics-Seaport-Downtown-Crossing-Government-Center-Home-Doctor-Kelly-Koch-2-1.jpg",
+    },
+    {
+      name: "Dr. Kebede Molla",
+      image: "https://www.bostondental.com/wp-content/uploads/2023/04/Boston-Dental-Aesthetics-Seaport-Downtown-Crossing-Government-Center-Home-Doctor-Maged-el-Malecki.jpg",
+    },
+    {
+      name: "Dr. Saba Alemu",
+      image: "https://www.bostondental.com/wp-content/uploads/2024/08/Boston-Dental-Aesthetics-Seaport-Downtown-Crossing-Government-Center-Home-Doctors-Home.jpg",
+    },
   ];
 
-  const handleLearnMore = () => {
-    navigate('/team');
-  };
-
   return (
-    <>
-      {/* ✅ Show slide1-bg image ONLY if on /team route */}
-      {location.pathname === '/team' && (
-        <div
-          style={{
-            backgroundImage: 'url("/images/slide1-bg.jpg")',
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            backgroundRepeat: 'no-repeat',
-            padding: '100px 20px 60px',
-            textAlign: 'center',
-              
-          }}
-        >
-          <h2 style={{
-            fontSize: '2.5rem',
-            fontWeight: '700',
-            color: '#004c4c'
-          }}>
-            our team
-          </h2>
+<section
+      className="doctors-section"
+      style={{
+        backgroundImage: "url('/images/tooth-pattern-bg.png')",
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+        padding: '120px 20px',
+        display: 'flex',
+        justifyContent: 'center',
+      }}
+    >   
+          <div className="doctors-container">
+        <div className="doctors-text-wrapper">
+          <div className="doctors-left-text">
+            <h5 className="doctors-subheading">BETTER TOGETHER</h5>
+            <h2 className="doctors-title">OUR DOCTORS</h2>
+            <p className="doctors-description">
+              Our doctors are defined by their strong credentials, extensive experience, and patient-centric approach.
+              Each individual brings a level of mastery in his or her respective area, united by our mission of
+              reimagining dental care as self-care.
+            </p>
+          </div>
+          <div className="doctors-link-wrapper">
+            <p className="doctors-link">MEET OUR DOCTORS →</p>
+          </div>
         </div>
-      )}
 
-      {/* ✅ Main team section */}
-      <section
-        id="team"
-        className="team-section"
-        style={{
-          backgroundImage: "url('/images/tooth-pattern-bg.png')",
-          backgroundSize: "contain",
-          backgroundRepeat: "repeat",
-        }}
-      >
-        <h1 className="team-title">Our Team</h1>
-        <p className="team-subtitle">Experienced Dentists</p>
-        <div className="team-divider"></div>
-
-        <div className="team-grid">
+        <div className="doctors-grid">
           {teamMembers.map((member, index) => (
-            <div key={index} className="team-card">
-              <div className="team-image-wrapper">
-                <img src={member.image} alt={member.name} className="team-image" />
-              </div>
-              <h2 className="team-name">{member.name}</h2>
-              <p className="team-position">{member.position}</p>
-
-              {/* ✅ Show button only when NOT on the team page */}
-              {location.pathname !== '/team' && (
-                <button className="learn-more" onClick={handleLearnMore}>
-                  Learn More
-                </button>
-              )}
+            <div key={index} className="doctor-card">
+              <img src={member.image} alt={member.name} className="doctor-image" />
             </div>
           ))}
         </div>
-      </section>
-    </>
+      </div>
+    </section>
   );
 };
 

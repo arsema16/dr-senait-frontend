@@ -59,6 +59,8 @@ const AboutDoctor = () => {
               display: 'flex',
               justifyContent: 'center',
               alignItems: 'flex-end',
+                    fontFamily: '"Federo", sans-serif',
+
             }}>
               <img src="/images/dr-senait.png" alt="dr senait" style={{
                 height: '100%',

@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import AppointmentBanner from './AppointmentBanner';
 import AboutDoctor from './AboutDoctor';
@@ -8,7 +9,7 @@ import Team from './Team';
 import FAQ from './FAQ';
 import Testimonials from './Testimonials';
 import '../styles/components/App.css';
-import womanSmiling from '../assets/images/women-smiling.png';
+import { motion } from 'framer-motion';
 
 const Home = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -33,29 +34,6 @@ const Home = () => {
     };
     fetchOpenHours();
   }, []);
-const slides = [
-  {
-    bg: '/images/slide1-bg.jpg',
-    titleLines: ['YOUR JOURNEY TO', 'A PERFECT SMILE', 'STARTS HERE.'],
-    description: 'Experience world-class dental care with our team of expert professionals. Your comfort and smile are our top priorities.',
-    image: womanSmiling,
-    imageStyle: { objectFit: 'cover' }
-  },
-  {
-    bg: '/images/slide2-bg.jpg',
-    titleLines: ['International Expertise', 'Led by Dr. Senait Habte.'],
-    description: 'A USA.-trained dentist with a Doctor of Dental Medicine from Tufts University and a Bachelor of Science from PURDUE University.',
-    image: '/images/dr-senait.png',
-    imageStyle: { objectFit: 'cover', objectPosition: 'top', width: '70%' }
-  },
-  {
-    bg: '/images/slide1-bg.jpg',
-    titleLines: ['PAIN & DISCOMFORT?', 'SAME-DAY EMERGENCY', 'APPOINTMENTS AVAILABLE!'],
-    description: '',
-    image: '/images/Question mark.png',
-    imageStyle: { objectFit: 'cover', objectPosition: 'top', width: '90%' }
-  },
-];
 
   const formatOpenHours = () => {
   if (!openHours.length) return 'Loading...';
@@ -63,9 +41,9 @@ const slides = [
   return openHours.map(hour => {
     const { day, open, close } = hour;
     if (open.toLowerCase() === 'closed') {
-      return `${day}: Closed`;
+return `${day}: Closed`;
     }
-    return `${day}: ${open} – ${close}`;
+return `${day}: ${open} – ${close}`;
   }).join(' | ');
 };
 
@@ -76,97 +54,240 @@ const slides = [
     <div>
       {/* Hero/Slider */}
       <div className="slider-container">
-    <div className="slider">
-  {slides.map((slide, index) => (
-    <div
-      key={index}
-      className={`slide hero-section ${index === currentSlide ? 'active' : ''}`}
-      style={{
-        backgroundImage: `url('${slide.bg}')`,
-        backgroundSize: 'cover',
-        backgroundRepeat: 'no-repeat',
-        backgroundPosition: 'center',
-        display: 'flex',
-        alignItems: 'stretch',
-        justifyContent: 'space-between',
-        padding: '60px 80px',
-        height: '100vh',
-        boxSizing: 'border-box',
-        position: 'relative',
-      }}
-    >
-      <div style={{
-        flex: 1,
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'center',
-        minWidth: '300px',
-        marginTop: '3rem',
-        zIndex: 2,
-      }}>
-        <h1 style={{
-          fontSize: '3.2rem',
-          lineHeight: 1.1,
-          fontFamily: '"Anton", sans-serif',
-          fontWeight: 600,
-          letterSpacing: '1px',
-          marginTop: 0,
-          marginBottom: '0.5rem'
-        }}>
-          {slide.titleLines.map((line, i) => (
-            <span key={i} className={i === 0 ? 'hero-line-black' : 'hero-line-green'}>
-              {line}<br />
-            </span>
-          ))}
-        </h1>
+        <div className="slider" style={{ transform: `translateX(-${currentSlide * 100}%)` }}
+>
+          {/* Slide 1 */}
+          <div className="slide hero-section" style={{
+            backgroundImage: "url('/images/slide1-bg.jpg')",
+            backgroundSize: 'cover',
+            backgroundRepeat: 'no-repeat',
+            backgroundPosition: 'center',
+            display: 'flex',
+            alignItems: 'stretch',
+            justifyContent: 'space-between',
+            padding: '60px 80px',
+            height: '100vh',
+            boxSizing: 'border-box',
+          }}>
+            <div style={{
+    flex: 1,
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    minWidth: '300px',
+    paddingTop: '0',     // ensure no extra top padding
+    marginTop: '3rem',   
+  fontFamily: '"Federo", sans-serif',
+  }}>
+              <motion.h1
+  initial={{ opacity: 0, y: 40 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.8 }}
+  style={{fontSize:'3rem', fontWeight:'500'}}
+>
+  <span className="hero-line-black" >YOUR JOURNEY TO</span><br />
+  <span className="hero-line-green">A PERFECT SMILE</span><br />
+  <span className="hero-line-green">STARTS HERE.</span>
+</motion.h1>
 
-        {slide.description && (
-          <p style={{
-            fontSize: '1.1rem',
-            margin: '0.5rem 0 1.2rem',
-            fontFamily: '"Oswald", sans-serif',
-            fontWeight: 400
-          }}>{slide.description}</p>
-        )}
+<p
+  style={{
+    fontSize: '1.1rem',
+    margin: '0.5rem 0 1.2rem', // ↑ Less space at the top
+  fontFamily: '"Federo", sans-serif',
+    fontWeight: 400,
+  }}
+>
+  Experience world-class dental care with our team of <br/>expert professionals. Your comfort and smile are our top priorities.
+</p>
 
-        <div className="hero-buttons">
-          <div className="hero-button">
-            <i className="ri-phone-line"></i>
-            <div>
-              <p className="button-title">+251 941 83 83 83 </p>
-              <p className="button-desc">For Appointment</p>
+              <div className="hero-buttons">
+                <div className="hero-button">
+                  <i className="ri-phone-line"></i>
+                  <div>
+                    <p className="button-title">+251 941 83 83 83 </p>
+                    <p className="button-desc">For Appointment</p>
+                  </div>
+                </div>
+                <div className="hero-button">
+                  <i className="ri-time-line"></i>
+                  <div>
+                    <p className="button-title">OPEN HOURS</p>
+                   <p style={cardDesc}>{formatOpenHours()}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div style={{
+              flex: 1,
+              height: '100%',
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'flex-end',
+            }}>
+              <img src="/images/women-smiling.png" alt="Smiling woman" style={{
+                height: '100%',
+                width: '100%',
+                objectFit: 'cover',
+              }} />
             </div>
           </div>
-          <div className="hero-button">
-            <i className="ri-time-line"></i>
-            <div>
-              <p className="button-title">OPEN HOURS</p>
-              <p style={cardDesc}>{formatOpenHours()}</p>
+
+          {/* Slide 2 */}
+          <div className="slide hero-section" style={{
+            backgroundImage: "url('/images/slide2-bg.jpg')",
+            backgroundSize: 'cover',
+            backgroundRepeat: 'no-repeat',
+            backgroundPosition: 'center',
+            display: 'flex',
+            alignItems: 'stretch',
+            justifyContent: 'space-between',
+            padding: '60px 80px',
+            height: '100vh',
+            boxSizing: 'border-box',
+            
+          }}>
+            <div style={{
+    flex: 1,
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    minWidth: '300px',
+    paddingTop: '0',     
+    marginTop: '3rem',
+      fontFamily: '"Federo", sans-serif',
+      
+  }}>
+              <motion.h1
+  initial={{ opacity: 0, y: 40 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.8 }}
+  style={{fontSize:'3rem', fontWeight:'500'}}
+>
+  <span className="hero-line-black" >International Expertise </span><br />
+  <span className="hero-line-green small">Led by Dr. Senait Habte.</span><br />
+</motion.h1>
+
+<p
+  style={{
+    fontSize: '1.1rem',
+    margin: '0.5rem 0 1.2rem',
+    fontWeight: 400,
+  }}
+>
+  A USA.-trained dentist with a Doctor of Dental Medicine from<br />
+  Tufts University and a Bachelor of Science from PURDUE University.
+</p>
+
+
+              <div className="hero-buttons">
+                <div className="hero-button">
+                  <i className="ri-phone-line"></i>
+                  <div>
+                    <p className="button-title">+251 941 83 83 83 </p>
+                    <p className="button-desc">For Appointment</p>
+                  </div>
+                </div>
+                <div className="hero-button">
+                  <i className="ri-time-line"></i>
+                  <div>
+                    <p className="button-title">OPEN HOURS</p>
+                   <p style={cardDesc}>{formatOpenHours()}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div style={{
+              flex: 1,
+              height: '100%',
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'flex-end',
+            }}>
+              <img src="/images/dr-senait.png" alt="dr senait" style={{
+                height: '100%',
+                width: '70%',
+                objectFit: 'cover',
+                objectPosition:'top',
+              }} />
             </div>
           </div>
-        </div>
-      </div>
 
-      <div style={{
-        flex: 1,
-        height: '100%',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'flex-end',
-        zIndex: 2
-      }}>
-        <img src={slide.image} alt="slide visual" style={{
-          height: '100%',
-          width: '100%',
-          borderRadius: '20px',
-          boxShadow: '0 10px 20px rgba(0,0,0,0.2)',
-          ...slide.imageStyle
-        }} />
-      </div>
-    </div>
-  ))}
-</div>
+          {/* Slide 3 */}
+          <div className="slide hero-section" style={{
+            backgroundImage: "url('/images/slide1-bg.jpg')",
+            backgroundSize: 'cover',
+            backgroundRepeat: 'no-repeat',
+            backgroundPosition: 'center',
+            display: 'flex',
+            alignItems: 'stretch',
+            justifyContent: 'space-between',
+            padding: '60px 80px',
+            height: '100vh',
+            boxSizing: 'border-box',
+          }}>
+            <div style={{
+    flex: 1,
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    minWidth: '300px',
+    paddingTop: '0',     
+    marginTop: '0', 
+      fontFamily: '"Federo", sans-serif',
+    
+  }}>
+              <motion.h1
+  initial={{ opacity: 0, y: 40 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.8 }}
+  style={{fontSize:'3rem', fontWeight:'500', marginBottom:'0rem'}}
+>
+  <span className="hero-line-black" >PAIN & DISCOMFORT?</span><br />
+  
+</motion.h1>
+<motion.h2
+  initial={{ opacity: 0, y: 40 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.8 }}
+  style={{marginTop:'0rem', fontSize:'1.5rem', fontWeight:'300'}}
+>
+<span className="hero-line-green small">SAME-DAY EMERGENCY</span><br />
+  <span className="hero-line-green small">APPOINTMENTS AVAILABLE!</span>
+  </motion.h2>
 
+              <div className="hero-buttons">
+                <div className="hero-button">
+                  <i className="ri-phone-line"></i>
+                  <div>
+                    <p className="button-title">+251 941 83 83 83 </p>
+                    <p className="button-desc">For Appointment</p>
+                  </div>
+                </div>
+                <div className="hero-button">
+                  <i className="ri-time-line"></i>
+                  <div>
+                    <p className="button-title">OPEN HOURS</p>
+                   <p style={cardDesc}>{formatOpenHours()}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div style={{
+              flex: 1,
+              height: '100%',
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'flex-end',
+            }}>
+              <img src="/images/Question mark.png" alt="Smiling woman" style={{
+                height: '100%',
+                width: '90%',
+                objectFit: 'cover',
+                objectPosition:'top'
+              }} />
+            </div>
+          </div>
         </div>
 
         {/* Dots */}
@@ -174,12 +295,13 @@ const slides = [
           {[0, 1, 2].map(index => (
             <button
               key={index}
-              className={`dot ${index === currentSlide ? 'active' : ''}`}
+className={`dot ${index === currentSlide ? 'active' : ''}`}
               onClick={() => setCurrentSlide(index)}
             />
-            
           ))}
         </div>
+      </div>
+      
 
       {/* Rest of the home page components */}
       <AppointmentBanner />
@@ -191,7 +313,6 @@ const slides = [
       <FAQ showBanner={false} />
       <Testimonials />
     </div>
-    
   );
 };
 
@@ -223,4 +344,4 @@ const cardDesc = {
   margin: 0,
 };
 
-export default Home;
+export default Home;  

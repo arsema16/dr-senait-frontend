@@ -80,7 +80,8 @@ const FAQ = ({ showBanner = true }) => {
       )}
 
       {/* FAQ Heading */}
-      <h2 style={{ fontSize: '2rem', fontWeight: 'bold', margin: '3rem 0 2rem' }}>
+      <h2 style={{ fontSize: '2rem', fontWeight: 'bold', margin: '3rem 0 2rem',      fontFamily: '"Federo", sans-serif',
+ }}>
         Frequently Asked <span style={{ color: '#00a79d' }}>Questions</span>
       </h2>
 

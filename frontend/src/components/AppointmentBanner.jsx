@@ -38,7 +38,8 @@ const AppointmentBanner = () => {
 
   return (
     <section style={{ backgroundColor: '#00a79d', padding: '3rem 1rem', color: 'white', textAlign: 'center', position: 'relative', backgroundImage: 'url("/images/booking BG.png")', backgroundRepeat: 'repeat', backgroundSize: 'cover' }}>
-      <h2 style={{ fontSize: '2rem', fontWeight: 'bold', marginBottom: '2rem', color: 'white', letterSpacing: '1px' }}>
+      <h2 style={{ fontSize: '2rem', fontWeight: 'bold', marginBottom: '2rem', color: 'white', letterSpacing: '1px' ,       fontFamily: '"Federo", sans-serif',
+}}>
         BOOK YOUR APPOINTMENT
       </h2>
 
