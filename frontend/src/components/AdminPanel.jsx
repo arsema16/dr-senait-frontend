@@ -205,7 +205,7 @@ const handleImageUpload = async (e) => {
   }
 
   return (
-    <div style={{ padding: '2rem', fontFamily: 'Segoe UI' }}>
+<div style={containerStyle}>
       <div style={{ display: 'flex', justifyContent: 'space-between' }}>
         <h1>Admin Panel</h1>
         <button onClick={handleLogout} style={logoutStyle}>Logout</button>
@@ -245,6 +245,7 @@ const handleImageUpload = async (e) => {
       <input style={inputStyle} placeholder="Service" value={newAppt.service} onChange={e => setNewAppt({ ...newAppt, service: e.target.value })} required />
       <button type="submit" style={buttonStyle}>{editingAppt ? 'Update' : 'Create'}</button>
     </form>
+<div style={tableWrapperStyle}>
 
     <table style={tableStyle}>
       <thead>
@@ -269,6 +270,7 @@ const handleImageUpload = async (e) => {
         ))}
       </tbody>
     </table>
+    </div>
   </>
 )}
 
@@ -276,6 +278,7 @@ const handleImageUpload = async (e) => {
       {activeTab === 'messages' && (
         <>
           <button onClick={() => exportExcel('messages')} style={exportBtn}>Export to Excel</button>
+          <div style={tableWrapperStyle}>
           <table style={tableStyle}>
             <thead>
               <tr><th>Name</th><th>Email</th><th>Phone</th><th>Message</th><th>Submitted</th></tr>
@@ -292,6 +295,7 @@ const handleImageUpload = async (e) => {
               ))}
             </tbody>
           </table>
+          </div>
         </>
       )}
 
@@ -365,6 +369,7 @@ const handleImageUpload = async (e) => {
   </button>
 </form>
 
+<div style={tableWrapperStyle}>
 
           <table style={tableStyle}>
             <thead>
@@ -397,6 +402,7 @@ const handleImageUpload = async (e) => {
               ))}
             </tbody>
           </table>
+          </div>
         </>
       )}
       {activeTab === 'openHours' && (
@@ -457,7 +463,8 @@ const handleImageUpload = async (e) => {
         {editingHour.day ? 'Save Changes' : 'Add Hour'}
       </button>
     </form>
-
+<div style={tableWrapperStyle}>
+</div>
     <table style={tableStyle}>
       <thead>
         <tr><th>Day</th><th>Open</th><th>Close</th><th>Actions</th></tr>
@@ -483,12 +490,72 @@ const handleImageUpload = async (e) => {
 };
 
 // Styles
-const inputStyle = { display: 'block', width: '100%', padding: '0.5rem', marginBottom: '0.5rem', borderRadius: '6px' };
-const buttonStyle = { padding: '0.5rem 1rem', backgroundColor: '#00a79d', color: '#fff', border: 'none', borderRadius: '6px', cursor: 'pointer' };
-const logoutStyle = { ...buttonStyle, backgroundColor: 'tomato' };
-const tabButtonStyle = { ...buttonStyle, backgroundColor: '#f1f1f1', color: '#000', marginRight: '1rem' };
-const loginFormStyle = { maxWidth: '400px', margin: '4rem auto', background: '#f9f9f9', padding: '2rem', borderRadius: '8px' };
-const tableStyle = { width: '100%', borderCollapse: 'collapse', marginTop: '1rem', backgroundColor: '#fff' };
-const exportBtn = { ...buttonStyle, margin: '1rem 0' };
+const containerStyle = {
+  padding: '1rem',
+  fontFamily: 'Segoe UI',
+  maxWidth: '100%',
+  boxSizing: 'border-box'
+};
+
+const inputStyle = {
+  display: 'block',
+  width: '100%',
+  maxWidth: '600px',
+  padding: '0.5rem',
+  marginBottom: '0.75rem',
+  borderRadius: '6px',
+  boxSizing: 'border-box'
+};
+
+const buttonStyle = {
+  padding: '0.5rem 1rem',
+  backgroundColor: '#00a79d',
+  color: '#fff',
+  border: 'none',
+  borderRadius: '6px',
+  cursor: 'pointer',
+  margin: '0.25rem 0'
+};
+
+const logoutStyle = {
+  ...buttonStyle,
+  backgroundColor: 'tomato'
+};
+
+const tabButtonStyle = {
+  ...buttonStyle,
+  backgroundColor: '#f1f1f1',
+  color: '#000',
+  marginRight: '0.5rem',
+  marginBottom: '0.5rem',
+  flexGrow: 1,
+  textAlign: 'center'
+};
+
+const loginFormStyle = {
+  maxWidth: '400px',
+  margin: '4rem auto',
+  background: '#f9f9f9',
+  padding: '2rem',
+  borderRadius: '8px',
+  boxSizing: 'border-box'
+};
+
+const tableWrapperStyle = {
+  overflowX: 'auto',
+  marginTop: '1rem'
+};
+
+const tableStyle = {
+  width: '100%',
+  minWidth: '600px',
+  borderCollapse: 'collapse',
+  backgroundColor: '#fff'
+};
+
+const exportBtn = {
+  ...buttonStyle,
+  margin: '1rem 0'
+};
 
 export default AdminPanel;
