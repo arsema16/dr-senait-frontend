@@ -26,7 +26,20 @@ const Appointment = () => {
   };
 
   return (
-    <div style={{ fontFamily: 'Segoe UI, sans-serif' }}>
+    <div style={{fontFamily: '"Federo", sans-serif',
+ }}>
+  <div
+          style={{
+            backgroundImage: 'url("/images/slide1-bg.jpg")',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            backgroundRepeat: 'no-repeat',
+            padding: '100px 20px 60px',
+            textAlign: 'center',
+          }}
+        >
+          </div>
+
       {/* Banner */}
       <AppointmentBanner />
 

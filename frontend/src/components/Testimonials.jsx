@@ -20,7 +20,7 @@ const Testimonials = () => {
       name: 'Hanna G.',
       review:
         'Dr. Senait and her team are amazing! I was terrified of going to the dentist, but they made me feel completely at ease. Now I love my smile!',
-      stars: 4,
+      stars: 5,
       image: '/assets/hanna.jpg',
     },
     {
@@ -36,7 +36,6 @@ const Testimonials = () => {
     dots: true,
     infinite: true,
     speed: 500,
-    fade: false,
     autoplay: true,
     autoplaySpeed: 4000,
     slidesToShow: 1,
@@ -80,199 +79,145 @@ const Testimonials = () => {
         <div
           style={{
             display: 'flex',
-            flexDirection: 'row',
-            gap: '2rem',
-            flexWrap: 'wrap',
             justifyContent: 'center',
-            alignItems: 'center',
             maxWidth: '1200px',
             margin: '0 auto',
           }}
         >
-          {/* Left: Testimonials */}
           <div
             style={{
-              flex: '1 1 300px',
-              background: '#ffffff',
+              display: 'flex',
+              width: '100%',
               borderRadius: '1.5rem',
-              padding: '2rem 1rem',
-              boxShadow: '0 4px 12px rgba(0,0,0,0.08)',
-              minWidth: '300px',
+              overflow: 'hidden',
+              boxShadow: '0 6px 16px rgba(0, 0, 0, 0.1)',
+              border: '2px solid #ccc',
+              flexWrap: 'wrap',
             }}
           >
-            <h2
+            {/* Testimonials Section */}
+            <div
               style={{
-                fontSize: '2rem',
-                fontWeight: 'bold',
-                textAlign: 'center',
-                color: '#333',
-                marginBottom: '2rem',
+                flex: '1 1 50%',
+                backgroundColor: '#ffffff',
+                display: 'flex',
+                flexDirection: 'column',
+                minWidth: '300px',
               }}
             >
-              What{' '}
-              <span style={{ color: '#00a79d' }}>Our Clients Say</span>
-            </h2>
-            <Slider {...settings}>
-              {testimonials.map((t, i) => {
-                const filledStars = Array(t.stars).fill('★');
-                const emptyStars = Array(5 - t.stars).fill('☆');
+              {/* Green Banner Header */}
+              <div
+                style={{
+                  padding: '1.5rem',
+                  textAlign: 'center',
+                }}
+              >
+                <h2
+                  style={{
+                    fontSize: '2rem',
+                    fontWeight: 'bold',
+                    color: '#000',
+                    margin: 0,
+                  }}
+                >
+                  What Our Clients Say
+                </h2>
+              </div>
 
-                return (
-                  <div key={i}>
-                    <div
-                      style={{
-                        backgroundColor: '#ffffff',
-                        borderRadius: '1.5rem',
-                        overflow: 'hidden',
-                        margin: '0 auto',
-                        paddingBottom: '1rem',
-                        maxWidth: '300px',
-                      }}
-                    >
-                      <div
-                        style={{
-                          backgroundColor: '#00a79d',
-                          color: 'white',
-                          padding: '1.5rem 1rem 3.5rem',
-                          position: 'relative',
-                          fontSize: '0.95rem',
-                          fontStyle: 'italic',
-                          borderTopLeftRadius: '1.5rem',
-                          borderTopRightRadius: '1.5rem',
-                        }}
-                      >
-                        <span
-                          style={{
-                            fontSize: '2rem',
-                            position: 'absolute',
-                            top: '10px',
-                            left: '15px',
-                          }}
-                        >
-                          &ldquo;
-                        </span>
-                        {t.review}
-                        <span
-                          style={{
-                            fontSize: '2rem',
-                            position: 'absolute',
-                            bottom: '10px',
-                            right: '15px',
-                          }}
-                        >
-                          &rdquo;
-                        </span>
-                      </div>
-
-                      <div style={{ marginTop: '-35px' }}>
-                        <img
-                          src={t.image}
-                          alt={t.name}
-                          style={{
-                            width: '70px',
-                            height: '70px',
-                            objectFit: 'cover',
-                            borderRadius: '50%',
-                            border: '3px solid white',
-                          }}
-                        />
-                      </div>
-
-                      <div style={{ padding: '1rem', textAlign: 'center' }}>
-                        <div
-                          style={{
-                            color: '#ffb400',
-                            fontSize: '1.2rem',
-                            marginBottom: '0.8rem',
-                            letterSpacing: '2px',
-                          }}
-                        >
-                          {filledStars.map((star, idx) => (
-                            <span key={'filled-' + idx}>{star}</span>
-                          ))}
-                          {emptyStars.map((star, idx) => (
-                            <span
-                              key={'empty-' + idx}
-                              style={{ color: '#ddd' }}
-                            >
-                              {star}
-                            </span>
-                          ))}
-                        </div>
-                        <div
-                          style={{
-                            fontWeight: '600',
-                            color: '#444',
-                            fontSize: '1rem',
-                          }}
-                        >
-                          {t.name}
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                );
-              })}
-            </Slider>
+              {/* Testimonial Cards */}
+              <div style={{ padding: '2rem 1.5rem', flex: '1' }}>
+              <Slider {...settings}>
+  {testimonials.map((t, i) => {
+    const filledStars = Array(t.stars).fill('★');
+    const emptyStars = Array(5 - t.stars).fill('☆');
+    return (
+      <div key={i}>
+        <div
+          style={{
+                  backgroundColor: '#08d1c3ff',
+            borderRadius: '1rem',
+            margin: '0 auto',
+            padding: '1.5rem',
+            maxWidth: '300px',
+            textAlign: 'center',
+            boxShadow: '0 2px 8px rgba(0, 0, 0, 0.08)',
+          }}
+        >
+          {/* Removed image */}
+          <p
+            style={{
+              fontStyle: 'italic',
+              marginBottom: '0.5rem',
+            }}
+          >
+            "{t.review}"
+          </p>
+          <div style={{ fontSize: '1.2rem', color: '#ffc107' }}>
+            {filledStars.concat(emptyStars).join('')}
           </div>
+          <p style={{ fontWeight: 'bold', marginTop: '0.5rem' }}>
+            {t.name}
+          </p>
+        </div>
+      </div>
+    );
+  })}
+</Slider>
+              </div>
+            </div>
 
-          {/* Right: Book Now */}
-          <div
-  onClick={() => navigate('/appointment')}
-  style={{
-    flex: '1 1 300px',
-    position: 'relative',
-    borderRadius: '1.5rem',
-    overflow: 'hidden',
-    cursor: 'pointer',
-    minWidth: '300px',
-    height: '100%',
-    boxShadow: '0 4px 12px rgba(0,0,0,0.08)',
-    transition: 'transform 0.4s ease',
-  }}
-  onMouseEnter={(e) => {
-    e.currentTarget.querySelector('img').style.transform = 'scale(1.05) translateY(-5px)';
-    e.currentTarget.querySelector('.book-text').style.transform = 'scale(1.1)';
-  }}
-  onMouseLeave={(e) => {
-    e.currentTarget.querySelector('img').style.transform = 'scale(1)';
-    e.currentTarget.querySelector('.book-text').style.transform = 'scale(1)';
-  }}
->
-  <img
-    src="/images/book now.jpg"
-    alt="Book Now"
-    style={{
-      width: '100%',
-      height: '100%',
-      objectFit: 'cover',
-      display: 'block',
-      transition: 'transform 0.4s ease',
-    }}
-  />
-  <div
-    className="book-text"
-    style={{
-      position: 'absolute',
-      top: 0,
-      left: 0,
-      width: '100%',
-      height: '100%',
-      backgroundColor: 'rgba(0, 167, 157, 0.6)',
-      display: 'flex',
-      justifyContent: 'center',
-      alignItems: 'center',
-      color: 'white',
-      fontSize: '2rem',
-      fontWeight: 'bold',
-      transition: 'transform 0.4s ease',
-      textShadow: '1px 1px 4px rgba(0,0,0,0.5)',
-    }}
-  >
-    Book Now →
-  </div>
-</div>
-
+            {/* Book Now Side */}
+            <div
+              onClick={() => navigate('/appointment')}
+              style={{
+                flex: '1 1 50%',
+                position: 'relative',
+                minWidth: '300px',
+                cursor: 'pointer',
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.querySelector('img').style.transform = 'scale(1.05)';
+                e.currentTarget.querySelector('.book-text').style.transform = 'scale(1.1)';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.querySelector('img').style.transform = 'scale(1)';
+                e.currentTarget.querySelector('.book-text').style.transform = 'scale(1)';
+              }}
+            >
+              <img
+                src="/images/book now.jpg"
+                alt="Book Now"
+                style={{
+                  width: '100%',
+                  height: '100%',
+                  objectFit: 'cover',
+                  display: 'block',
+                  transition: 'transform 0.4s ease',
+                }}
+              />
+              <div
+                className="book-text"
+                style={{
+                  position: 'absolute',
+                  top: 0,
+                  left: 0,
+                  width: '100%',
+                  height: '100%',
+                  backgroundColor: 'rgba(0, 167, 157, 0.6)',
+                  display: 'flex',
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                  color: 'white',
+                  fontSize: '2.2rem',
+                  fontWeight: 'bold',
+                  transition: 'transform 0.4s ease',
+                  textShadow: '1px 1px 4px rgba(0,0,0,0.4)',
+                }}
+              >
+                Book Now →
+              </div>
+            </div>
+          </div>
         </div>
       </section>
     </>

@@ -191,18 +191,7 @@ const Footer = () => {
             borderRadius: '12px',
           }}
         >
-          <img
-            src="/images/text logo-02.png"
-            alt="Book Appointment"
-            style={{
-              width: '180px',
-              height: '200px',
-              objectFit: 'contain',
-              userSelect: 'none',
-              marginLeft: '0rem'
-            }}
-            draggable={false}
-          />
+          
         </div>
 
         {/* Copyright */}

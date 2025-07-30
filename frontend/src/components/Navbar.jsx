@@ -234,7 +234,8 @@ const Navbar = () => {
       </div>
 
       {/* Header */}
-      <div style={{ textAlign: "center", marginBottom: "1.5rem" }}>
+      <div style={{ textAlign: "center", marginBottom: "1.5rem" ,                     fontFamily: '"Federo", sans-serif',
+}}>
         <strong style={{ fontSize: "1rem", textTransform: "uppercase", color: "#0e3e47" }}>
           LOCATIONS AND BOOKING
         </strong>
@@ -374,7 +375,8 @@ const Navbar = () => {
       </div>
 
       {/* Header */}
-      <div style={{ textAlign: "center", marginBottom: "1.5rem", flexShrink: 0 }}>
+      <div style={{ textAlign: "center", marginBottom: "1.5rem", flexShrink: 0 ,                    fontFamily: '"Federo", sans-serif',
+}}>
         <strong style={{ fontSize: "1rem", textTransform: "uppercase", color: "#0e3e47" }}>
           LOCATIONS AND BOOKING
         </strong>
@@ -467,28 +469,50 @@ const Navbar = () => {
             transition: "opacity 0.3s ease, transform 0.3s ease",
           }}
         >
-          {/* Close button & Logo */}
-          <div style={{ position: "absolute", top: "1rem", width: "100%", display: "flex", justifyContent: "space-between", padding: "0 1.5rem" }}>
-            <IoClose
-              style={{ fontSize: "2rem", color: "#fff", cursor: "pointer" }}
-              onClick={() => {
-                setIsClosing(true);
-                setTimeout(() => {
-                  setMenuOpen(false);
-                  setIsClosing(false);
-                }, 300);
-              }}
-            />
-            <img
-              src="/images/text logo-01.png"
-              alt="Logo"
-              style={{ height: "50px", cursor: "pointer" }}
-              onClick={() => {
-                navigate("/");
-                setMenuOpen(false);
-              }}
-            />
-          </div>
+          {/* Close button, Logo center & Phone icon right */}
+<div
+  style={{
+    position: "absolute",
+    top: "1rem",
+    left: 0,
+    width: "100%",
+    display: "grid",
+    gridTemplateColumns: "1fr auto 1fr",
+    alignItems: "center",
+    padding: "0 1.5rem",
+  }}
+>
+  {/* Close (left) */}
+  <IoClose
+    style={{ fontSize: "2rem", color: "#fff", cursor: "pointer", justifySelf: "start" }}
+    onClick={() => {
+      setIsClosing(true);
+      setTimeout(() => {
+        setMenuOpen(false);
+        setIsClosing(false);
+      }, 300);
+    }}
+  />
+
+  {/* Logo (center) */}
+  <img
+    src="/images/text logo-01.png"
+    alt="Logo"
+    style={{ height: "50px", cursor: "pointer", justifySelf: "center" }}
+    onClick={() => {
+      navigate("/");
+      setMenuOpen(false);
+    }}
+  />
+
+  {/* Phone icon (right) */}
+  <i
+    className="ri-phone-line"
+    style={{ fontSize: "1.8rem", color: "#2dd3c4", cursor: "pointer", justifySelf: "end" }}
+    onClick={() => setShowPhones(!showPhones)}
+  />
+</div>
+
 
           {/* Links */}
           <div
@@ -602,7 +626,7 @@ const overlayBaseStyle = {
   left: 0,
   height: "100vh",
   width: "100vw",
-  backgroundImage: "url('/images/phong.jpg')",
+  backgroundImage: "linear-gradient(to bottom, rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('/images/phong.jpg')",
   backgroundSize: "cover",
   backgroundRepeat: "no-repeat",
   backgroundPosition: "center",
@@ -610,8 +634,11 @@ const overlayBaseStyle = {
   display: "flex",
   flexDirection: "column",
   alignItems: "center",
-  paddingTop: "2rem",
-  gap: "1.5rem",
+  paddingTop: "4rem",
+  paddingBottom: "2rem",
+  gap: "2rem",
+  color: "#fff",
 };
+
 
 export default Navbar;
