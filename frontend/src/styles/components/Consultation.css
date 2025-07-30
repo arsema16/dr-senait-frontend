@@ -1,5 +1,4 @@
 .consultation-section {
-  font-family: 'Segoe UI', sans-serif;
   padding: 2rem 1rem;
   background-color:#65c9c2;
 }
@@ -29,7 +28,6 @@
 .consultation-heading {
   font-size: 3rem;
   font-weight: 900;
-  font-family: 'Anton', sans-serif;
   text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
   margin: 0;
 }
@@ -48,7 +46,6 @@
 
 /* Checklist Section */
 .consultation-subheading {
-  font-family: 'Oswald', sans-serif;
   text-align: left;
   font-weight: 500;
   font-size: 2.8rem;

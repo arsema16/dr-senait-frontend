@@ -15,17 +15,19 @@ const Consultation = () => {
   const navigate = useNavigate();
 
   return (
-    <section id="consultation" className="consultation-section">
+    <section id="consultation" className="consultation-section" style={{        backgroundImage: 'url("/images/background.jpg")',
+}}>
       {/* Heading Section (Left Aligned) */}
       <div style={{ marginBottom: '2rem', padding: '0 1rem' }}>
         <h2
           style={{
-            fontFamily: "'Oswald', sans-serif",
             textAlign: 'left',
             fontWeight: '500',
             fontSize: '2.8rem',
             lineHeight: '1.2',
             maxWidth: '700px',
+                                fontFamily: '"Federo", sans-serif',
+
           }}
         >
           Is dental pain or anxiety <br />
@@ -34,7 +36,8 @@ const Consultation = () => {
       </div>
 
       {/* Checklist Section */}
-      <div className="consultation-content">
+      <div className="consultation-content"style={{                    fontFamily: '"Federo", sans-serif',
+}}>
         <div className="checklist-grid">
           {checklistItems.map((item, index) => (
             <div key={index} className="checklist-item">

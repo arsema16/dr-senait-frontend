@@ -51,7 +51,7 @@ return `${day}: ${open} – ${close}`;
   const openHoursText = formatOpenHours();
 
   return (
-    <div>
+  <div className="app">
       {/* Hero/Slider */}
       <div className="slider-container">
         <div className="slider" style={{ transform: `translateX(-${currentSlide * 100}%)` }}
@@ -304,6 +304,7 @@ className={`dot ${index === currentSlide ? 'active' : ''}`}
       
 
       {/* Rest of the home page components */}
+      
       <AppointmentBanner />
       <AboutDoctor />
       <Services />

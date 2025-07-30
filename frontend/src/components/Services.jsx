@@ -3,24 +3,24 @@ import '../styles/components/Services.css';
 
 const serviceData = [
   {
-    name: "Preventative",
-    image: "https://www.bostondental.com/wp-content/uploads/2022/11/pic-self-1.jpg",
-    description: "What you most readily think of: routine cleanings, x-rays, fluoride treatments and night guard fittings.",
+    name: "Preventive & Pediatric Care",
+    image: "/images/pic-self-1.jpg",
+    description: "Protect your smile with routine cleanings, dental exams, x-rays, gum care, and personalized treatments for children. Prevention is the foundation of lifelong oral health.",
   },
   {
     name: "Orthodontics",
-    image: "https://www.bostondental.com/wp-content/uploads/2022/11/pic-self-2.jpg",
-    description: "Specialized treatments focused on correcting dental irregularities, including braces and Invisalign.",
+    image: "/images/pic-self-2.jpg",
+    description: "We offer customized orthodontic solutions such as braces and aligners to correct alignment issues and improve long-term oral function and aesthetics.",
   },
   {
     name: "Aesthetics",
-    image: "https://www.bostondental.com/wp-content/uploads/2022/11/pic-self-3.jpg",
-    description: "Cosmetic services to boost your confidence: whitening, veneers, Invisalign, and more.",
+    image: "/images/pic-self-3.jpg",
+    description: "From classic to modern cosmetic treatments, we help you achieve a confident smile with teeth whitening, veneers, bonding, and restorative options like crowns and bridges.",
   },
   {
-    name: "Oral Surgery",
-    image: "https://www.bostondental.com/wp-content/uploads/2022/12/Ally-Boston-Dental.gif",
-    description: "Beyond wisdom teeth—bone grafting, implants, 3D imaging, and more.",
+    name: "Oral Surgery & Implants",
+    image: "/images/Ally-Boston-Dental.jpg",
+    description: "Our advanced surgical care includes tooth extractions, root canal therapy, dental implants, bone grafting, and more — all supported by modern imaging and expert technique.",
   },
 ];
 

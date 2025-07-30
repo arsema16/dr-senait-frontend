@@ -38,7 +38,8 @@ const AdvancedCare = () => {
             />
           </div>
 
-          <div className="text-content">
+          <div className="text-content" style={{                    fontFamily: '"Federo", sans-serif',
+}}>
             <p className="intro-text">
               With over decades of excellence in dentistry, our clinic is built on:
             </p>
