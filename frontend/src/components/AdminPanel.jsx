@@ -205,13 +205,25 @@ const handleImageUpload = async (e) => {
   }
 
   return (
+    
 <div style={containerStyle}>
-      <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+  <div
+          style={{
+            backgroundImage: 'url("/images/slide1-bg.jpg")',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            backgroundRepeat: 'no-repeat',
+            padding: '100px 20px 60px',
+            textAlign: 'center',
+            display: 'flex', justifyContent: 'space-between'
+          }}
+        >
         <h1>Admin Panel</h1>
         <button onClick={handleLogout} style={logoutStyle}>Logout</button>
-      </div>
+          </div>
+      
 
-      <div style={{ margin: '1rem 0' }}>
+      <div style={{ margin: '1rem 0',   padding: '1rem', }}>
         {['appointments', 'messages', 'blogs','openHours'].map(tab => (
           <button key={tab} onClick={() => setActiveTab(tab)} style={tabButtonStyle}>
             {tab.charAt(0).toUpperCase() + tab.slice(1)}
@@ -237,7 +249,7 @@ const handleImageUpload = async (e) => {
     </select>
     <button onClick={() => exportExcel('appointments')} style={exportBtn}>Export to Excel</button>
 
-    <form onSubmit={handleApptSubmit} style={{ margin: '1rem 0' }}>
+    <form onSubmit={handleApptSubmit} style={{ margin: '1rem 0',   padding: '1rem', }}>
       <h3>{editingAppt ? 'Edit Appointment' : 'New Appointment'}</h3>
       <input style={inputStyle} placeholder="Name" value={newAppt.name} onChange={e => setNewAppt({ ...newAppt, name: e.target.value })} required />
       <input style={inputStyle} placeholder="Phone" value={newAppt.phone} onChange={e => setNewAppt({ ...newAppt, phone: e.target.value })} required />
@@ -245,7 +257,7 @@ const handleImageUpload = async (e) => {
       <input style={inputStyle} placeholder="Service" value={newAppt.service} onChange={e => setNewAppt({ ...newAppt, service: e.target.value })} required />
       <button type="submit" style={buttonStyle}>{editingAppt ? 'Update' : 'Create'}</button>
     </form>
-<div style={tableWrapperStyle}>
+<div style={{tableWrapperStyle}}>
 
     <table style={tableStyle}>
       <thead>
@@ -254,7 +266,7 @@ const handleImageUpload = async (e) => {
       <tbody>
         {filteredAppointments.map(appt => (
           <tr key={appt._id}>
-            <td>{appt.name}</td>
+            <td style={{  padding: '0rem 1rem',}}>{appt.name}</td>
             <td>{appt.phone}</td>
             <td>{appt.date}</td>
             <td>{appt.service}</td>
@@ -491,7 +503,6 @@ const handleImageUpload = async (e) => {
 
 // Styles
 const containerStyle = {
-  padding: '1rem',
   fontFamily: 'Segoe UI',
   maxWidth: '100%',
   boxSizing: 'border-box'
@@ -504,17 +515,21 @@ const inputStyle = {
   padding: '0.5rem',
   marginBottom: '0.75rem',
   borderRadius: '6px',
-  boxSizing: 'border-box'
+  boxSizing: 'border-box',
+    padding: ' 1rem',
+
 };
 
 const buttonStyle = {
-  padding: '0.5rem 1rem',
+  padding: '1rem 1rem',
   backgroundColor: '#00a79d',
   color: '#fff',
   border: 'none',
   borderRadius: '6px',
   cursor: 'pointer',
-  margin: '0.25rem 0'
+  margin: '0.25rem 0',
+    padding: '1rem',
+
 };
 
 const logoutStyle = {
@@ -529,7 +544,9 @@ const tabButtonStyle = {
   marginRight: '0.5rem',
   marginBottom: '0.5rem',
   flexGrow: 1,
-  textAlign: 'center'
+  textAlign: 'center',
+    padding: '1rem',
+
 };
 
 const loginFormStyle = {
@@ -538,24 +555,32 @@ const loginFormStyle = {
   background: '#f9f9f9',
   padding: '2rem',
   borderRadius: '8px',
-  boxSizing: 'border-box'
+  boxSizing: 'border-box',
+    padding: '1rem',
+
+  
 };
 
 const tableWrapperStyle = {
   overflowX: 'auto',
-  marginTop: '1rem'
+  marginTop: '1rem',
+    padding: '1rem',
+
 };
 
 const tableStyle = {
   width: '100%',
   minWidth: '600px',
   borderCollapse: 'collapse',
-  backgroundColor: '#fff'
+  backgroundColor: '#fff',
+    padding: '1rem',
+
 };
 
 const exportBtn = {
   ...buttonStyle,
-  margin: '1rem 0'
+  margin: '1rem 0',
+    padding: '1rem',
 };
 
 export default AdminPanel;
