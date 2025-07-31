@@ -54,8 +54,16 @@ return `${day}: ${open} – ${close}`;
   <div className="app">
       {/* Hero/Slider */}
       <div className="slider-container">
-        <div className="slider" style={{ transform: `translateX(-${currentSlide * 100}%)` }}
+        <div
+  className="slider"
+  style={{
+    display: 'flex',
+    width: '300%',           // 3 slides * 100%
+    transform: `translateX(-${currentSlide * (100 / 3)}%)`,
+    transition: 'transform 0.5s ease',
+  }}
 >
+
           {/* Slide 1 */}
           <div className="slide hero-section" style={{
             backgroundImage: "url('/images/slide1-bg.jpg')",
