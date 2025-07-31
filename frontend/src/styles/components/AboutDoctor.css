@@ -1,13 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Federo&family=Goldman:wght@700&display=swap');
+
+.about-banner {
+  /*background-image: url("/images/slide1-bg.jpg");*/
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 100px 20px 60px;
+  text-align: center;
+}
+
+.about-banner h2 {
+  font-family: 'Goldman', sans-serif;
+  font-size: 2.8rem;
+  font-weight: bold;
+  color: #01bebe;
+  letter-spacing: 1px;
+}
+
 .about-section {
+  /*background-image: url('/images/tooth-pattern-bg.png');*/
+  background-size: contain;
+  background-repeat: repeat;
+  background-position: center;
   padding: 80px 40px;
   opacity: 0;
   transform: translateY(50px);
   transition: opacity 0.8s ease, transform 0.8s ease;
-  background-size: contain;
-  background-repeat: repeat;
-  background-position: center;
-    font-family: 'Federo', sans-serif;
-
 }
 
 .about-section.visible {
@@ -17,12 +35,10 @@
 
 .about-container {
   display: flex;
-  flex-direction: row; /* <== THIS forces image left and text right */
   flex-wrap: wrap;
+  justify-content: center;
   max-width: 1200px;
   margin: 0 auto;
-  align-items: center;
-  justify-content: center;
   gap: 3rem;
 }
 
@@ -30,34 +46,23 @@
   flex: 1;
   display: flex;
   justify-content: center;
-  align-items: center;
-  padding: 0; /* Ensure there's no extra padding */
-  margin: 0; 
 }
 
 .image-wrapper {
   position: relative;
-  width: 100%;
   max-width: 350px;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  margin: 0;
-  padding: 0;
 }
 
 .image-wrapper img:first-child {
   width: 100%;
-  height: auto;
-  border-radius: 10px;
   object-fit: cover;
+  border-radius: 10px;
 }
 
 .image-badge {
   position: absolute;
-  top: 55%;
-  right: -25px; /* Adjust as needed */
-  transform: translateY(-50%);
+  bottom: -20px;
+  right: -25px;
   width: 100px;
   height: 90px;
   object-fit: contain;
@@ -66,152 +71,65 @@
 
 .about-content {
   flex: 1;
+  font-family: sans-serif;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin: 0;
-  padding: 0;
-    margin-top: -120px; /* You can increase or decrease this */
-
 }
 
 .about-content h1 {
-  font-size: 2.8rem;
-  color: #06394d;
-  margin-bottom: 20px;
-}
-
-.highlight {
-  color: #038e7d;
-  
-}
-
-.established {
-  font-size: 1.1rem;
-  line-height: 1.8;
+  font-family: 'Federo', sans-serif;
+  font-size: 2.5rem;
+  color: #000;
+  line-height: 1.4;
   margin-bottom: 30px;
 }
 
-.icon-highlights {
-  display: flex;
-  gap: 40px;
-  margin: 40px 0;
-  flex-wrap: wrap;
+.bio-text {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: #222;
+  margin-bottom: 20px;
 }
 
-.icon-highlight {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  max-width: 250px;
-}
-
-.badge-icon {
-  width: 60px;
-  height: 60px;
-}
-
-.light-text {
-  color: #40c0ae;
-  font-weight: 400;
-}
-
-.description, .mission {
+.quote {
+  margin-top: 20px;
   font-size: 1.1rem;
   line-height: 1.8;
-  margin: 20px 0;
-}
-
-.mission {
   font-style: italic;
-  color: #0a8273;
-}
-.vertical-line {
-  position: absolute;
-  left: -25px;
-  top: 485px;
-  height: 28%;
-  width: 2px;
-  background-color: #3af3e6;
-  border-radius: 2px;
-  display: block;
+  color: #00a99d;
+  border-left: 4px solid #00a99d;
+  padding-left: 15px;
 }
 
-/* === Responsive Layout for Small Screens === */
+.quote-author {
+  display: block;
+  font-style: normal;
+  color: #333;
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+/* Responsive */
 @media (max-width: 768px) {
   .about-container {
     flex-direction: column;
     text-align: center;
-    gap: 0.5rem !important; /* Reduce vertical spacing between image and text */
-    padding: 0 1rem;
-
+    gap: 2rem;
   }
 
-  .doctor-image{
-    flex-direction: column;
-    align-items: center;
-        padding: 0; /* Remove extra padding if any */
-
-  }
-  .about-content {
-        margin-top: -160px; /* You can increase or decrease this */
-        padding: 0;
-    margin-top: 0.5rem; /* Just a small space from image */
-    flex: unset;
-    width: 100%;
-    max-width: 100%;
-  }
-.vertical-line {
-    display: none;
-  }
   .image-wrapper {
     max-width: 280px;
   }
 
   .image-badge {
-    width: 90px;
-    height: 90px;
-    right: -20px;
+    width: 80px;
+    height: 80px;
+    right: -15px;
+    bottom: -15px;
   }
+
   .about-content h1 {
     font-size: 2rem;
-        margin-top: -150px; /* You can increase or decrease this */
-
   }
-
-  .icon-highlights {
-    justify-content: center;
-    
-  }
-}
-
-/* === Animation === */
-@keyframes fadeLeft {
-  from {
-    opacity: 0;
-    transform: translateX(-50px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-@keyframes fadeRight {
-  from {
-    opacity: 0;
-    transform: translateX(50px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-.fade-in-left {
-  animation: fadeLeft 1s ease forwards;
-}
-
-.fade-in-right {
-  animation: fadeRight 1s ease forwards;
 }

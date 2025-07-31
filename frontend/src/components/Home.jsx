@@ -10,6 +10,7 @@ import FAQ from './FAQ';
 import Testimonials from './Testimonials';
 import '../styles/components/App.css';
 import { motion } from 'framer-motion';
+import YourSmile from './yoursmile'; // ✅ import it
 
 const Home = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -312,10 +313,10 @@ className={`dot ${index === currentSlide ? 'active' : ''}`}
       
 
       {/* Rest of the home page components */}
-      
-      <AppointmentBanner />
+            <YourSmile />
       <AboutDoctor />
       <Services />
+            <AppointmentBanner />
       <Consultation />
       <AdvancedCare />
       <Team />

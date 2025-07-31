@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import AppointmentBanner from './AppointmentBanner';
+import { IoIosAdd, IoIosRemove } from 'react-icons/io';
 
 const FAQ = ({ showBanner = true }) => {
   const faqs = [
@@ -14,14 +15,14 @@ const FAQ = ({ showBanner = true }) => {
         "Yes, we provide emergency dental care. Contact us immediately if you're experiencing pain, swelling, or trauma to your teeth or gums.",
     },
     {
-      question: 'What cosmetic dental procedures do you offer?',
+      question: 'How often should I get a dental cleaning?',
       answer:
-        'Our cosmetic services include teeth whitening, veneers, bonding, and smile makeovers to enhance your appearance and confidence.',
+        'Dental cleanings are typically recommended every six months to maintain optimal oral hygiene and prevent cavities or gum disease.',
     },
     {
-      question: 'Is teeth whitening safe?',
+      question: 'Do you treat children or offer family dentistry?',
       answer:
-        'Yes, professional teeth whitening is safe and effective when performed under the supervision of a qualified dental provider.',
+        'Absolutely! We provide dental care for patients of all ages, making us a perfect choice for families.',
     },
     {
       question: 'What payment options do you offer?',
@@ -30,7 +31,7 @@ const FAQ = ({ showBanner = true }) => {
     },
   ];
 
-  const [activeIndex, setActiveIndex] = useState(0);
+  const [activeIndex, setActiveIndex] = useState(null);
   const [animateIn, setAnimateIn] = useState(false);
 
   useEffect(() => {
@@ -41,24 +42,22 @@ const FAQ = ({ showBanner = true }) => {
   }, []);
 
   const toggleFAQ = (index) => {
-    setActiveIndex(index === activeIndex ? null : index);
+    setActiveIndex(activeIndex === index ? null : index);
   };
 
   return (
     <section
       style={{
-        fontFamily: 'Segoe UI, sans-serif',
-        backgroundColor: '#e1f5fe',
+        fontFamily: '"Segoe UI", sans-serif',
+        backgroundColor: '#ffffff',
         paddingBottom: '4rem',
         paddingTop: '2rem',
-        marginTop: '0rem',
         textAlign: 'center',
         opacity: animateIn ? 1 : 0,
         transform: animateIn ? 'translateY(0)' : 'translateY(20px)',
         transition: 'opacity 0.6s ease, transform 0.6s ease',
       }}
     >
-      {/* Only show banner and appointment info if showBanner is true */}
       {showBanner && (
         <>
           <div style={{ width: '100%', height: '60vh', overflow: 'hidden' }}>
@@ -74,18 +73,24 @@ const FAQ = ({ showBanner = true }) => {
               }}
             />
           </div>
-
           <AppointmentBanner />
         </>
       )}
 
-      {/* FAQ Heading */}
-      <h2 style={{ fontSize: '2rem', fontWeight: 'bold', margin: '3rem 0 2rem',      fontFamily: '"Federo", sans-serif',
- }}>
-        Frequently Asked <span style={{ color: '#00a79d' }}>Questions</span>
+      <h2
+        style={{
+          fontSize: '3rem',
+          fontFamily: '"Federo", sans-serif',
+          margin: '3rem 0 2rem',
+          fontWeight: '300',
+          color:'#595858ff'
+        }}
+      >
+        FAQ<span style={{ color: '#007e7e',fontWeight: '300',          fontSize: '2.8rem',
+
+ }}>s</span>
       </h2>
 
-      {/* FAQ List */}
       <div
         style={{
           display: 'flex',
@@ -98,28 +103,39 @@ const FAQ = ({ showBanner = true }) => {
         {faqs.map((faq, index) => (
           <div
             key={index}
-            onClick={() => toggleFAQ(index)}
             style={{
-              backgroundColor: '#f4f5f7',
-              padding: '1.25rem 2rem',
-              borderRadius: '12px',
-              cursor: 'pointer',
-              textAlign: 'center',
-              opacity: animateIn ? 1 : 0,
-              transform: animateIn ? 'translateY(0)' : 'translateY(20px)',
-              transition: 'opacity 0.5s ease, transform 0.5s ease',
-              transitionDelay: `${index * 100}ms`,
+              backgroundColor: '#007e7e',
+              color: '#ffffff',
+              borderRadius: '6px',
+              overflow: 'hidden',
+              transition: 'all 0.3s ease',
             }}
           >
-            <div style={{ fontWeight: '600', fontSize: '1.05rem', color: '#333' }}>
-              {faq.question}
+            <div
+              onClick={() => toggleFAQ(index)}
+              style={{
+                padding: '1.2rem 2rem',
+                cursor: 'pointer',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'space-between',
+                fontWeight: '600',
+                fontSize: '1rem',
+              }}
+            >
+              <span>{faq.question}</span>
+              <span style={{ fontSize: '1.25rem' }}>
+                {activeIndex === index ? <IoIosRemove /> : <IoIosAdd />}
+              </span>
             </div>
             {activeIndex === index && (
               <div
                 style={{
-                  marginTop: '0.75rem',
+                  backgroundColor: '#ffffff',
+                  color: '#333',
+                  padding: '1rem 2rem',
                   fontSize: '0.95rem',
-                  color: '#555',
+                  textAlign: 'left',
                   lineHeight: '1.6',
                 }}
               >

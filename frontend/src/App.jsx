@@ -19,6 +19,7 @@ import AboutUs from './components/Aboutus';
 import BlogArticles from './components/BlogArticles';
 import Gallery from './components/Gallery';
 import BlogDetail from './components/BlogDetail'; // ✅ import it
+import YourSmile from './components/yoursmile'; // ✅ import it
 
 const DentalClinic = () => {
   return (
@@ -42,6 +43,7 @@ const DentalClinic = () => {
 <Route path="/admin" element={<AdminPanel />} />
 <Route path="/gallery" element={<Gallery />} />
 <Route path="/blog/:id" element={<BlogDetail />} />
+  <Route path="/yoursmile" element={<YourSmile />} />
 
       </Routes>
       <Footer />

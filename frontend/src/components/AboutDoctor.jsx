@@ -1,114 +1,139 @@
 import React from 'react';
 import { useInView } from 'react-intersection-observer';
-import { useLocation } from 'react-router-dom';  // Import useLocation
-import '../styles/components/AboutDoctor.css';
-import AppointmentBanner from './AppointmentBanner'; // Make sure this import is here
+import { useLocation } from 'react-router-dom';
+import AppointmentBanner from './AppointmentBanner';
 
 const AboutDoctor = () => {
-  const location = useLocation();  // Get current route
-  const [sectionRef, sectionInView] = useInView({ triggerOnce: true, threshold: 0.1 });
-  const [imgRef, imgInView] = useInView({ triggerOnce: true, threshold: 0.1 });
-  const [textRef, textInView] = useInView({ triggerOnce: true, threshold: 0.1 });
+  const location = useLocation();
+  const [sectionRef, inView] = useInView({ triggerOnce: true, threshold: 0.1 });
+const isMobile = window.innerWidth <= 768;
 
   return (
     <>
-      {/* Show banner image and AppointmentBanner ONLY if on /about-doctor page */}
       {location.pathname === '/about-doctor' && (
-        <>
-          <div
-            style={{
-              backgroundImage: 'url("/images/slide1-bg.jpg")',
-              backgroundSize: 'cover',
-              backgroundPosition: 'center',
-              backgroundRepeat: 'no-repeat',
-              padding: '100px 20px 60px',
-              textAlign: 'center',
-      
-            }}
-          >
-            <h2 style={{
-              fontSize: '2.5rem',
-              fontWeight: '700',
-              color: '#004c4c'
-            }}>
-            About Dr. Senait
-            </h2>
-          </div>
-          <AppointmentBanner />
-        </>
+        <AppointmentBanner />
       )}
 
       <section
         ref={sectionRef}
-        id="about"
-        className={`about-section ${sectionInView ? 'visible' : ''}`}
         style={{
-          backgroundImage: "url('/images/tooth-pattern-bg.png')",
-          backgroundSize: "contain",
-          backgroundRepeat: "repeat",
-          backgroundPosition: "center"
+          backgroundImage: 'url("/images/tooth-pattern-bg.png")',
+          backgroundRepeat: 'repeat',
+          backgroundSize: 'contain',
+          backgroundPosition: 'center',
+          padding: '60px 20px ',
+          transition: 'opacity 0.8s ease, transform 0.8s ease',
+          opacity: inView ? 1 : 0,
+          transform: inView ? 'translateY(0)' : 'translateY(50px)',
+                      gap: '0rem',
+
         }}
       >
-        <div className="about-container">
-          {/* Left: Image */}
-          <div ref={imgRef} className={`doctor-image ${imgInView ? 'fade-in-left' : ''}`}>
-            <div className="image-wrapper">
-<div style={{
-              flex: 1,
-              height: '100%',
-              display: 'flex',
-              justifyContent: 'center',
-              alignItems: 'flex-end',
-                    fontFamily: '"Federo", sans-serif',
+        <div
+          style={{
+            maxWidth: '1200px',
+            margin: '0 auto',
+            display: 'flex',
+                flexDirection: isMobile ? 'column' : 'row',
+            flexWrap: 'wrap',
+            justifyContent: 'center',
+            alignItems: 'flex-start',
+    gap: isMobile ? '0rem' : '0rem',
+            paddingBottom:'3px'
+          }}
+        >
+          {/* Left: Title + Doctor */}
+          <div style={{ flex: '1 1 350px',  }}>
+            <h3 style={{
+              fontFamily: 'Goldman, sans-serif',
+              fontSize: '1.2rem',
+              color: '#01bebe',
+              marginBottom: '10px',
+              marginLeft: '2rem',
+              paddingLeft: '0rem',
+              textAlign:'left',
 
             }}>
-              <img src="/images/dr-senait.png" alt="dr senait" style={{
-                height: '100%',
-                width: '110%',
-                objectFit: 'cover',
-                objectPosition:'top',
-              }} />
-            </div>              <img src="/images/badge.png" alt="Badge" className="image-badge" />
+                ABOUT DR. SENAIT
+            </h3>
+
+            <h1 style={{
+              fontFamily: 'Federo, sans-serif',
+              fontSize: '2.2rem',
+              color: '#000',
+              marginBottom: '30px',
+              lineHeight: '1.3',
+              textAlign:'left',
+              marginLeft: '2rem',
+
+
+            }}>
+              DEDICATED TO CARE,<br />DEFINED BY EXCELLENCE
+            </h1>
+
+            <div style={{ position: 'relative', display: 'inline-block',  justifyContent:'center',     marginBottom: isMobile ? '0rem' : '0px',
+                  gap:'0rem'
+
+
+ }}>
+              <img
+                src="/images/dr senait.png"
+                alt="Dr. Senait"
+                style={{
+                  width: '100%',
+                  maxWidth: '330px',
+                  borderRadius: '12px',
+    marginBottom: isMobile ? '0rem' : '0px',
+    justifyContent:'center',
+    marginLeft:'50px'
+                }}
+              />
+              <img
+                src="/images/badge.png"
+                alt="badge"
+                style={{
+                  position: 'absolute',
+                  bottom: '30px',
+                  left: '95%',
+                  transform: 'translateX(-50%)',
+                  width: '100px',
+                  height: '100px',
+                  objectFit: 'contain',
+                  marginBottom:'5px',
+                  paddingBottom:'3px',
+                  
+                }}
+              />
             </div>
           </div>
 
           {/* Right: Text */}
-          <div ref={textRef} className={`about-content ${textInView ? 'fade-in-right' : ''}`}>
-            <h1>
-              About <span className="highlight">Dr. Senait</span>
-            </h1>
-            <p className="established">
-              <strong>Established in 2016,</strong> Dr. Senait Dental Clinic provides high-quality dental care in Addis Ababa. 
-              Led by Dr. Senait Habte, a U.S.-trained dentist with a Doctor of Dental Medicine from Tufts University 
-              and a Bachelor of Science from PURDUE University, the clinic combines international standards with local expertise.
+          <div style={{ flex: '1 1 300px', fontFamily: 'sans-serif' , paddingTop: isMobile ? '1rem' : '170px',
+marginTop: '0',
+
+    marginBottom: isMobile ? '0rem' : '0px'}}>
+            <p style={{ fontSize: '1rem', lineHeight: '1.8', marginBottom: '5px', color: '#333' ,
+}}>
+              Dr. Senait Habte is the founder and lead dentist at our clinic. A proud graduate of Tufts University School of Dental Medicine—one of the world’s leading dental schools—she brings global training and high standards to the heart of Addis Ababa.
             </p>
 
-            <div className="icon-highlights">
-              <div className="icon-highlight">
-                <img src="/images/icon 2.png" alt="check" className="badge-icon" />
-                <div>
-                  <strong>Expert Team &</strong><br />
-                  <span className="light-text">Advanced Equipment</span>
-                </div>
-              </div>
-
-              <div className="icon-highlight">
-                <img src="/images/icon 2.png" alt="check" className="badge-icon" />
-                <div>
-                  <strong>15+ Years</strong><br />
-                  <span className="light-text">Experience</span>
-                </div>
-              </div>
-            </div>
-
-            <div className="vertical-line" />
-
-            <p className="description">
-              Our skilled team of dental professionals offers a full range of services from general and cosmetic dentistry 
-              to orthodontics and oral surgery using the latest technology in a comfortable, modern setting.
+            <p style={{ fontSize: '1rem', lineHeight: '1.8', marginBottom: '20px', color: '#333' }}>
+              After practicing in the U.S., she returned home in 2016 with one goal: to raise the bar for dental care in Ethiopia. Today, her clinic blends advanced technology, international expertise, and a deep commitment to patient wellbeing.
             </p>
-            <p className="mission">
-              We're committed to helping you achieve a healthy, confident smile through expert care and a patient-first approach.
+
+            <p style={{
+              fontSize: '1.1rem',
+              lineHeight: '1.8',
+              fontStyle: 'italic',
+              color: '#00a99d',
+              borderLeft: '4px solid #00a99d',
+              paddingLeft: '15px'
+            }}>
+              “We’re committed to helping you achieve a healthy, confident smile through expert care and a patient-first approach.”
+              <br />
+              <span style={{ display: 'block', fontStyle: 'normal', marginTop: '10px', color: '#222', fontWeight: 'bold' }}>
+                Dr. Senait Habte Gebrewold
+              </span>
             </p>
           </div>
         </div>
