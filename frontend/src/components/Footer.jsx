@@ -4,23 +4,45 @@ import { useNavigate } from 'react-router-dom';
 const Footer = () => {
   const navigate = useNavigate();
   const mobileStyles = `
-    @media (max-width: 768px) {
-      .footer-logo-container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-      }
-      .footer-logo-container p {
-        max-width: 300px;
-        margin-top: 0.5rem;
-      }
-      .footer-bottom-image {
-        position: static !important;
-        margin-top: 2rem;
-      }
+  @media (max-width: 768px) {
+    .footer-logo-container {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      text-align: left;
     }
-  `;
+
+    .footer-logo-container p {
+      max-width: 100%;
+      margin-top: 0.5rem;
+    }
+
+    .footer-bottom-image {
+      position: static !important;
+      margin-top: 2rem;
+      align-self: flex-start;
+    }
+
+    footer {
+      text-align: left !important;
+    }
+
+    footer > div {
+      align-items: flex-start !important;
+    }
+
+    .quick-links-container {
+      flex-direction: column !important;
+      gap: 1rem !important;
+      align-items: flex-start !important;
+    }
+
+    .quick-links-column {
+      width: 100%;
+    }
+  }
+`;
+
 
   const quickLinksLeft = [
     { label: 'Home', path: '/' },
@@ -99,7 +121,7 @@ const Footer = () => {
           </div>
 
           {/* Middle: Quick Links */}
-          <div style={{ flex: 1, minWidth: '220px', alignItems: 'center', marginLeft: '60px' }}>
+          <div style={{ flex: 1, minWidth: '220px', alignItems: 'flex-start', marginLeft: '6px' }}>
             <h4 style={{ fontWeight: 'bold', marginBottom: '1rem' }}>Quick Link</h4>
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1.5rem' }}>
               <div>
