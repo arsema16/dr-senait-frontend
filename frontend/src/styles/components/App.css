@@ -243,6 +243,14 @@ img {
 
 /* Responsive */
 @media (max-width: 768px) {
+  .slider-container {
+    height: 125vh !important; /* ✅ Reduce slide height */
+  }
+  .slide {
+    flex-direction: column;
+    height: 125vh !important;
+    padding: 1.5rem 1rem !important;
+  }
   .hero-section {
     flex-direction: column !important;
     padding: 2rem 1rem 1rem !important;

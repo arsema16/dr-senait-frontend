@@ -85,7 +85,7 @@ return `${day}: ${open} – ${close}`;
     justifyContent: 'center',
     minWidth: '300px',
     paddingTop: '0',     // ensure no extra top padding
-    marginTop: '3rem',   
+    marginTop: '1rem',   
   fontFamily: '"Federo", sans-serif',
   }}>
               <motion.h1
@@ -224,7 +224,7 @@ return `${day}: ${open} – ${close}`;
 
           {/* Slide 3 */}
           <div className="slide hero-section" style={{
-            backgroundImage: "url('/images/slide1-bg.jpg')",
+            backgroundImage: "url('/images/slide3-bg.jpg')",
             backgroundSize: 'cover',
             backgroundRepeat: 'no-repeat',
             backgroundPosition: 'center',
