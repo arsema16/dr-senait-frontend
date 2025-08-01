@@ -67,7 +67,7 @@ const SmileCanvas = () => {
             lineHeight: '1.8',
             maxWidth: '700px',
             margin: '0 auto',
-            textAlign: 'left',
+            textAlign: 'center',
           }}
         >
           At Dr. Senait Dental Clinic, we see dentistry not just as a medical necessity,
