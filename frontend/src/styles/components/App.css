@@ -223,6 +223,24 @@ img {
   height: auto;
   display: block;
 }
+
+.slide-image-wrapper {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.slide-image {
+  max-height: 100%;
+  max-width: 100%;
+  object-fit: contain;
+  object-position: center;
+  transition: transform 0.3s ease;
+}
+
+
 /* Responsive */
 @media (max-width: 768px) {
   .hero-section {
@@ -269,5 +287,17 @@ img {
     justify-content: center !important;
     margin-top: 1rem !important;
     height: auto !important;
+  }
+  .slide-image-wrapper {
+    height: auto;
+    margin-top: 2rem;
+  }
+
+  .slide-image {
+    width: 100%;
+    max-width: 320px;
+    height: auto;
+    object-fit: contain;
+    object-position: center top;
   }
 }

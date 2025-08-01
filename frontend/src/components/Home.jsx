@@ -127,19 +127,10 @@ return `${day}: ${open} – ${close}`;
                 </div>
               </div>
             </div>
-            <div style={{
-              flex: 1,
-              height: '100%',
-              display: 'flex',
-              justifyContent: 'center',
-              alignItems: 'flex-end',
-            }}>
-              <img src="/images/women-smiling.png" alt="Smiling woman" style={{
-                height: '100%',
-                width: '100%',
-                objectFit: 'cover',
-              }} />
-            </div>
+            <div className="slide-image-wrapper">
+  <img src="/images/women-smiling.png" alt="..." className="slide-image" />
+</div>
+
           </div>
 
           {/* Slide 2 */}
