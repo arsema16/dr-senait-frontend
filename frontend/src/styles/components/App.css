@@ -303,11 +303,11 @@ img {
 }
 @media (max-width: 380px) {
   .slider-container {
-    height: 115vh !important; /* ✅ Reduce slide height */
+    height: 120vh !important; /* ✅ Reduce slide height */
   }
   .slide {
     flex-direction: column;
-    height: 110vh !important;
+    height: 120vh !important;
     padding: 1.5rem 1rem !important;
   }
 
