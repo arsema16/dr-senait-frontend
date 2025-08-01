@@ -75,12 +75,12 @@ const Testimonials = () => {
       style={{
         backgroundColor: '#fff',
         fontFamily: '"Federo", sans-serif',
-        padding: '4rem 0',
+        padding: '4rem 0', 
       }}
     >
       <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 1rem' }}>
         {/* Left-aligned Header */}
-        <div style={{ textAlign: 'left', marginBottom: '2.5rem' }}>
+        <div style={{ textAlign: 'left', marginBottom: '2.5rem', }}>
           <p
             style={{
               fontFamily: 'Goldman, sans-serif',
@@ -135,7 +135,7 @@ const Testimonials = () => {
                 >
                   <div>
                     <div style={{ fontSize: '2.5rem', marginBottom: '1rem' }}>❝</div>
-                    <p style={{ fontSize: '1rem', lineHeight: '1.6' }}>{t.review}</p>
+                    <p style={{ fontSize: '1rem', lineHeight: '1.6', width:'330px', textAlign:'center', justifyContent:'center', paddingLeft:'70px' }}>{t.review}</p>
                   </div>
                   <div
                     style={{

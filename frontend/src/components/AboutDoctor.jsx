@@ -108,16 +108,16 @@ const isMobile = window.innerWidth <= 768;
           </div>
 
           {/* Right: Text */}
-          <div style={{ flex: '1 1 300px', fontFamily: 'sans-serif' , paddingTop: isMobile ? '1rem' : '170px',
+          <div style={{ flex: '1 1 300px', fontFamily: 'sans-serif' , paddingTop: isMobile ? '1rem' : '170px', width:'300px',
 marginTop: '0',
 
     marginBottom: isMobile ? '0rem' : '0px'}}>
-            <p style={{ fontSize: '1rem', lineHeight: '1.8', marginBottom: '5px', color: '#333' ,
+            <p style={{ fontSize: '1rem', lineHeight: '1.8', marginBottom: '5px', color: '#333' ,width:'300px',
 }}>
               Dr. Senait Habte is the founder and lead dentist at our clinic. A proud graduate of Tufts University School of Dental Medicine—one of the world’s leading dental schools—she brings global training and high standards to the heart of Addis Ababa.
             </p>
 
-            <p style={{ fontSize: '1rem', lineHeight: '1.8', marginBottom: '20px', color: '#333' }}>
+            <p style={{ fontSize: '1rem', lineHeight: '1.8', marginBottom: '20px', color: '#333' , width:'300px', fontWeight:'300rem'}}>
               After practicing in the U.S., she returned home in 2016 with one goal: to raise the bar for dental care in Ethiopia. Today, her clinic blends advanced technology, international expertise, and a deep commitment to patient wellbeing.
             </p>
 

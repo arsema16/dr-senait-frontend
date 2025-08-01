@@ -65,6 +65,7 @@ const SmileCanvas = () => {
             fontSize: 'clamp(0.9rem, 2.5vw, 1rem)',
             color: '#444',
             lineHeight: '1.8',
+            width:'300px',
             maxWidth: '700px',
             margin: '0 auto',
             textAlign: 'left',
