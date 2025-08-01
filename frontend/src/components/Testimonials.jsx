@@ -135,7 +135,7 @@ const Testimonials = () => {
                 >
                   <div>
                     <div style={{ fontSize: '2.5rem', marginBottom: '1rem' }}>❝</div>
-                    <p style={{ fontSize: '1rem', lineHeight: '1.6', width:'330px', textAlign:'center', justifyContent:'center', paddingLeft:'70px' }}>{t.review}</p>
+                    <p style={{ fontSize: '1rem', lineHeight: '1.6', width:'330px', textAlign:'center', justifyContent:'center', paddingLeft:'50px' }}>{t.review}</p>
                   </div>
                   <div
                     style={{
