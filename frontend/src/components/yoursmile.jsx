@@ -24,7 +24,7 @@ const SmileCanvas = () => {
           style={{
             fontFamily: 'Federo, sans-serif',
             fontSize: 'clamp(2rem, 6vw, 3rem)',
-            color: '#999',
+            color: '#302f2fff',
             marginBottom: '1rem',
             marginLeft: '0',
             textAlign: 'left',
@@ -36,8 +36,8 @@ const SmileCanvas = () => {
         {/* Line below title */}
         <div
           style={{
-            height: '2px',
-            backgroundColor: '#999',
+            height: '1px',
+            backgroundColor: '#1a1919ff',
             width: '100%',
             maxWidth: '1000px',
             marginBottom: '2rem',
@@ -47,7 +47,7 @@ const SmileCanvas = () => {
         {/* Tagline */}
         <p
           style={{
-            color: '#038e7d',
+            color: '#3b3b3bff',
             fontWeight: 'bold',
             fontSize: '0.95rem',
             textTransform: 'uppercase',
@@ -65,7 +65,6 @@ const SmileCanvas = () => {
             fontSize: 'clamp(0.9rem, 2.5vw, 1rem)',
             color: '#444',
             lineHeight: '1.8',
-            width:'300px',
             maxWidth: '700px',
             margin: '0 auto',
             textAlign: 'left',

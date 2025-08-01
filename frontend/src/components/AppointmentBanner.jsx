@@ -38,10 +38,27 @@ const AppointmentBanner = () => {
     <section
       style={{
         padding: '4rem 1rem',
-        backgroundColor: '#f0efebfe',
+    position: 'relative',
+    overflow: 'hidden',
         fontFamily: '"Federo", sans-serif',
       }}
     >
+      <div
+    style={{
+      position: 'absolute',
+      top: 0,
+      left: 0,
+      right: 0,
+      bottom: 0,
+      backgroundImage: 'url("/images/tooth-pattern-bg.png")',
+      backgroundRepeat: 'repeat',
+      backgroundSize: 'contain',
+      backgroundPosition: 'center',
+      opacity: 0.4, // 👈 Lower opacity means more faded
+      zIndex: 0,
+            pointerEvents: 'none', // ensure clicks go through
+    }}
+  />
       <div style={{ maxWidth: '1100px', margin: '0 auto' }}>
         {/* Logo with lines */}
         <div
@@ -173,6 +190,7 @@ const AppointmentBanner = () => {
           </form>
         </div>
       </div>
+      
     </section>
   );
 };
