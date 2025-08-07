@@ -164,7 +164,7 @@ const Navbar = () => {
             <div
               onClick={() => navigate("/Appointment")}
               style={{
-                backgroundColor: "#2f3c34",
+                backgroundColor: '#007779',
                 color: "#fff",
                 fontSize: "0.65rem",
                 padding: "0.4rem 0.9rem",
@@ -181,7 +181,7 @@ const Navbar = () => {
             <div ref={phoneBoxRef} style={{ position: "relative" }}>
               <i
                 className="ri-phone-line"
-                style={{ fontSize: "1.9rem", color: "#00a79d", cursor: "pointer" }}
+                style={{ fontSize: "1.9rem", color: '#007779', cursor: "pointer" }}
                 onClick={() => setShowPhones(!showPhones)}
               />
               {/* Phone Dropdown */}
@@ -286,7 +286,7 @@ const Navbar = () => {
               style={{
                 display: "block",
                 fontSize: "0.85rem",
-                color: "#00a79d",
+                color: '#007779',
                 textDecoration: "none",
                 wordBreak: "break-all",
               }}
@@ -438,7 +438,7 @@ const Navbar = () => {
               style={{
                 display: "block",
                 fontSize: "0.85rem",
-                color: "#00a79d",
+                color: '#007779',
                 textDecoration: "none",
                 wordBreak: "break-all",
               }}
@@ -508,7 +508,7 @@ const Navbar = () => {
   {/* Phone icon (right) */}
   <i
     className="ri-phone-line"
-    style={{ fontSize: "1.8rem", color: "#2dd3c4", cursor: "pointer", justifySelf: "end" }}
+    style={{ fontSize: "1.8rem", color: '#007779', cursor: "pointer", justifySelf: "end" }}
     onClick={() => setShowPhones(!showPhones)}
   />
 </div>
@@ -572,7 +572,7 @@ const Navbar = () => {
 
             {/* Book */}
             <div
-              style={{ background: "#fff", color: "#000", borderRadius: "20px", padding: "0.5rem 1.2rem", cursor: "pointer" }}
+              style={{ background: '#007779', color: "#fff", borderRadius: "20px", padding: "0.5rem 1.2rem", cursor: "pointer" }}
               onClick={() => { navigate("/Appointment"); setMenuOpen(false); }}
             >
               Book

@@ -69,9 +69,9 @@ const AppointmentBanner = () => {
             marginBottom: '2rem',
           }}
         >
-          <div style={{ flex: 1, height: '2px', backgroundColor: '#0b8284' ,         }} />
+          <div style={{ flex: 1, height: '2px', backgroundColor: '#007779' ,         }} />
           <img src="/images/logo.png" alt="Logo" style={{ height: '50px', margin: '0 1.5rem' }} />
-          <div style={{ flex: 1, height: '2px', backgroundColor: '#0b8284' ,         }} />
+          <div style={{ flex: 1, height: '2px', backgroundColor: '#007779' ,         }} />
         </div>
 
         {/* Text + Form side by side */}
@@ -86,7 +86,7 @@ const AppointmentBanner = () => {
         >
           {/* LEFT: TEXT */}
           <div style={{ flex: '1 1 45%' }}>
-            <p style={{ fontSize: '1rem', fontWeight: '700',  marginBottom: '0.75rem',gap:'2rem',     color: '#179698ff',     fontFamily: 'goldman, sans-serif',
+            <p style={{ fontSize: '1rem', fontWeight: '700',  marginBottom: '0.75rem',gap:'2rem',     color: '#007779',     fontFamily: 'goldman, sans-serif',
 
  }}>
               BOOK YOUR APPOINTMENT:
@@ -174,7 +174,7 @@ const AppointmentBanner = () => {
               <button
                 type="submit"
                 style={{
-                  backgroundColor: '#0b8284',
+                  backgroundColor: '#007779',
                   color: '#fff',
                   border: 'none',
                   padding: '0.75rem 2.5rem',
@@ -197,7 +197,7 @@ const AppointmentBanner = () => {
 
 const inputStyle = {
   padding: '0.75rem 1rem',
-  border: '1.5px solid #0b8284',
+  border: '1.8px solid #007779',
   fontSize: '1rem',
   borderRadius: '1px',
   width: '100%',

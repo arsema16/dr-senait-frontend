@@ -1,6 +1,5 @@
 .consultation-section {
   padding: 2rem 1rem;
-  background-color:#65c9c2;
 }
 
 .consultation-banner {
@@ -73,7 +72,14 @@
   height: 20px;
   margin-top: 20px;
 }
-
+.consultation-h{
+    text-align: left;
+            font-weight: 600;
+            font-size: 3.5rem;
+            line-height: 1.2;
+            max-width: 700px;
+            font-family: 'Federo', sans-serif;
+}
 /* 🔄 Responsive Styles */
 @media (max-width: 768px) {
   .consultation-banner {
@@ -106,5 +112,9 @@
 
   .checklist-grid {
     grid-template-columns: 1fr;
+  }
+  .consultation-h{
+    text-align: left;
+    font-size: 1.8rem;
   }
 }

@@ -15,23 +15,14 @@ const Consultation = () => {
   const navigate = useNavigate();
 
   return (
-    <section id="consultation" className="consultation-section" style={{        backgroundImage: 'url("/images/background.jpg")',
+    <section id="consultation" className="consultation-section" style={{        
 }}>
       {/* Heading Section (Left Aligned) */}
-      <div style={{ marginBottom: '2rem', padding: '0 1rem' }}>
+      <div className="consultation-h" style={{ marginBottom: '2rem', padding: '0 1rem' }}>
         <h2
-          style={{
-            textAlign: 'left',
-            fontWeight: '500',
-            fontSize: '2.8rem',
-            lineHeight: '1.2',
-            maxWidth: '700px',
-                                fontFamily: '"Federo", sans-serif',
-
-          }}
         >
           Is dental pain or anxiety <br />
-          <span style={{ color: '#00a79d' }}>holding you back?</span>
+          <span style={{ color: '#007779' }}>holding you back?</span>
         </h2>
       </div>
 
