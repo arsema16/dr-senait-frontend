@@ -120,7 +120,7 @@ const Navbar = () => {
         {/* Centered Logo */}
         <div style={{ position: "absolute", left: "50%", transform: "translateX(-50%)" }}>
           <img
-            src="/images/text logo-02.png"
+            src="/images/logo-blak.png"
             alt=" Dental"
             style={{ height: isMobile ? "50px" : "60px", cursor: "pointer" }}
             onClick={() => navigate("/")}
@@ -497,7 +497,7 @@ const Navbar = () => {
 
   {/* Logo (center) */}
   <img
-    src="/images/text logo-01.png"
+    src="/images/logo-white.png"
     alt="Logo"
     style={{ height: "50px", cursor: "pointer", justifySelf: "center" }}
     onClick={() => {
