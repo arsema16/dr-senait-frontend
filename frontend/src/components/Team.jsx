@@ -9,15 +9,15 @@ const Team = () => {
   const teamMembers = [
     {
       name: "Dr. Aster Molla",
-      image: "https://www.bostondental.com/wp-content/uploads/2023/04/Boston-Dental-Aesthetics-Seaport-Downtown-Crossing-Government-Center-Home-Doctor-Kelly-Koch-2-1.jpg",
+      image: "/images/logo.png",
     },
     {
       name: "Dr. Kebede Molla",
-      image: "https://www.bostondental.com/wp-content/uploads/2023/04/Boston-Dental-Aesthetics-Seaport-Downtown-Crossing-Government-Center-Home-Doctor-Maged-el-Malecki.jpg",
+      image: "/images/logo.png",
     },
     {
       name: "Dr. Saba Alemu",
-      image: "https://www.bostondental.com/wp-content/uploads/2024/08/Boston-Dental-Aesthetics-Seaport-Downtown-Crossing-Government-Center-Home-Doctors-Home.jpg",
+      image: "/images/logo.png",
     },
   ];
 
