@@ -98,7 +98,6 @@ const Footer = () => {
 
           {/* Book Appointment Button */}
           <div style={{ marginTop: '1.5rem' }}>
-            <h4 style={{ fontWeight: 'bold', marginBottom: '1rem' }}>Book Appointment</h4>
             <button
               onClick={() => navigate('/appointment')}
               style={{
