@@ -33,9 +33,9 @@ const Footer = () => {
       <div
         style={{
           display: 'flex',
-          justifyContent: 'space-between',
+          justifyContent: 'flex-start',
           flexWrap: 'wrap',
-          gap: '2rem',
+          gap: '0rem',
           maxWidth: '1200px',
         }}
       >
@@ -66,7 +66,7 @@ const Footer = () => {
 
         {/* Column 2: Nav Links + Appointment Button */}
         <div style={{ flex: 1, minWidth: '250px' }}>
-          <h4 style={{ fontWeight: 'bold', marginBottom: '1rem' }}>Quick Link</h4>
+          <h4 style={{ fontWeight: 'bold', marginBottom: '1rem',  marginTop:'1rem'}}>Quick Link</h4>
           <div style={{ display: 'flex', gap: '2rem' }}>
             <div>
               {quickLinksLeft.map((item, i) => (
