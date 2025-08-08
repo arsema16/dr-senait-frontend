@@ -45,10 +45,10 @@ const SmileCanvas = () => {
         ></div>
 
         {/* Tagline */}
-        <p
+        <h1
           style={{
             color: '#007779',
-            fontWeight: '700',
+            fontWeight: 'bold',
             fontSize: '1rem',
             textTransform: 'uppercase',
             marginBottom: '25px',
@@ -57,7 +57,7 @@ const SmileCanvas = () => {
           }}
         >
           Dr. Senait Dental Clinic is redefining dentistry
-        </p>
+        </h1>
 
         {/* Paragraph */}
         <p
