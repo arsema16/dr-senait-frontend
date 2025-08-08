@@ -68,8 +68,8 @@ const SmileCanvas = () => {
             maxWidth: '700px',
             margin: '0 auto',
             textAlign: 'center',
-            fontfamily: 'Nunito Sans, sans-serif',
-          }}
+fontFamily: "goldman, sans-serif",
+          fontWeight:'regular',          }}
         >
           At Dr. Senait Dental Clinic, we see dentistry not just as a medical necessity,
           but as an experience rooted in care, precision, and purpose. Every detail of our clinic —

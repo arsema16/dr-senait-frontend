@@ -74,7 +74,8 @@ const Navbar = () => {
           display: "flex",
           alignItems: "center",
           justifyContent: "space-between",
-          fontFamily: "Segoe UI, sans-serif",
+          fontFamily: "goldman, sans-serif",
+          fontWeight:'bold',
           boxShadow: "0 2px 8px rgba(0,0,0,0.05)",
         }}
       >
@@ -527,6 +528,8 @@ const Navbar = () => {
               fontWeight: "bold",
               fontSize: "1.2rem",
               textTransform: "uppercase",
+              fontFamily: "goldman, sans-serif",
+          fontWeight:'bold',
             }}
           >
             {/* Standard Links */}
