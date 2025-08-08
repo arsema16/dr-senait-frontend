@@ -30,17 +30,147 @@ const Footer = () => {
         fontFamily: 'Segoe UI, sans-serif',
       }}
     >
+      {/* INTERNAL CSS: mobile-only adjustments. Desktop remains unchanged. */}
+      <style>{`
+        /* default visibility helpers */
+        .desktop-only { display: block; }
+        .mobile-only { display: none; }
+.mobile-logo {
+  display: none;
+}
+        @media (max-width: 768px) {
+        
+    .mobile-logo {
+    display: block;
+    width: 200px;
+    height: auto;
+            margin-bottom: 1rem !important;
+  }
+          /* Make the main container stack vertically on mobile (only) */
+          .footer-container {
+            display: flex !important;
+            flex-direction: row !important;
+            align-items: center !important;
+            justify-content: center !important;
+            gap: 1.25rem !important;
+            max-width: 100% !important;
+            padding: 0 !important;
+                text-align: center !important;
+                flex-wrap: nowrap !important; /* allows better fit if very narrow */
+
+          }
+
+          /* Reorder: quick links first, logo/text second */
+          .col-links { order: 1 !important; width: 50% !important; }
+          .col-logo  { order: 2  !important; width: 50% !important; }
+
+          /* Quick links area: two small columns centered */
+          .links-inner {
+            display: flex !important;
+            gap: 0rem !important;
+            justify-content: left !important;
+            align-items: flex-start !important;
+            flex-wrap: nowrap !important;
+            width: 50% !important;
+            padding: 0 12px !important;
+            text-align : left;
+           margin-top: 0rem !important;
+
+          }
+          .links-inner > div {
+            display: flex !important;
+            flex-direction: column !important;
+            gap: 0.1rem !important;
+            min-width: 120px !important;
+            text-align: left !important;
+            margin-top: 0rem !important;
+
+          }
+.col-links h4{
+            display:none !important;
+
+}
+          /* Logo / title / text block centered on mobile */
+          .col-logo {
+            flex-direction: column !important;
+            align-items: left !important;
+            padding: 0 12px !important;
+          }
+          .col-logo img {
+    display: none !important;
+  }
+          .col-logo h1 {
+            font-size: 2rem !important;
+            margin-bottom: 1rem !important;
+           margin-top: 0rem !important;
+
+          }
+          .col-logo p {
+            font-size: 0.95rem !important;
+            line-height: 1.4 !important;
+            margin: 0.7rem 0 !important;
+            text-align: left !important;
+
+          }
+
+          /* Make the Book Appointment button show in the logo block on mobile,
+             and hide the desktop button there (so desktop is unchanged). */
+          .desktop-only { display: none !important; }
+          .mobile-only  { display: inline-block !important; }
+
+          .appointment-mobile {
+            background-color: white !important;
+            color: #00a79d !important;
+            border: none !important;
+            border-radius: 999px !important;
+            padding: 0.8rem 1.5rem !important;
+            font-weight: bold !important;
+            font-size: 1rem !important;
+            width: 90% !important;
+            max-width: 260px !important;
+            cursor: pointer !important;
+            margin-top: 0.6rem !important;
+          }
+
+          /* Social icons centered at the bottom on mobile */
+          .footer-social {
+            display: flex !important;
+            justify-content: center !important;
+            gap: 1.2rem !important;
+            font-size: 1.4rem !important;
+            margin-top: 1.5rem !important;
+            width: 100% !important;
+          }
+          .footer-social a {
+            color: white !important;
+            text-decoration: none !important;
+            display: inline-flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+          }
+
+          /* Copyright spacing */
+          .footer-bottom {
+            margin-top: 1.5rem !important;
+            padding-top: 1rem !important;
+          }
+        }
+      `}</style>
+
+      {/* CONTENT: keep desktop structure and inline styles exactly as you had them */}
       <div
+        className="footer-container"
         style={{
           display: 'flex',
           justifyContent: 'flex-start',
           flexWrap: 'wrap',
           gap: '0rem',
           maxWidth: '1200px',
+          margin: '0 auto',
         }}
       >
-        {/* Column 1: Logo + Description */}
-        <div style={{ flex: 1, minWidth: '250px' }}>
+        {/* Column 1: Logo + Description (kept as original; will be centered on mobile) */}
+        <div className="col-logo" style={{ flex: 1, minWidth: '250px' }}>
           <h1
             style={{
               fontFamily: '"Federo", sans-serif',
@@ -62,12 +192,29 @@ const Footer = () => {
           <p style={{ fontSize: '0.9rem', fontStyle: 'italic' }}>
             Your journey to confident, healthy smiles starts here.
           </p>
+
+          {/* Mobile-only duplicate button (hidden on desktop). This ensures button appears under logo on mobile. */}
+          <button
+            className="mobile-only appointment-mobile"
+            onClick={() => navigate('/appointment')}
+            aria-label="Book Appointment (mobile)"
+          >
+            Book Appointment
+          </button>
         </div>
 
-        {/* Column 2: Nav Links + Appointment Button */}
-        <div style={{ flex: 1, minWidth: '250px' }}>
-          <h4 style={{ fontWeight: 'bold', marginBottom: '1rem',  marginTop:'1rem'}}>Quick Link</h4>
-          <div style={{ display: 'flex', gap: '2rem' }}>
+        {/* Column 2: Nav Links + Appointment Button (kept as original; will move above on mobile) */}
+        <div className="col-links" style={{ flex: 1, minWidth: '250px' }}>
+          {/* Mobile-only logo */}
+<img
+    className="mobile-logo"
+    src="/images/Logo-01.png"
+    alt="Logo"
+  />
+
+          <h4 style={{ fontWeight: 'bold', marginBottom: '1rem', marginTop: '1rem' }}>Quick Link</h4>
+
+          <div className="links-inner" style={{ display: 'flex', gap: '2rem' }}>
             <div>
               {quickLinksLeft.map((item, i) => (
                 <div
@@ -81,6 +228,7 @@ const Footer = () => {
                 </div>
               ))}
             </div>
+
             <div>
               {quickLinksRight.map((item, i) => (
                 <div
@@ -96,9 +244,10 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Book Appointment Button */}
-          <div style={{ marginTop: '1.5rem' }}>
+          {/* Book Appointment Button (original) — visible on desktop, hidden on mobile by CSS above */}
+          <div style={{ marginTop: '1.5rem', textAlign: 'left' }}>
             <button
+              className="desktop-only"
               onClick={() => navigate('/appointment')}
               style={{
                 backgroundColor: 'white',
@@ -118,8 +267,9 @@ const Footer = () => {
         </div>
       </div>
 
-      {/* Social Icons */}
+      {/* Social Icons (original position; centered on mobile via CSS) */}
       <div
+        className="footer-social"
         style={{
           display: 'flex',
           justifyContent: 'left',
@@ -150,6 +300,7 @@ const Footer = () => {
 
       {/* Copyright */}
       <div
+        className="footer-bottom"
         style={{
           borderTop: '1px solid rgba(255,255,255,0.3)',
           marginTop: '2rem',

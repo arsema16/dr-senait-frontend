@@ -165,7 +165,7 @@ const Navbar = () => {
             <div
               onClick={() => navigate("/Appointment")}
               style={{
-                backgroundColor: '#007779',
+                backgroundColor: '#0c0d0dff',
                 color: "#fff",
                 fontSize: "0.65rem",
                 padding: "0.4rem 0.9rem",
@@ -180,11 +180,9 @@ const Navbar = () => {
 
             {/* Phone Icon Dropdown */}
             <div ref={phoneBoxRef} style={{ position: "relative" }}>
-              <i
-                className="ri-phone-line"
-                style={{ fontSize: "1.9rem", color: '#007779', cursor: "pointer" }}
-                onClick={() => setShowPhones(!showPhones)}
-              />
+              <img src="/images/noun-phone.png" alt="phone" 
+    style={{ height: "3rem",  color:'green',cursor: "pointer", justifySelf: "end" }}
+    onClick={() => setShowPhones(!showPhones)} />
               {/* Phone Dropdown */}
              {showPhones && (
   <div
@@ -315,11 +313,9 @@ const Navbar = () => {
 
             {/* Mobile Phone Dropdown */}
             <div style={{ position: "relative" }} ref={phoneBoxRef}>
-              <i
-                className="ri-phone-line"
-                style={{ fontSize: "1.9rem", color: "#0adaccff", cursor: "pointer" }}
-                onClick={() => setShowPhones(!showPhones)}
-              />
+              <img src="/images/noun-phone.png" alt="phone" 
+    style={{ height: "3rem",  color:'green',cursor: "pointer", justifySelf: "end" }}
+    onClick={() => setShowPhones(!showPhones)} />
              {showPhones && (
   <div
     style={{
@@ -507,6 +503,7 @@ const Navbar = () => {
   />
 
   {/* Phone icon (right) */}
+  
   <i
     className="ri-phone-line"
     style={{ fontSize: "1.8rem", color: '#007779', cursor: "pointer", justifySelf: "end" }}

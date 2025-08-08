@@ -11,10 +11,12 @@ import Testimonials from './Testimonials';
 import '../styles/components/App.css';
 import { motion } from 'framer-motion';
 import YourSmile from './yoursmile'; // ✅ import it
+import IntroPage from "./Intro";
 
 const Home = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [openHours, setOpenHours] = useState([]);
+  const [showIntro, setShowIntro] = useState(true);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -52,6 +54,9 @@ return `${day}: ${open} – ${close}`;
   const openHoursText = formatOpenHours();
 
   return (
+    <>
+      {showIntro && <IntroPage onFinish={() => setShowIntro(false)} />}
+      {!showIntro && (
   <div className="app">
       {/* Hero/Slider */}
       <div className="slider-container">
@@ -323,6 +328,8 @@ className={`dot ${index === currentSlide ? 'active' : ''}`}
       <FAQ showBanner={false} />
       <Testimonials />
     </div>
+    )}
+    </>
   );
 };
 

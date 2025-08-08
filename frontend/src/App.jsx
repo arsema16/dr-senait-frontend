@@ -20,12 +20,14 @@ import BlogArticles from './components/BlogArticles';
 import Gallery from './components/Gallery';
 import BlogDetail from './components/BlogDetail'; // ✅ import it
 import YourSmile from './components/yoursmile'; // ✅ import it
+import Intropage from './components/Intro'; // ✅ import it
 
 const DentalClinic = () => {
   return (
     <Router>
       <Navbar />
       <Routes>
+        <Route path="/intro" element={<Intropage />} />
         <Route path="/" element={<Home />} />
         <Route path="/services" element={<Services />} />
         <Route path="/contact" element={<Contact />} />
