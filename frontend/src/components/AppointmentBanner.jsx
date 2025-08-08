@@ -91,10 +91,10 @@ const AppointmentBanner = () => {
  }}>
               BOOK YOUR APPOINTMENT:
             </p>
-            <h2 style={{ fontSize: '3rem', lineHeight: '1.3', marginBottom: '1rem', color: '#727272ff',  }}>
+            <h2 style={{ fontSize: '3rem', lineHeight: '1.3', marginBottom: '1rem', color: '#0b0a0aff',  }}>
               WE CAN’T WAIT TO <br /> WELCOME YOU...
             </h2>
-            <p style={{ fontSize: '1rem', lineHeight: '1.6', color: '#727272ff',  }}>
+            <p style={{ fontSize: '1rem', lineHeight: '1.6', color: '#0b0a0aff',  }}>
               ...and help you smile brighter. Ready to schedule your visit?
               <br />
               Just send us your booking request and a member of our team will

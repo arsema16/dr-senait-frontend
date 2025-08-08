@@ -32,6 +32,8 @@
   color: #007779;
   margin-bottom: 0.3rem;
     font-family: 'Goldman', sans-serif;
+      margin-left: 0rem;
+
 
 }
 
@@ -40,6 +42,7 @@
   font-weight: 600;
   line-height: 1.2;
   color: #111;
+  margin-left: 0rem;
 }
 
 .service-block {

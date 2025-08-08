@@ -88,6 +88,7 @@ const Testimonials = () => {
               letterSpacing: '1px',
               fontSize: '0.9rem',
               marginBottom: '0.5rem',
+              marginLeft:'0rem'
             }}
           >
             OUR REVIEWS
@@ -100,6 +101,8 @@ const Testimonials = () => {
               letterSpacing: '1px',
               color: '#2e2e2e',
               margin: 0,
+                            marginLeft:'0rem'
+
             }}
           >
             WHAT OUR CLIENTS SAY

@@ -26,7 +26,7 @@ const SmileCanvas = () => {
             fontSize: 'clamp(2rem, 6vw, 3rem)',
             color: '#302f2fff',
             marginBottom: '1rem',
-            marginLeft: '0',
+            marginLeft: '0rem',
             textAlign: 'left',
           }}
         >

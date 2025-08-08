@@ -49,7 +49,7 @@ const isMobile = window.innerWidth <= 768;
               fontSize: '1.2rem',
               color: '#007779',
               marginBottom: '10px',
-              marginLeft: '2rem',
+              marginLeft: '0rem',
               paddingLeft: '0rem',
               textAlign:'left',
 
@@ -64,7 +64,7 @@ const isMobile = window.innerWidth <= 768;
               marginBottom: '30px',
               lineHeight: '1.3',
               textAlign:'left',
-              marginLeft: '2rem',
+              marginLeft: '0rem',
 
 
             }}>
