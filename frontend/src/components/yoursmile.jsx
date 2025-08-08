@@ -48,8 +48,8 @@ const SmileCanvas = () => {
         <p
           style={{
             color: '#007779',
-            fontWeight: 'bold',
-            fontSize: '0.95rem',
+            fontWeight: '700',
+            fontSize: '1rem',
             textTransform: 'uppercase',
             marginBottom: '25px',
             textAlign: 'center',
@@ -68,7 +68,7 @@ const SmileCanvas = () => {
             maxWidth: '700px',
             margin: '0 auto',
             textAlign: 'center',
-fontFamily: "goldman, sans-serif",
+            fontFamily: 'Goldman, sans-serif',
           fontWeight:'regular',          }}
         >
           At Dr. Senait Dental Clinic, we see dentistry not just as a medical necessity,
