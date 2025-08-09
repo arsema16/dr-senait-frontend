@@ -284,7 +284,7 @@ line-spacing: 1rem;
             padding-top: 1rem !important;
           }
         }
-          @media (max-width: 500px) {
+          @media (max-width: 400px) {
         
     .mobile-logo {
     display: block;

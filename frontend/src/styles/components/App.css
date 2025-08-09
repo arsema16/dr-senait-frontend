@@ -374,6 +374,9 @@ img {
   .pr{
   line-height:'0.5';
 }
+html, body {
+    overflow-x: hidden !important;
+  }
 }
 @media (max-width: 450px) {
    html, body {
