@@ -42,7 +42,12 @@
   color: #111;
   font-family: 'federo', serif;
   line-height: 1.2;
-  margin-top: 0; /* make sure it's touching the top border */
+  margin-top: 0;
+  text-transform: uppercase;
+    text-align: left;
+      letter-spacing: 1px;
+
+
 }
 
 .doctors-description {

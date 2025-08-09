@@ -92,7 +92,7 @@ const Navbar = () => {
               onMouseLeave={() => setHoveredMenu(null)}
             >
               <div style={{ ...navLinkStyle, display: "flex", alignItems: "center", gap: "0.3rem" }}>
-                About Us <span style={{ fontSize: "0.8rem" }}>▼</span>
+                About Us <span style={{ fontSize: "0.8rem" }}><i class="ri-arrow-drop-down-line" style={{fontSize:'1.5rem'}}></i></span>
               </div>
               {hoveredMenu === "about" && (
                 <div style={dropdownStyle}>
@@ -137,7 +137,7 @@ const Navbar = () => {
               onMouseLeave={() => setHoveredMenu(null)}
             >
               <div style={{ ...navLinkStyle, display: "flex", alignItems: "center", gap: "0.3rem" }}>
-                Pages <span style={{ fontSize: "0.8rem" }}>▼</span>
+                Pages <span style={{ fontSize: "0.8rem" }}><i class="ri-arrow-drop-down-line" style={{fontSize:'1.5rem'}}></i></span>
               </div>
               {hoveredMenu === "pages" && (
                 <div style={dropdownStyle}>
@@ -545,7 +545,9 @@ const Navbar = () => {
               style={{ cursor: "pointer" }}
               onClick={() => setAboutDropdownOpen(!aboutDropdownOpen)}
             >
-              About Us {aboutDropdownOpen ? "▲" : "▼"}
+              About Us {aboutDropdownOpen ? (<i className="ri-arrow-drop-up-line" style={{fontSize:'1.5rem'}}></i>
+) : (
+  <i className="ri-arrow-drop-down-line" style={{fontSize:'1.5rem'}}></i>)}
             </div>
             {aboutDropdownOpen && (
               <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
@@ -560,7 +562,11 @@ const Navbar = () => {
               style={{ cursor: "pointer" }}
               onClick={() => setPagesDropdownOpen(!pagesDropdownOpen)}
             >
-              Pages {pagesDropdownOpen ? "▲" : "▼"}
+Pages {pagesDropdownOpen ? (
+  <i className="ri-arrow-drop-up-line" style={{fontSize:'1.5rem'}}></i>
+) : (
+  <i className="ri-arrow-drop-down-line" style={{fontSize:'1.5rem'}}></i>
+)}
             </div>
             {pagesDropdownOpen && (
               <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>

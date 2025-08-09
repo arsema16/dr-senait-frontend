@@ -92,12 +92,13 @@ return `${day}: ${open} – ${close}`;
     paddingTop: '0',     // ensure no extra top padding
     marginTop: '1rem',   
   fontFamily: '"Federo", sans-serif',
-  }}>
-              <motion.h1
+  }}   
+>
+              <motion.h1  className="pr"
   initial={{ opacity: 0, y: 40 }}
   animate={{ opacity: 1, y: 0 }}
   transition={{ duration: 0.8 }}
-  style={{fontSize:'3rem', fontWeight:'500'}}
+   style={{fontSize:'3rem', fontWeight:'500', lineHeight:'1.2'}} 
 >
   <span className="hero-line-black" >YOUR JOURNEY TO</span><br />
   <span className="hero-line-green">A PERFECT SMILE</span><br />
@@ -110,12 +111,19 @@ return `${day}: ${open} – ${close}`;
     margin: '0.5rem 0 1.2rem', // ↑ Less space at the top
   fontFamily: '"Federo", sans-serif',
     fontWeight: 400,
+
   }}
 >
   Experience world-class dental care with our team of <br/>expert professionals. Your comfort and smile are our top priorities.
 </p>
 
-              <div className="hero-buttons">
+              <div className="hero-buttons" style={{
+                marginTop: '0rem',  
+              marginBottom: '0rem', 
+              paddingBottom:'0rem' 
+
+
+}}>
                 <div className="hero-button">
                   <i className="ri-phone-line"></i>
                   <div>
@@ -138,11 +146,15 @@ return `${day}: ${open} – ${close}`;
               display: 'flex',
               justifyContent: 'center',
               alignItems: 'flex-end',
+              marginTop: '0rem',  
+              paddingTop:'0rem' 
+
             }}>
               <img src="/images/women-smiling.png" alt="Smiling woman" style={{
                 height: '100%',
                 width: '100%',
                 objectFit: 'cover',
+                objectPosition:'top',  
               }} />
             </div>
           </div>
@@ -218,9 +230,9 @@ return `${day}: ${open} – ${close}`;
               justifyContent: 'center',
               alignItems: 'flex-end',
             }}>
-              <img src="/images/dr-senait.png" alt="dr senait" style={{
+              <img src="/images/dr senait.png" alt="dr senait" style={{
                 height: '100%',
-                width: '70%',
+                width: '100%',
                 objectFit: 'cover',
                 objectPosition:'top',
               }} />
