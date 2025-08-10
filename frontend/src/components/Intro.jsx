@@ -47,7 +47,7 @@ const IntroPage = ({ onFinish }) => {
           marginBottom: "1.5rem",
         }}
       >
-        YOUR SMILE YOUR JOURNEY
+        YOUR SMILE, OUR CANVAS
       </h1>
 
       {/* Center-to-ends expanding line */}
