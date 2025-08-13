@@ -88,6 +88,7 @@ const Testimonials = () => {
               letterSpacing: '1px',
               fontSize: '0.9rem',
               marginBottom: '0.5rem',
+              marginTop:'1rem',
               marginLeft:'0rem'
             }}
           >
