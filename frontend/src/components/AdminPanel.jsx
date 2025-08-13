@@ -207,6 +207,35 @@ const handleImageUpload = async (e) => {
   return (
     
 <div style={containerStyle}>
+      <style>{`/* Mobile adjustments */
+@media (max-width: 768px) {
+  /* Stack filters and buttons */
+  .appointments-controls {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    width: 100%;
+  }
+
+  .appointments-controls input,
+  .appointments-controls select,
+  .appointments-controls button {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  /* Table scroll area */
+  .appointments-table-wrapper {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Make table text smaller for mobile */
+  .appointments-table-wrapper table {
+    font-size: 0.9rem;
+  }
+}
+`}</style>
   <div
           style={{
             backgroundImage: 'url("/images/slide1-bg.jpg")',
@@ -234,20 +263,28 @@ const handleImageUpload = async (e) => {
       {/* Appointments Tab */}
       {activeTab === 'appointments' && (
   <>
-    <input
-      type="text"
-      placeholder="Search name, phone, or service"
-      value={searchAppointments}
-      onChange={e => setSearchAppointments(e.target.value)}
-      style={inputStyle}
-    />
-    <select value={filterService} onChange={e => setFilterService(e.target.value)} style={inputStyle}>
-      <option value="">Filter by service</option>
-      {[...new Set(appointments.map(a => a.service))].map((s, i) => (
-        <option key={i} value={s}>{s}</option>
-      ))}
-    </select>
-    <button onClick={() => exportExcel('appointments')} style={exportBtn}>Export to Excel</button>
+    <div className="appointments-controls">
+  <input
+    type="text"
+    placeholder="Search name, phone, or service"
+    value={searchAppointments}
+    onChange={e => setSearchAppointments(e.target.value)}
+    style={inputStyle}
+  />
+  <select
+    value={filterService}
+    onChange={e => setFilterService(e.target.value)}
+    style={inputStyle}
+  >
+    <option value="">Filter by service</option>
+    {[...new Set(appointments.map(a => a.service))].map((s, i) => (
+      <option key={i} value={s}>{s}</option>
+    ))}
+  </select>
+  <button onClick={() => exportExcel('appointments')} style={exportBtn}>
+    Export to Excel
+  </button>
+</div>
 
     <form onSubmit={handleApptSubmit} style={{ margin: '1rem 0',   padding: '1rem', }}>
       <h3>{editingAppt ? 'Edit Appointment' : 'New Appointment'}</h3>
@@ -259,29 +296,39 @@ const handleImageUpload = async (e) => {
     </form>
 <div style={{tableWrapperStyle}}>
 
-    <table style={tableStyle}>
-      <thead>
-        <tr><th>Name</th><th>Phone</th><th>Date</th><th>Service</th><th>Created</th><th>Actions</th></tr>
-      </thead>
-      <tbody>
-        {filteredAppointments.map(appt => (
-          <tr key={appt._id}>
-            <td style={{  padding: '0rem 1rem',}}>{appt.name}</td>
-            <td>{appt.phone}</td>
-            <td>{appt.date}</td>
-            <td>{appt.service}</td>
-            <td>{new Date(appt.createdAt).toLocaleString()}</td>
-            <td>
-              <button onClick={() => {
-                setNewAppt(appt);
-                setEditingAppt(appt);
-              }} style={{ marginRight: '8px' }}>✏️</button>
-              <button onClick={() => handleApptDelete(appt._id)}>🗑</button>
-            </td>
-          </tr>
-        ))}
-      </tbody>
-    </table>
+    <div className="appointments-table-wrapper">
+  <table style={tableStyle}>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Phone</th>
+        <th>Date</th>
+        <th>Service</th>
+        <th>Created</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {filteredAppointments.map(appt => (
+        <tr key={appt._id}>
+          <td>{appt.name}</td>
+          <td>{appt.phone}</td>
+          <td>{appt.date}</td>
+          <td>{appt.service}</td>
+          <td>{new Date(appt.createdAt).toLocaleString()}</td>
+          <td>
+            <button onClick={() => {
+              setNewAppt(appt);
+              setEditingAppt(appt);
+            }}>✏️</button>
+            <button onClick={() => handleApptDelete(appt._id)}>🗑</button>
+          </td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+</div>
+
     </div>
   </>
 )}
