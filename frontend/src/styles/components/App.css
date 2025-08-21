@@ -78,7 +78,7 @@ body::-webkit-scrollbar {
 /* Slider */
 .slider-container {
   position: relative;
-  height: 90vh;
+  height: 98vh;
   overflow: hidden; /* ✅ Add this */
 }
 
@@ -96,11 +96,15 @@ body::-webkit-scrollbar {
  width: 100%;               /* Each slide fills the viewport */
     display: flex;
   box-sizing: border-box;
+      height: 110vh !important;
+
 }
 .slide img {
   max-width: 100%;
   height: auto;
   object-fit: contain;
+      object-position: center top;
+
 }
 /* Hero Section */
 .hero-section {

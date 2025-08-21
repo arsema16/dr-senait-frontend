@@ -90,7 +90,7 @@ return `${day}: ${open} – ${close}`;
     justifyContent: 'center',
     minWidth: '300px',
     paddingTop: '0',     // ensure no extra top padding
-    marginTop: '1rem',   
+    marginTop: '3rem',   
   fontFamily: '"Federo", sans-serif',
   }}   
 >
@@ -146,13 +146,12 @@ return `${day}: ${open} – ${close}`;
               display: 'flex',
               justifyContent: 'center',
               alignItems: 'flex-end',
-              marginTop: '0rem',  
-              paddingTop:'0rem' 
+            
 
             }}>
               <img src="/images/women-smiling.png" alt="Smiling woman" style={{
                 height: '100%',
-                width: '100%',
+                width: '150%',
                 objectFit: 'cover',
                 objectPosition:'top',  
               }} />
