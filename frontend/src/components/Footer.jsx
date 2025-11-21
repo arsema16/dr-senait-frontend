@@ -448,9 +448,6 @@ line-spacing: 1rem;
             alt="Logo"
             style={{ width: '150px', height: 'auto', marginBottom: '1rem' }}
           />
-          <p style={{ fontSize: '0.95rem', marginBottom: '0.5rem' }}>
-            Schedule your consultation today and take the first step <br /> towards your perfect smile.
-          </p>
           <p style={{ fontSize: '0.9rem', fontStyle: 'italic' }}>
             Your journey to confident, healthy smiles starts here.
           </p>
