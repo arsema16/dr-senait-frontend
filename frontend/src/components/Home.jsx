@@ -12,6 +12,7 @@ import '../styles/components/App.css';
 import { motion } from 'framer-motion';
 import YourSmile from './yoursmile'; // ✅ import it
 import IntroPage from "./Intro";
+import Gallery from './Gallery';
 
 const Home = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -335,7 +336,7 @@ className={`dot ${index === currentSlide ? 'active' : ''}`}
             <AppointmentBanner />
       <Consultation />
       <AdvancedCare />
-    
+      <Gallery />
       <FAQ showBanner={false} />
       <Testimonials />
     </div>
