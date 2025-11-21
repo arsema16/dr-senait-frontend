@@ -335,7 +335,7 @@ className={`dot ${index === currentSlide ? 'active' : ''}`}
             <AppointmentBanner />
       <Consultation />
       <AdvancedCare />
-      <Team />
+    
       <FAQ showBanner={false} />
       <Testimonials />
     </div>
