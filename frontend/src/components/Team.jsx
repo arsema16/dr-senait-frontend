@@ -6,21 +6,6 @@ const Team = () => {
   const location = useLocation();
   const navigate = useNavigate();
 
-  const teamMembers = [
-    {
-      name: "Dr. Aster Molla",
-      image: "/images/logo.png",
-    },
-    {
-      name: "Dr. Kebede Molla",
-      image: "/images/logo.png",
-    },
-    {
-      name: "Dr. Saba Alemu",
-      image: "/images/logo.png",
-    },
-  ];
-
   return (
     <section
       className="doctors-section"
@@ -40,9 +25,10 @@ const Team = () => {
             <h5 className="doctors-subheading">BETTER TOGETHER</h5>
             <h2 className="doctors-title">OUR Team</h2>
             <p className="doctors-description">
-              Our doctors are defined by their strong credentials, extensive experience, and patient-centric approach.
-              Each individual brings a level of mastery in his or her respective area, united by our mission of
-              reimagining dental care as self-care.
+              Our team includes oral and maxillofacial surgeons, implantologists, orthodontists, periodontists, cosmetic dentists, and general dentists—a diverse group of specialists working in perfect synergy.
+            </p>
+            <p className="doctors-description">
+              Each doctor is defined by strong credentials, extensive experience, and a deeply patient-centric philosophy. Together, they bring exceptional mastery in their respective fields, united by one mission: to reimagine dental care as an elevated form of self-care.
             </p>
           </div>
 
@@ -58,14 +44,6 @@ const Team = () => {
               </p>
             </div>
           )}
-        </div>
-
-        <div className="doctors-grid">
-          {teamMembers.map((member, index) => (
-            <div key={index} className="doctor-card">
-              <img src={member.image} alt={member.name} className="doctor-image" />
-            </div>
-          ))}
         </div>
       </div>
     </section>
