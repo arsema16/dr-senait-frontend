@@ -119,7 +119,7 @@ const AppointmentBanner = () => {
               onChange={handleChange}
               required
               style={inputStyle}
-            />
+            />>
             <input
               name="email"
               type="email"
