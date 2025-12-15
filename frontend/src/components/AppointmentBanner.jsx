@@ -1,4 +1,4 @@
-{/*import React, { useState } from 'react';
+import React, { useState } from 'react';
 
 const AppointmentBanner = () => {
   const [formData, setFormData] = useState({
@@ -61,7 +61,7 @@ const AppointmentBanner = () => {
   />
       <div style={{ maxWidth: '1100px', margin: '0 auto' }}>
         {/* Logo with lines */}
-        {/*<div
+        <div
           style={{
             display: 'flex',
             alignItems: 'center',
@@ -75,7 +75,7 @@ const AppointmentBanner = () => {
         </div>
 
         {/* Text + Form side by side */}
-       {/*<div
+       <div
           style={{
             display: 'flex',
             flexWrap: 'wrap',
@@ -85,7 +85,7 @@ const AppointmentBanner = () => {
           }}
         >
           {/* LEFT: TEXT */}
-          {/*<div style={{ flex: '1 1 45%' }}>
+          <div style={{ flex: '1 1 45%' }}>
             <p style={{ fontSize: '1rem', fontWeight: '700',  marginBottom: '0.75rem',gap:'2rem',     color: '#007779',     fontFamily: 'goldman, sans-serif',
 
  }}>
