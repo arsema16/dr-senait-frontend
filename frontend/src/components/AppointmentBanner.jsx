@@ -103,7 +103,7 @@ const AppointmentBanner = () => {
           </div>
 
           {/* RIGHT: FORM */}
-          {/*<form
+          <form
             onSubmit={handleSubmit}
             style={{
               flex: '1 1 45%',
