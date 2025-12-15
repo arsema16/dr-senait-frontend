@@ -205,4 +205,4 @@ const inputStyle = {
 };
 
 export default AppointmentBanner;
-          */}
+          
